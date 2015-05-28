@@ -37,6 +37,8 @@ public abstract  class BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	protected final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
             + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	protected final String PATTERN_NOMBRE = "[a-z \\s A-Z ñ Ñ á é í ó ú Á É Í Ó Ú]{1,50}";
+	protected final String PATTERN_TELEFONO = "\\d{4}-\\d{6}";
 	
 	
 	// Properties -------------------------------------------------------------
@@ -46,8 +48,6 @@ public abstract  class BaseEntity implements Serializable {
 	@Column(name="id")
 	private Long id;
 	
-	protected final String PATTERN_NOMBRE = "[a-z \\s A-Z ñ Ñ á é í ó ú Á É Í Ó Ú]{1,50}";
-	protected final String PATTERN_TELEFONO = "\\d{4}-\\d{6}";
 	
 	// Getters/Setters --------------------------------------------------------
 	
