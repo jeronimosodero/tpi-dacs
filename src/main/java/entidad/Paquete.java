@@ -1,11 +1,13 @@
 package entidad;
 
+import java.util.List;
+
 public class Paquete {
 
 	private String mContenido;
 	private int mTamaño;
 	private float mPeso;
-	private Estado mEstado;
+	private List<Estado> mEstado;
 	
 	public String getContenido() {
 		return mContenido;
