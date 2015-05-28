@@ -42,7 +42,10 @@ public abstract  class BaseEntity implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	private Long id;
-
+	
+	protected final String PATTERN_NOMBRE = "[a-z \\s A-Z ñ Ñ á é í ó ú Á É Í Ó Ú]{1,50}";
+	protected final String PATTERN_TELEFONO = "\\d{4}-\\d{6}";
+	
 	// Getters/Setters --------------------------------------------------------
 	
 	public Long getId() {
