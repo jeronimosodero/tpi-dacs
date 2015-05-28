@@ -1,16 +1,45 @@
 package entidad;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+@Entity
+@Table (name="Seguro",schema="tpidacs")
 public class Seguro extends BaseEntity{
 
 	/**
 	 * 
 	 */
+	
+	// Properties -------------------------------------------------------------
+	
 	private static final long serialVersionUID = 1L;
+	
+	@Size(min = 1, max = 50 )
+	@NotNull
+	@Column(name="nombre")
 	private String mNombre;
+	
+	@NotNull
+	@Column(name = "porcentaje_cubierto")
+	@Min(0)
+	@Max(100)
 	private Float mPorcentajeCubierto;
+	
+	@NotNull
+	@Column(name = "precio")
 	private Float mPrecio;
+	
+	@NotNull
+	@Column(name = "duracion")
 	private int mDuracion;
 	
+	// Getters/Setters --------------------------------------------------------
 	public String getNombre() {
 		return mNombre;
 	}

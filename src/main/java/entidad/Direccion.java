@@ -1,17 +1,47 @@
 package entidad;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="Direccion", schema="tpidacs")
 public class Direccion extends BaseEntity{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	// Properties -------------------------------------------------------------
+	@NotNull
+	@Column(name="calle")
 	private String mCalle;
+	
+	@NotNull
+	@Column(name="altura")
 	private int mAltura;
+	
+	@Column(name="piso")
 	private int mPiso;
+	
+	@Column(name="departamento")
+	private int mDepartamento;
+	
+	@NotNull
+	@Column(name="ciudad")
 	private String mCiudad;
+	
+	@NotNull
+	@Column(name="provincia")
 	private String mProvincia;
+	
+	@NotNull
+	@Column(name="pais")
 	private String mPais;
+	
+	// Getters/Setters -------------------------------------------------------------
 	
 	public String getCalle() {
 		return mCalle;
