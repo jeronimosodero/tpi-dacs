@@ -2,6 +2,13 @@ package entidad;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+
+
+@Entity
+
+
+
 public class Estado {
 	
 	private Date mFecha_Hora;
