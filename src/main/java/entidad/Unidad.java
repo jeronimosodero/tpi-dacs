@@ -2,14 +2,38 @@ package entidad;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name="Unidad",schema="tpidacs")
 public class Unidad extends BaseEntity{
+	
+	@NotNull
+	@Column(name="dominio")
 	private String mDominio;
+	
+	@NotNull
+	@Column(name="modelo")
 	private String mModelo;
+	
+	@NotNull
+	@Column(name="marca")
 	private String mMarca;
+	
+	@NotNull
+	@Column(name="capacidad_peso")
 	private Float mCapacidadPeso;
+	
+	@NotNull
+	@Column(name="capacidad_tamanio")
 	private Float mCapacidadTamaño;
+	
+	@Column(name="fecha_Adquisicion")
 	private Date mFechaAdquisicion;
-	private Viaje mViaje;
+		
 	
 	public String getDominio() {
 		return mDominio;
@@ -46,12 +70,6 @@ public class Unidad extends BaseEntity{
 	}
 	public void setFechaAdquisicion(Date fechaAdquisicion) {
 		mFechaAdquisicion = fechaAdquisicion;
-	}
-	public Viaje getViaje() {
-		return mViaje;
-	}
-	public void setViaje(Viaje viaje) {
-		mViaje = viaje;
 	}
 	
 }

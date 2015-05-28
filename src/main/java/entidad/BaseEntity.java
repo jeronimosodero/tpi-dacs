@@ -35,6 +35,9 @@ public abstract  class BaseEntity implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	protected final String PATTERN_EMAIL = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
+            + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+	
 	
 	// Properties -------------------------------------------------------------
 	
