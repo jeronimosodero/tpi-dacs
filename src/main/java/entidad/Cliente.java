@@ -3,6 +3,12 @@ package entidad;
 import java.util.Date;
 
 public class Cliente extends BaseEntity{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
 	private String mNombre;
 	private Date mFecNac;
 	private String mTelefono;

@@ -8,6 +8,10 @@ import java.util.List;
 
 public class Orden extends BaseEntity{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Date mFecha;
 	private Float mMonto;
 	private boolean mPagado;

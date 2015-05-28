@@ -2,6 +2,10 @@ package entidad;
 
 public class Direccion extends BaseEntity{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String mCalle;
 	private int mAltura;
 	private int mPiso;

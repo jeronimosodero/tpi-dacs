@@ -2,6 +2,10 @@ package entidad;
 
 public class Seguro extends BaseEntity{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String mNombre;
 	private Float mPorcentajeCubierto;
 	private Float mPrecio;

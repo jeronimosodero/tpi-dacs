@@ -4,6 +4,10 @@ import java.util.List;
 
 public class Paquete extends BaseEntity{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String mContenido;
 	private int mTamaño;
 	private float mPeso;
