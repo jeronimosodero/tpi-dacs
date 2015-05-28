@@ -1,6 +1,6 @@
 package entidad;
 
-public class Sucursal {
+public class Sucursal extends BaseEntity{
 
 	private String mTelefono;
 	private String mEmail;

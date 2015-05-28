@@ -2,7 +2,7 @@ package entidad;
 
 import java.util.Date;
 
-public class Cliente {
+public class Cliente extends BaseEntity{
 	private String mNombre;
 	private Date mFecNac;
 	private String mTelefono;

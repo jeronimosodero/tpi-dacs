@@ -2,7 +2,7 @@ package entidad;
 
 import java.util.List;
 
-public class Paquete {
+public class Paquete extends BaseEntity{
 
 	private String mContenido;
 	private int mTamaño;

@@ -2,7 +2,7 @@ package entidad;
 
 import java.util.Date;
 
-public class Viaje {
+public class Viaje extends BaseEntity{
 	private Date mFechaPartida;
 	private Date mFechaLlegadaEstimada;
 	private Date mFechaLlegada;

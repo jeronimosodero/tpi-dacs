@@ -1,6 +1,6 @@
 package entidad;
 
-public class Seguro {
+public class Seguro extends BaseEntity{
 
 	private String mNombre;
 	private Float mPorcentajeCubierto;

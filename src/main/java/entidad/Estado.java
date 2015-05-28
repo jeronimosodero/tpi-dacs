@@ -3,13 +3,12 @@ package entidad;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
 @Entity
-
-
-
-public class Estado {
+@Table(name="Estado",schema="tpidacs")
+public class Estado extends BaseEntity{
 	
 	private Date mFecha_Hora;
 	private float mLatitud;

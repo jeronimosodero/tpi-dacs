@@ -6,7 +6,7 @@ import java.util.List;
 
 
 
-public class Orden {
+public class Orden extends BaseEntity{
 
 	private Date mFecha;
 	private Float mMonto;

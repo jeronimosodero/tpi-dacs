@@ -2,7 +2,7 @@ package entidad;
 
 import java.util.Date;
 
-public class Unidad {
+public class Unidad extends BaseEntity{
 	private String mDominio;
 	private String mModelo;
 	private String mMarca;

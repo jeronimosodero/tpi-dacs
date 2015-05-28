@@ -1,6 +1,6 @@
 package entidad;
 
-public class Servicio {
+public class Servicio extends BaseEntity{
 
 	private String mNombre;
 	private String mDescripcion;

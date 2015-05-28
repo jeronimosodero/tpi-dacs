@@ -1,6 +1,6 @@
 package entidad;
 
-public class Direccion {
+public class Direccion extends BaseEntity{
 
 	private String mCalle;
 	private int mAltura;
