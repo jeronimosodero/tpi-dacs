@@ -27,12 +27,14 @@ public class Paquete {
 	public void setPeso(float peso) {
 		mPeso = peso;
 	}
-	public Estado getEstado() {
+	
+	public List<Estado> getEstado() {
 		return mEstado;
 	}
-	public void setEstado(Estado estado) {
+	public void setEstado(List<Estado> estado) {
 		mEstado = estado;
 	}
+
 	
 	
 }
