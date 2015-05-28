@@ -82,16 +82,16 @@ public class Cliente extends BaseEntity{
 	public void setEmail(String email) {
 		mEmail = email;
 	}
-	public int getDNI() {
+	public Long getDNI() {
 		return mDNI;
 	}
-	public void setDNI(int dNI) {
+	public void setDNI(Long dNI) {
 		mDNI = dNI;
 	}
-	public String getCUIL() {
+	public Long getCUIL() {
 		return mCUIL;
 	}
-	public void setCUIL(String cUIL) {
+	public void setCUIL(Long cUIL) {
 		mCUIL = cUIL;
 	}
 	public Direccion getDireccion() {
