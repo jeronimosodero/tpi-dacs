@@ -11,6 +11,11 @@ import javax.validation.constraints.NotNull;
 @Table(name="Unidad",schema="tpidacs")
 public class Unidad extends BaseEntity{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@NotNull
 	@Column(name="dominio")
 	private String mDominio;

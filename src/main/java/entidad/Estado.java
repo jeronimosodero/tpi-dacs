@@ -8,7 +8,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -19,7 +18,13 @@ public class Estado extends BaseEntity{
 	
    
     
-    @NotNull
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	@NotNull
     @Temporal(TemporalType.DATE)
     @Column(name = "fecha_hora")
 	private Date mFecha_Hora;

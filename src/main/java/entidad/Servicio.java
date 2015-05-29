@@ -2,6 +2,11 @@ package entidad;
 
 public class Servicio extends BaseEntity{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	private String mNombre;
 	private String mDescripcion;
 	private Float mCoeficienteCosto;
