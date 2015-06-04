@@ -31,9 +31,10 @@ public class Sucursal extends BaseEntity{
 	
 	@NotNull
 	@Column(name = "direccion")
+	/*
 	@OneToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "direccion_sucursal",
-				referencedColumnName = "id")
+				referencedColumnName = "id") esto hay que ver bien*/
 	private Direccion mDireccion;
 	
 	// Getters/Setters --------------------------------------------------------

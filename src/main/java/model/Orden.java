@@ -20,7 +20,8 @@ public class Orden extends BaseEntity{
 	private Date mFecha;
 	private Float mMonto;
 	private boolean mPagado;
-	private List<Paquete> mPaquetes;
+	/* hacer la relacion porque si no anda
+	private List<Paquete> mPaquetes;*/
 	
 	public Date getFecha() {
 		return mFecha;
@@ -40,10 +41,10 @@ public class Orden extends BaseEntity{
 	public void setPagado(boolean pagado) {
 		mPagado = pagado;
 	}
-	public List<Paquete> getPaquetes() {
+	/*public List<Paquete> getPaquetes() {
 		return mPaquetes;
 	}
 	public void setPaquetes(List<Paquete> paquetes) {
 		mPaquetes = paquetes;
-	}
+	}*/
 }

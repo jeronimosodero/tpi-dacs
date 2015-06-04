@@ -15,7 +15,8 @@ public class Paquete extends BaseEntity{
 	private String mContenido;
 	private int mTamaño;
 	private float mPeso;
-	private List<Estado> mEstado;
+	/* arreglar la relacion
+	private List<Estado> mEstado;*/
 	
 	public String getContenido() {
 		return mContenido;
@@ -36,13 +37,13 @@ public class Paquete extends BaseEntity{
 		mPeso = peso;
 	}
 	
-	public List<Estado> getEstado() {
+	/*public List<Estado> getEstado() {
 		return mEstado;
 	}
 	public void setEstado(List<Estado> estado) {
 		mEstado = estado;
 	}
-
+*/
 	
 	
 }
