@@ -2,6 +2,10 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.Table;
+@Entity
+@Table(name="Paquete",schema="tpidacs")
 public class Paquete extends BaseEntity{
 
 	/**

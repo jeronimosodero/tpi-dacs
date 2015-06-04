@@ -1,7 +1,12 @@
 package model;
 
+@Entity
+@Table(name="Orden",schema="tpidacs")
 import java.util.Date;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 
 
