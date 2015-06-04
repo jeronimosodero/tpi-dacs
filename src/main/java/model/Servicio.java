@@ -1,4 +1,4 @@
-package entidad;
+package model;
 
 public class Servicio extends BaseEntity{
 
