@@ -5,6 +5,8 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -17,18 +19,23 @@ public class Viaje extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_partida")
 	private Date mFechaPartida;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_llegada_estimada")
 	private Date mFechaLlegadaEstimada;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_llegada")
 	private Date mFechaLlegada;
 	
+	//relacion uno a uno con tabla estado
 	@Column(name="estado")
 	private Estado mEstado;
 	
+	//relacion muchos a uno con unidad
 	@NotNull
 	@Column(name="unidad")
 	private Unidad mUnidad;

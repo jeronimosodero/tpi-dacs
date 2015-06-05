@@ -2,10 +2,14 @@ package model;
 
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="Paquete",schema="tpidacs")
 public class Paquete extends BaseEntity{
@@ -14,8 +18,23 @@ public class Paquete extends BaseEntity{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@NotNull
+	@Min(1)
+    @Max(500)
+	@Column(name="contenido")
 	private String mContenido;
-	private int mTamaño;
+	
+	@NotNull
+	@Min(1)
+    @Max(9999)
+	@Column(name="tamaño")
+	private float mTamaño;
+	
+	@NotNull
+	@Min(1)
+    @Max(9999)
+	@Column(name="peso")
 	private float mPeso;
 	
 	@OneToMany(mappedBy="paquete", fetch=FetchType.LAZY)
@@ -27,10 +46,10 @@ public class Paquete extends BaseEntity{
 	public void setContenido(String contenido) {
 		mContenido = contenido;
 	}
-	public int getTamaño() {
+	public float getTamaño() {
 		return mTamaño;
 	}
-	public void setTamaño(int tamaño) {
+	public void setTamaño(float tamaño) {
 		mTamaño = tamaño;
 	}
 	public float getPeso() {
