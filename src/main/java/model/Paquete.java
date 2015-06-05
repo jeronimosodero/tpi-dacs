@@ -3,6 +3,8 @@ package model;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 @Entity
 @Table(name="Paquete",schema="tpidacs")
@@ -15,8 +17,9 @@ public class Paquete extends BaseEntity{
 	private String mContenido;
 	private int mTamaño;
 	private float mPeso;
-	/* arreglar la relacion
-	private List<Estado> mEstado;*/
+	
+	@OneToMany(mappedBy="paquete", fetch=FetchType.LAZY)
+	private List<Estado> mEstado;
 	
 	public String getContenido() {
 		return mContenido;
@@ -37,13 +40,13 @@ public class Paquete extends BaseEntity{
 		mPeso = peso;
 	}
 	
-	/*public List<Estado> getEstado() {
+	public List<Estado> getEstado() {
 		return mEstado;
 	}
 	public void setEstado(List<Estado> estado) {
 		mEstado = estado;
 	}
-*/
+
 	
 	
 }

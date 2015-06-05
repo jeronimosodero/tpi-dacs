@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -21,7 +22,7 @@ public class Sucursal extends BaseEntity{
 	// Properties -------------------------------------------------------------
 	@NotNull
 	@Column(name = "telefono")
-	@Pattern(regexp = PATTERN_TELEFONO)
+	//@Pattern(regexp = PATTERN_TELEFONO)
 	private String mTelefono;
 	
 	@NotNull
@@ -30,11 +31,8 @@ public class Sucursal extends BaseEntity{
 	private String mEmail;
 	
 	@NotNull
-	@Column(name = "direccion")
-	/*
 	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "direccion_sucursal",
-				referencedColumnName = "id") esto hay que ver bien*/
+	@PrimaryKeyJoinColumn
 	private Direccion mDireccion;
 	
 	// Getters/Setters --------------------------------------------------------
