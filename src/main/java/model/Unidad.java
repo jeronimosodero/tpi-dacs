@@ -5,7 +5,10 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name="Unidad",schema="tpidacs")
@@ -18,6 +21,7 @@ public class Unidad extends BaseEntity{
 
 	@NotNull
 	@Column(name="dominio")
+	@Pattern(regexp = "[A-Z][A-Z][A-Z] [0-9][0-9][0-9]")
 	private String mDominio;
 	
 	@NotNull
@@ -36,6 +40,7 @@ public class Unidad extends BaseEntity{
 	@Column(name="capacidad_tamanio")
 	private Float mCapacidadTamaño;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_Adquisicion")
 	private Date mFechaAdquisicion;
 		
