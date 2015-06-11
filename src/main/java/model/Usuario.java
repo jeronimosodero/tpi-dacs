@@ -5,6 +5,8 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import cosas.Cifrador;
+
 public abstract class Usuario extends BaseEntity{
 
 	
@@ -25,5 +27,30 @@ public abstract class Usuario extends BaseEntity{
 	@Min(6)
 	@Column(name="pass")
 	protected String mPass;
+
+	
+	
+	public Long getmCUIL() {
+		return mCUIL;
+	}
+
+
+	public void setmCUIL(Long mCUIL) {
+		this.mCUIL = mCUIL;
+	}
+
+
+	public String getmPass() {
+		return mPass;
+	}
+
+
+	public void setmPass(String mPass) {
+		Cifrador c = new Cifrador();
+		String pass = c.cifrar(getmCUIL());
+		this.mPass = pass;
+	}
+	
+	
 	
 }
