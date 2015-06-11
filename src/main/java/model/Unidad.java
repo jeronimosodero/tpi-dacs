@@ -47,6 +47,7 @@ public class Unidad extends BaseEntity{
 	private Date mFechaAdquisicion;
 		
 	
+	
 	public String getDominio() {
 		return mDominio;
 	}
