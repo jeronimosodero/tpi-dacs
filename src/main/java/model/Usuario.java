@@ -19,11 +19,11 @@ public abstract class Usuario extends BaseEntity{
 	@Column(name="cuil")
 	protected Long mCUIL;
 	
-	@NotNull
+	/*@NotNull
 	@Min(1)
     @Max(999999999999999L)
 	@Column(name="dni")
-	protected Long mDNI = Long.valueOf(String.valueOf(this.mCUIL).substring(2, 10));
+	protected Long mDNI = Long.valueOf(String.valueOf(this.mCUIL).substring(2, 10));*/
 	
 	
 	@NotNull
