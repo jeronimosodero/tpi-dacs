@@ -10,6 +10,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -37,6 +41,11 @@ public class Orden extends BaseEntity{
 	private Float mMonto;
 	
 	@NotNull
+	@ManyToOne
+    @JoinColumn(name="servicio")
+	private Servicio servicio;
+	
+	@NotNull
 	@Pattern(regexp = "Si|No")
 	@Column(name="pagado")
 	private String mPagado;
@@ -52,6 +61,7 @@ public class Orden extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name="origen_fk")
 	private Sucursal mOrigen;
+	
 	
 	public Date getFecha() {
 		return mFecha;
