@@ -39,6 +39,11 @@ public class Orden extends BaseEntity{
 	/* hacer la relacion porque si no anda
 	private List<Paquete> mPaquetes;*/
 	
+	
+	private Sucursal mDestino;
+	
+	private Sucursal mOrigen;
+	
 	public Date getFecha() {
 		return mFecha;
 	}
@@ -57,6 +62,8 @@ public class Orden extends BaseEntity{
 	public void setmPagado(String mPagado) {
 		this.mPagado = mPagado;
 	}
+	
+	
 	
 	/*public List<Paquete> getPaquetes() {
 		return mPaquetes;
