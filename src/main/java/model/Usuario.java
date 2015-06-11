@@ -1,10 +1,12 @@
 package model;
 
 import javax.persistence.Column;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+@MappedSuperclass
 public abstract class Usuario extends BaseEntity{
 
 	

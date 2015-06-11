@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -33,11 +37,19 @@ public class Orden extends BaseEntity{
 	private Float mMonto;
 	
 	@NotNull
+	@ManyToOne
+    @JoinColumn(name="servicio")
+	private Servicio servicio;
+	
+	@NotNull
 	@Pattern(regexp = "Si|No")
 	@Column(name="pagado")
 	private String mPagado;
-	/* hacer la relacion porque si no anda
-	private List<Paquete> mPaquetes;*/
+	
+	
+
+	@OneToMany(mappedBy="orden", fetch=FetchType.LAZY)
+	private List<Paquete> mPaquetes;
 	
 	public Date getFecha() {
 		return mFecha;

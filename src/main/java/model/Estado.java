@@ -54,7 +54,7 @@ public class Estado extends BaseEntity{
 	private Sucursal mSucursal;
     
     @ManyToOne
-    @JoinColumn(name="paquete")
+    @JoinColumn(name="fk_paquete")
     private Paquete paquete;
 	
 	
