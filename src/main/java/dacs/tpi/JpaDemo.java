@@ -127,7 +127,6 @@ public class JpaDemo {
 	    			+ sucursal.getTelefono()
 	    			+",calle = "
 	    			+ sucursal.getDireccion().getCalle());
-	    	
 	    }
 	    
 	    q = entityManager.createQuery("select p from Paquete p");

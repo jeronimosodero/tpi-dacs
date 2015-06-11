@@ -50,8 +50,7 @@ public class Orden extends BaseEntity{
 	@Column(name="pagado")
 	private String mPagado;
 	
-	@OneToMany
-	@PrimaryKeyJoinColumn
+	@OneToMany(mappedBy="orden", fetch=FetchType.LAZY)
 	private List<Paquete> mPaquetes;
 	
 	@ManyToOne
