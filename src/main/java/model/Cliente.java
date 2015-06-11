@@ -20,7 +20,7 @@ import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="Cliente",schema="tpidacs")
-public class Cliente extends BaseEntity{
+public class Cliente extends Usuario{
 	/**
 	 * 
 	 */
@@ -48,16 +48,6 @@ public class Cliente extends BaseEntity{
 	@Column(name="email")
 	private String mEmail;
 	
-	@Min(1)
-    @Max(999999999999999L)
-	@Column(name="dni")
-	private Long mDNI;
-	
-	@NotNull
-	@Min(1)
-    @Max(999999999999999L)
-	@Column(name="cuil")
-	private Long mCUIL;
 	
 	@NotNull
 	@OneToOne(fetch = FetchType.LAZY)
@@ -87,12 +77,6 @@ public class Cliente extends BaseEntity{
 	}
 	public void setEmail(String email) {
 		mEmail = email;
-	}
-	public Long getDNI() {
-		return mDNI;
-	}
-	public void setDNI(Long dNI) {
-		mDNI = dNI;
 	}
 	public Long getCUIL() {
 		return mCUIL;
