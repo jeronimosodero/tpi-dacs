@@ -49,8 +49,6 @@ public class Estado extends BaseEntity{
 	private float mLongitud;
 	
     @NotNull
-	@OneToOne
-	@PrimaryKeyJoinColumn
 	private Sucursal mSucursal;
     
     @ManyToOne

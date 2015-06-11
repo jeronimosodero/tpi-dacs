@@ -36,6 +36,8 @@ public class Unidad extends BaseEntity{
 	@Column(name="capacidad_peso")
 	private Float mCapacidadPeso;
 	
+	
+	
 	@NotNull
 	@Column(name="capacidad_tamanio")
 	private Float mCapacidadTamaño;
