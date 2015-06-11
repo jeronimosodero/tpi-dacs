@@ -10,13 +10,9 @@ import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-
-import org.hibernate.annotations.CascadeType;
 
 @Entity
 @Table(name="Cliente",schema="tpidacs")
@@ -25,7 +21,6 @@ public class Cliente extends Usuario{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
 	
 	
 	@NotNull
