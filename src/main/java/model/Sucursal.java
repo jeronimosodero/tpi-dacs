@@ -55,4 +55,6 @@ public class Sucursal extends BaseEntity{
 		mDireccion = direccion;
 	}
 	
+	
+	
 }

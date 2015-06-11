@@ -6,6 +6,10 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,12 +40,17 @@ public class Orden extends BaseEntity{
 	@Pattern(regexp = "Si|No")
 	@Column(name="pagado")
 	private String mPagado;
-	/* hacer la relacion porque si no anda
-	private List<Paquete> mPaquetes;*/
 	
+	@OneToMany
+	@PrimaryKeyJoinColumn
+	private List<Paquete> mPaquetes;
 	
+	@ManyToOne
+	@JoinColumn(name="destino_fk")
 	private Sucursal mDestino;
 	
+	@ManyToOne
+	@JoinColumn(name="origen_fk")
 	private Sucursal mOrigen;
 	
 	public Date getFecha() {
@@ -65,10 +74,10 @@ public class Orden extends BaseEntity{
 	
 	
 	
-	/*public List<Paquete> getPaquetes() {
+	public List<Paquete> getPaquetes() {
 		return mPaquetes;
 	}
 	public void setPaquetes(List<Paquete> paquetes) {
 		mPaquetes = paquetes;
-	}*/
+	}
 }
