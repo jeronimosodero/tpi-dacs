@@ -3,7 +3,28 @@
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+.form-group{
+	width:100%
+}
 
+div label{
+	width:20%
+}
+
+button{
+	float: right;
+}
+
+h1 {
+	width:100%
+}
+
+.container .jumbotron{
+    padding: 
+}
+
+body > .container{
+}
 
 
 
