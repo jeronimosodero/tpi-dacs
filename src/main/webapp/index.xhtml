@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="contenido">
+
+		<div class="container">
+
+			<div class="jumbotron">
+				<div class="container">
+					<div class="col-md-3">
+						<h1>Consultas</h1>
+					</div>
+					<div class="col-md-9">
+						<div class="container">
+							<div style="height: 50%">
+								<form action="" class="form-inline">
+									<div class="form-group">
+										<label for="user">CUIT/CUIL</label> <input type="text"
+											class="form-control" id="user" />
+									</div>
+									<div class="form-group">
+										<label for="pass">Contraseña</label> <input type="password"
+											class="form-control" id="pass" />
+									</div>
+									<button type="submit" class="btn btn-default">Ingresar</button>
+								</form>
+							</div>
+							<hr />
+							<div style="height: 50%">
+								<form action="" class="form-inline">
+									<div class="form-group">
+										<label for="paqueteId">Id de paquete</label> <input
+											type="number" class="form-control" id="paqueteId" />
+									</div>
+
+									<button type="submit" class="btn btn-default">Buscar</button>
+								</form>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
