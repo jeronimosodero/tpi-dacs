@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	<!-- 	xmlns:jsf="http://java.sun.com/jsf" -->
+	<ui:define name="contenido">
+
+		<div class="jumbotron">
+			<div class="container">
+				<h:form class="form-horizontal">
+					<!-- 				<FORM class="form-horizontal"> -->
+					<div class="form-group">
+						<label for="mNombre" class="col-sm-2 control-label">Nombre</label>
+						<div class="col-sm-10">
+							<h:inputText type="text" id="mNombre"
+								value="#{seguroMB.seguro.nombre}" class="form-control" />
+							<!-- 							<input type="text" class="form-control" id="mNombre" -->
+							<!-- 								placeholder="Nombre" value="#{seguroMB.seguro.nombre}" /> -->
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mPorcentajeCubierto" class="col-sm-2 control-label">Porcentaje
+							cubierto</label>
+						<div class="col-sm-10">
+							<h:inputText id="mPorcentajeCubierto"
+								value="#{seguroMB.seguro.porcentajeCubierto}"
+								class="form-control" type="number" />
+							<!-- 							<input type="number" class="form-control" -->
+							<!-- 								jsf:id="mPorcentajeCubierto" placeholder="75%" -->
+							<!-- 								jsf:value="#{seguroMB.seguro.porcentajeCubierto}" /> -->
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mPrecio" class="col-sm-2 control-label">Precio</label>
+						<div class="col-sm-10">
+							<h:inputText id="mPrecio" value="#{seguroMB.seguro.precio}"
+								class="form-control" type="number" />
+							<!-- 							<input type="number" class="form-control" jsf:id="mPrecio" -->
+							<!-- 								placeholder="$200" jsf:value="#{seguroMB.seguro.precio}" /> -->
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mDuracion" class="col-sm-2 control-label">Duracion</label>
+						<div class="col-sm-10">
+							<h:inputText id="mDuracion" value="#{seguroMB.seguro.duracion}"
+								class="form-control" type="number" />
+							<!-- 							<input type="number" class="form-control" jsf:id="mDuracion" -->
+							<!-- 								placeholder="2 años" jsf:outcome="#{seguroMB.seguro.duracion}" /> -->
+						</div>
+					</div>
+					<h:commandButton action='#{seguroMB.createSeguroEnd()}'
+						value="Guardar" class="btn btn-primary" />
+					<!-- 					<button class="btn btn-primary" -->
+					<!-- 						jsf:action="#{seguroMB.createSeguroEnd()}">Guardar</button> -->
+					<!-- 				</FORM> -->
+				</h:form>
+			</div>
+		</div>
+
+	</ui:define>
+</ui:composition>
