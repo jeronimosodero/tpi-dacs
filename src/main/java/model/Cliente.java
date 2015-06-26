@@ -44,10 +44,10 @@ public class Cliente extends Usuario{
 	private String mEmail;
 	
 	
-	@NotNull
+	/*@NotNull
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	private Direccion mDireccion;
+	private Direccion mDireccion;*/
 	
 	public String getNombre() {
 		return mNombre;
@@ -79,11 +79,11 @@ public class Cliente extends Usuario{
 	public void setCUIL(Long cUIL) {
 		mCUIL = cUIL;
 	}
-	public Direccion getDireccion() {
+	/*public Direccion getDireccion() {
 		return mDireccion;
 	}
 	public void setDireccion(Direccion direccion) {
 		mDireccion = direccion;
-	}
+	}*/
 		
 }

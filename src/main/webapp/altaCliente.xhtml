@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/WEB-INF/templates/template.xhtml">
+	
+	<ui:define name="contenido">
+	<f:view>
+		<h2>#{messages.clienteAlta}</h2>
+		<h:form id="myForm">
+			<table>
+				<tbody>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="CUIL"/>
+						</td>
+						<td>
+							<h:inputText id="id"
+								value="#{clienteMB.cliente.CUIL}"
+								style="left-margin:5px;"
+								maxlength="10"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="id" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Nombre"/></td>
+						<td>
+							<h:inputText id="nombre"
+								value="#{clienteMB.cliente.nombre}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="nombre" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+										
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Fecha de Nacimiento"/></td>
+						<td>
+							<h:inputText id="fechaNacimiento"
+								value="#{clienteMB.cliente.fecNac}"
+								style="left-margin:5px;"
+								class="form-control">
+								<f:convertDateTime pattern="dd/MM/yyyy"/>
+							</h:inputText >						
+						</td>
+						<td>
+							<h:message for="fechaNacimiento" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Teléfono"/></td>
+						<td>
+							<h:inputText id="telefono"
+								value="#{clienteMB.cliente.telefono}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="telefono" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="E-mail"/></td>
+						<td>
+							<h:inputText id="email"
+								value="#{clienteMB.cliente.email}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="email" style="color: red;"/>
+						</td>						
+					</tr>
+		<!--		<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Calle"/></td>
+						<td>
+		  					<h:inputText id="calle"
+								value="#{clienteMB.direccion.calle}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="calle" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Altura"/></td>
+						<td>
+							<h:inputText id="altura"
+								value="#{clienteMB.direccion.altura}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="altura" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Ciudad"/></td>
+						<td>
+							<h:inputText id="ciudad"
+								value="#{clienteMB.direccion.ciudad}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="ciudad" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="Provincia"/></td>
+						<td>
+							<h:inputText id="provincia"
+								value="#{clienteMB.direccion.provincia}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="provincia" style="color: red;"/>
+						</td>						
+					</tr>
+					<tr>
+						<td style="text-align: right;">
+							<h:outputLabel value="País"/></td>
+						<td>
+							<h:inputText id="pais"
+								value="#{clienteMB.direccion.pais}"
+								style="left-margin:5px;"
+								maxlength="50"
+								class="form-control">
+							</h:inputText>						
+						</td>
+						<td>
+							<h:message for="pais" style="color: red;"/>
+						</td>						
+					</tr> -->	
+					<tr>
+					
+						<!-- <td>
+							<h:button outcome="listado.xhtml" value="#{messages.back}" class="btn btn-default"/>
+						</td>
+						-->
+						<td>
+						
+							<h:commandButton id="submit"
+								action="#{clienteMB.createClienteEnd()}"
+								value="Guardar"
+								class="btn btn-default">
+							</h:commandButton>
+						</td>
+						<td></td>						
+					</tr>
+				</tbody>			
+			</table>
+		</h:form>
+	</f:view>
+	</ui:define>
+</ui:composition>
