@@ -3,7 +3,6 @@
 	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:h="http://java.sun.com/jsf/html"
 	template="/WEB-INF/templates/template.xhtml">
-	<!-- 	xmlns:jsf="http://java.sun.com/jsf" -->
 	<ui:define name="contenido">
 
 		<div class="jumbotron">
@@ -15,8 +14,6 @@
 						<div class="col-sm-10">
 							<h:inputText type="text" id="mNombre"
 								value="#{seguroMB.seguro.nombre}" class="form-control" />
-							<!-- 							<input type="text" class="form-control" id="mNombre" -->
-							<!-- 								placeholder="Nombre" value="#{seguroMB.seguro.nombre}" /> -->
 						</div>
 					</div>
 					<div class="form-group">
@@ -26,9 +23,6 @@
 							<h:inputText id="mPorcentajeCubierto"
 								value="#{seguroMB.seguro.porcentajeCubierto}"
 								class="form-control" type="number" />
-							<!-- 							<input type="number" class="form-control" -->
-							<!-- 								jsf:id="mPorcentajeCubierto" placeholder="75%" -->
-							<!-- 								jsf:value="#{seguroMB.seguro.porcentajeCubierto}" /> -->
 						</div>
 					</div>
 					<div class="form-group">
@@ -36,8 +30,6 @@
 						<div class="col-sm-10">
 							<h:inputText id="mPrecio" value="#{seguroMB.seguro.precio}"
 								class="form-control" type="number" />
-							<!-- 							<input type="number" class="form-control" jsf:id="mPrecio" -->
-							<!-- 								placeholder="$200" jsf:value="#{seguroMB.seguro.precio}" /> -->
 						</div>
 					</div>
 					<div class="form-group">
@@ -45,15 +37,10 @@
 						<div class="col-sm-10">
 							<h:inputText id="mDuracion" value="#{seguroMB.seguro.duracion}"
 								class="form-control" type="number" />
-							<!-- 							<input type="number" class="form-control" jsf:id="mDuracion" -->
-							<!-- 								placeholder="2 años" jsf:outcome="#{seguroMB.seguro.duracion}" /> -->
 						</div>
 					</div>
-					<h:commandButton action='#{seguroMB.createSeguroEnd()}'
-						value="Guardar" class="btn btn-primary" />
-					<!-- 					<button class="btn btn-primary" -->
-					<!-- 						jsf:action="#{seguroMB.createSeguroEnd()}">Guardar</button> -->
-					<!-- 				</FORM> -->
+					<h:commandLink action="#{seguroMB.create}" class="btn btn-primary"
+						value="Guardar" />
 				</h:form>
 			</div>
 		</div>

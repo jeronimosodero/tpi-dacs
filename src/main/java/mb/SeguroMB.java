@@ -1,18 +1,25 @@
 package mb;
 
+import java.io.Serializable;
+
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
 import model.Seguro;
 import facade.SeguroFacade;
 
 @ManagedBean
-@RequestScoped
-public class SeguroMB {
+@ViewScoped
+public class SeguroMB implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private SeguroFacade seguroFacade;
@@ -30,7 +37,7 @@ public class SeguroMB {
 		mSeguro = seguro;
 	}
 
-	public String createSeguroEnd(){
+	public String create(){
 		try {
 			seguroFacade.save(mSeguro);
 		} catch (EJBException e) {
