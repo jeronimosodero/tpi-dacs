@@ -15,8 +15,6 @@
 		<hibernate.version>4.2.1.Final</hibernate.version>
 	</properties>
 	
-
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>

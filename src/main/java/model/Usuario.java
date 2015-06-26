@@ -26,10 +26,10 @@ public abstract class Usuario extends BaseEntity{
 	protected Long mDNI = Long.valueOf(String.valueOf(this.mCUIL).substring(2, 10));*/
 	
 	
-	@NotNull
+	/*@NotNull
 	@Min(6)
 	@Column(name="pass")
-	protected String mPass;
+	protected String mPass; */
 
 	
 	
@@ -43,7 +43,7 @@ public abstract class Usuario extends BaseEntity{
 	}
 
 
-	public String getmPass() {
+	/* public String getmPass() {
 		return mPass;
 	}
 
@@ -52,7 +52,7 @@ public abstract class Usuario extends BaseEntity{
 		Cifrador c = new Cifrador();
 		String pass = c.cifrar(getmCUIL());
 		this.mPass = pass;
-	}
+	}*/
 	
 	
 	
