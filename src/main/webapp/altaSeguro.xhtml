@@ -1,48 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
 	<ui:define name="contenido">
 
 		<div class="jumbotron">
 			<div class="container">
 				<h:form class="form-horizontal">
-					<!-- 				<FORM class="form-horizontal"> -->
 					<div class="form-group">
 						<label for="mNombre" class="col-sm-2 control-label">Nombre</label>
 						<div class="col-sm-10">
-							<h:inputText type="text" id="mNombre"
-								value="#{seguroMB.seguro.nombre}" class="form-control" />
+							<p:inputText type="text" id="mNombre" styleClass="form-control"
+								value="#{seguroMB.seguro.nombre}" pt:placeholder="Nombre" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mPorcentajeCubierto" class="col-sm-2 control-label">Porcentaje
 							cubierto</label>
 						<div class="col-sm-10">
-							<h:inputText id="mPorcentajeCubierto"
+							<p:inputText id="mPorcentajeCubierto"
 								value="#{seguroMB.seguro.porcentajeCubierto}"
-								class="form-control" type="number" />
+								styleClass="form-control" type="number" pt:placeholder="70%" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mPrecio" class="col-sm-2 control-label">Precio</label>
 						<div class="col-sm-10">
-							<h:inputText id="mPrecio" value="#{seguroMB.seguro.precio}"
-								class="form-control" type="number" />
+							<p:inputText id="mPrecio" value="#{seguroMB.seguro.precio}"
+								styleClass="form-control" type="number" pt:placeholder="$200" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mDuracion" class="col-sm-2 control-label">Duracion</label>
 						<div class="col-sm-10">
-							<h:inputText id="mDuracion" value="#{seguroMB.seguro.duracion}"
-								class="form-control" type="number" />
+							<p:inputText id="mDuracion" value="#{seguroMB.seguro.duracion}"
+								styleClass="form-control" type="number" pt:placeholder="1" />
 						</div>
 					</div>
-					<h:commandLink action="#{seguroMB.create}" class="btn btn-primary"
-						value="Guardar" />
+					<p:commandButton action="#{seguroMB.create}"
+						 value="Guardar" />
 				</h:form>
+
+
 			</div>
+		</div>
+		<div class="container">
+			<h:form>
+				<p:dataTable value="#{seguroMB.seguros}" var="seguro" paginator="true" rows="10">
+					<p:column headerText="Id">
+						<h:outputText value="#{seguro.id}" />
+					</p:column>
+					<p:column headerText="Nombre">
+						<h:outputText value="#{seguro.nombre}" />
+					</p:column>
+					<p:column headerText="Precio">
+						<h:outputText value="#{seguro.precio}" />
+					</p:column>
+					<p:column headerText="Porcentaje">
+						<h:outputText value="#{seguro.porcentajeCubierto}" />
+					</p:column>
+					<p:column headerText="Duracion">
+						<h:outputText value="#{seguro.duracion}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
 		</div>
 
 	</ui:define>

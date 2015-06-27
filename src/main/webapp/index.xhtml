@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:f="http://java.sun.com/jsf/core"
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:jsf="http://java.sun.com/jsf"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
 
 	<ui:define name="contenido">
@@ -11,23 +13,25 @@
 
 			<div class="jumbotron">
 				<div class="container">
-					<div class="col-md-3">
-						<h1>Consultas</h1>
+					<div class="col-sm-3">
+						<h2>Consultas</h2>
 					</div>
-					<div class="col-md-9">
+					<div class="col-sm-9">
 						<div class="container">
 							<div style="height: 50%">
-								<form action="" class="form-inline">
+								<h:form class="form-inline">
 									<div class="form-group">
-										<label for="user">CUIT/CUIL</label> <input type="text"
-											class="form-control" id="user" />
+										<label for="user" class="control-label">CUIT/CUIL</label>
+										<p:inputText id="user" styleClass="form-control" type="number" pt:placeholder="20371830120"/>
+<!-- 										<input type="text" class="form-control" id="user" /> -->
 									</div>
 									<div class="form-group">
-										<label for="pass">Contraseña</label> <input type="password"
-											class="form-control" id="pass" />
+										<label for="pass" class="control-label">Contraseña</label>
+										<p:password id="pass" styleClass="form-control" pt:placeholder="**********"/>
+<!-- 										<input type="password" class="form-control" id="pass" /> -->
 									</div>
-									<button type="submit" class="btn btn-default">Ingresar</button>
-								</form>
+									<p:commandButton value="Ingresar"/>
+								</h:form>
 							</div>
 							<hr />
 							<div style="height: 50%">

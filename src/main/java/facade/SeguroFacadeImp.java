@@ -1,5 +1,7 @@
 package facade;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -13,13 +15,17 @@ public class SeguroFacadeImp implements SeguroFacade {
 	private SeguroDao seguroDao;
 
 	public SeguroFacadeImp() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void save(Seguro seguro) {
 		seguroDao.save(seguro);
 
+	}
+
+	@Override
+	public List<Seguro> findAll() {
+		return seguroDao.findAll();
 	}
 
 }

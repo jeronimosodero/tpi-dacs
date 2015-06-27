@@ -1,7 +1,9 @@
 package mb;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.ejb.EJBException;
 import javax.faces.application.FacesMessage;
@@ -26,6 +28,8 @@ public class SeguroMB implements Serializable {
 	
 	private Seguro mSeguro;
 	
+	private List<Seguro> mSeguros;
+	
 	public Seguro getSeguro() {
 		if(mSeguro == null){
 			mSeguro = new Seguro();
@@ -37,6 +41,14 @@ public class SeguroMB implements Serializable {
 		mSeguro = seguro;
 	}
 
+	public List<Seguro> getSeguros() {
+		return mSeguros;
+	}
+
+	public void setSeguros(List<Seguro> seguros) {
+		mSeguros = seguros;
+	}
+
 	public String create(){
 		try {
 			seguroFacade.save(mSeguro);
@@ -45,7 +57,17 @@ public class SeguroMB implements Serializable {
 			return "Error";
 		}
 		sendInfoMessageToUser("Operacion completada.");
+		mSeguros = findall();
 		return "OK";
+	}
+	
+	public List<Seguro> findall(){
+		return seguroFacade.findAll();
+	}
+	
+	@PostConstruct
+	public void init(){
+		mSeguros = findall();
 	}
 	
 	private void sendInfoMessageToUser(String message) {
