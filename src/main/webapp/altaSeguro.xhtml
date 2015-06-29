@@ -41,34 +41,11 @@
 								styleClass="form-control" type="number" pt:placeholder="1" />
 						</div>
 					</div>
-					<p:commandButton action="#{seguroMB.create}"
-						 value="Guardar" />
+					<p:commandButton action="#{seguroMB.create}" value="Guardar" />
 				</h:form>
 
 
 			</div>
 		</div>
-		<div class="container">
-			<h:form>
-				<p:dataTable value="#{seguroMB.seguros}" var="seguro" paginator="true" rows="10">
-					<p:column headerText="Id">
-						<h:outputText value="#{seguro.id}" />
-					</p:column>
-					<p:column headerText="Nombre">
-						<h:outputText value="#{seguro.nombre}" />
-					</p:column>
-					<p:column headerText="Precio">
-						<h:outputText value="#{seguro.precio}" />
-					</p:column>
-					<p:column headerText="Porcentaje">
-						<h:outputText value="#{seguro.porcentajeCubierto}" />
-					</p:column>
-					<p:column headerText="Duracion">
-						<h:outputText value="#{seguro.duracion}" />
-					</p:column>
-				</p:dataTable>
-			</h:form>
-		</div>
-
 	</ui:define>
 </ui:composition>

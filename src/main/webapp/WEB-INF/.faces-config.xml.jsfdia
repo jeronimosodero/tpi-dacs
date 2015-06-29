@@ -1,2 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#altaSeguro.xhtml" PATH="/altaSeguro.xhtml"
+  SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#altaSeguro.xhtml:0" NAME="item"
+   PATH="/altaSeguro.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listAllSeguros::#listSeguro.xhtml"
+    NAME="output" PATH="/listSeguro.xhtml"
+    TARGET="rules:#listSeguro.xhtml" TITLE="listAllSeguros" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listSeguro.xhtml" PATH="/listSeguro.xhtml"
+  SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

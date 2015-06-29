@@ -6,13 +6,14 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
-
-import cosas.Cifrador;
-
 @MappedSuperclass
 public abstract class Usuario extends BaseEntity{
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@NotNull
 	@Min(1)
     @Max(999999999999999L)

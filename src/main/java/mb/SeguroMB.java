@@ -18,9 +18,8 @@ import facade.SeguroFacade;
 @ViewScoped
 public class SeguroMB implements Serializable {
 
-	/**
-	 * 
-	 */
+	private static final String LIST_ALL_SEGUROS = "listAllSeguros";
+	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 
 	@EJB
@@ -54,11 +53,11 @@ public class SeguroMB implements Serializable {
 			seguroFacade.save(mSeguro);
 		} catch (EJBException e) {
 			sendErrorMessageToUser("Error");
-			return "Error";
+			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
 		mSeguros = findall();
-		return "OK";
+		return LIST_ALL_SEGUROS;
 	}
 	
 	public List<Seguro> findall(){
