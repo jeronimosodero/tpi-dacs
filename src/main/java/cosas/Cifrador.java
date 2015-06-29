@@ -1,6 +1,5 @@
 package cosas;
 
-import java.math.BigInteger;
 import java.security.Key;
 
 import javax.crypto.Cipher;
@@ -13,8 +12,6 @@ import javax.crypto.spec.SecretKeySpec;
 public class Cifrador {
      
     //NO CAMBIAR NUNCA EN LA VIDA
-    private static final BigInteger KEY_VALE = new BigInteger(
-            "774978611969793576");
     private static final String KEY_CIFRADOR = "abc12345abc12345";
      
     private Key aesKey;

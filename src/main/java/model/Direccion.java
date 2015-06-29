@@ -79,5 +79,11 @@ public class Direccion extends BaseEntity{
 	public void setPais(String pais) {
 		mPais = pais;
 	}
+	public int getDepartamento() {
+		return mDepartamento;
+	}
+	public void setDepartamento(int departamento) {
+		mDepartamento = departamento;
+	}
 
 	}

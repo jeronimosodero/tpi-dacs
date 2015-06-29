@@ -20,7 +20,6 @@ public class SeguroFacadeImp implements SeguroFacade {
 	@Override
 	public void save(Seguro seguro) {
 		seguroDao.save(seguro);
-
 	}
 
 	@Override

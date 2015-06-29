@@ -4,6 +4,9 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -18,8 +21,7 @@ public class Cliente extends Usuario{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+		
 	@NotNull
 	@Size(min = 1, max = 100)
 	@Pattern(regexp = "[a-z \\s A-Z ñ Ñ á é í ó ú Á É Í Ó Ú]{1,100}", message = "El nombre no puede contener caracteres no válidos")
@@ -41,10 +43,10 @@ public class Cliente extends Usuario{
 	private String mEmail;
 	
 	
-	/*@NotNull
+	@NotNull
 	@OneToOne(fetch = FetchType.LAZY)
 	@PrimaryKeyJoinColumn
-	private Direccion mDireccion;*/
+	private Direccion mDireccion;
 	
 	public String getNombre() {
 		return mNombre;
@@ -76,11 +78,11 @@ public class Cliente extends Usuario{
 	public void setCUIL(Long cUIL) {
 		mCUIL = cUIL;
 	}
-	/*public Direccion getDireccion() {
+	public Direccion getDireccion() {
 		return mDireccion;
 	}
 	public void setDireccion(Direccion direccion) {
 		mDireccion = direccion;
-	}*/
+	}
 		
 }

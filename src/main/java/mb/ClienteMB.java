@@ -2,43 +2,85 @@ package mb;
 
 import java.io.Serializable;
 
+import javax.annotation.Resource;
 import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.transaction.UserTransaction;
 
 import model.Cliente;
 import model.Direccion;
 import facade.ClienteFacade;
+import facade.DireccionFacade;
 
 @ManagedBean
 @RequestScoped
-public class ClienteMB implements Serializable	 {
+public class ClienteMB implements Serializable {
 
-	/**
-	 * 
-	 */
+	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private ClienteFacade ClienteFacade;
-	
+	private ClienteFacade clienteFacade;
+
+	@EJB
+	private DireccionFacade direccionFacade;
+
+	@Resource
+	UserTransaction tx;
+
 	private Cliente mCliente;
-	
+
 	private Direccion mDireccion;
-	
-	public Direccion getDireccion() {
-		return mDireccion;
+
+	public String createClienteEnd() {
+		try {
+			tx.begin();
+			direccionFacade.save(mDireccion);
+			mCliente.setDireccion(mDireccion);
+			mCliente.setDNI();
+			mCliente.setPass();
+			clienteFacade.save(mCliente);
+			tx.commit();
+		} catch (Exception e) {
+			try {
+				tx.rollback();
+			} catch (Exception e1) {
+				sendErrorMessageToUser("Error del servidor.");
+				return STAY_IN_THE_SAME_PAGE;
+			}
+			sendErrorMessageToUser("Error datos invalidos.");
+			return STAY_IN_THE_SAME_PAGE;
+		}
+		sendInfoMessageToUser("Operacion completada.");
+		return "OK";
 	}
 
-	public void setDireccion(Direccion Direccion) {
-		this.mDireccion = Direccion;
+	// Views errors
+
+	private void sendInfoMessageToUser(String message) {
+		FacesContext context = getContext();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,
+				message, message));
 	}
+
+	private void sendErrorMessageToUser(String message) {
+		FacesContext context = getContext();
+		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+				message, message));
+	}
+
+	private FacesContext getContext() {
+		FacesContext context = FacesContext.getCurrentInstance();
+		return context;
+	}
+
+	// Setters and getters
 
 	public Cliente getCliente() {
-		if(mCliente == null){
+		if (mCliente == null) {
 			mCliente = new Cliente();
 		}
 		return mCliente;
@@ -48,30 +90,15 @@ public class ClienteMB implements Serializable	 {
 		mCliente = cliente;
 	}
 
-	public String createClienteEnd(){
-		try {
-			ClienteFacade.save(mCliente);
-		} catch (EJBException e) {
-			sendErrorMessageToUser("Error");
-			return "Error";
+	public Direccion getDireccion() {
+		if (mDireccion == null) {
+			mDireccion = new Direccion();
 		}
-		sendInfoMessageToUser("Operacion completada.");
-		return "OK";
-	}
-	
-	private void sendInfoMessageToUser(String message) {
-		FacesContext context = getContext();
-		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,message,message));		
+		return mDireccion;
 	}
 
-	private void sendErrorMessageToUser(String message){
-		FacesContext context = getContext();
-		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,message,message));
+	public void setDireccion(Direccion direccion) {
+		mDireccion = direccion;
 	}
-	
-	private FacesContext getContext(){
-		FacesContext context = FacesContext.getCurrentInstance();
-		return context;
-	}
-	
+
 }

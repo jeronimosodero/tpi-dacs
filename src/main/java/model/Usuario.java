@@ -5,56 +5,55 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import cosas.Cifrador;
 
 @MappedSuperclass
-public abstract class Usuario extends BaseEntity{
+public abstract class Usuario extends BaseEntity {
 
-	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	@NotNull
 	@Min(1)
-    @Max(999999999999999L)
-	@Column(name="cuil")
+	@Max(999999999999999L)
+	@Column(name = "cuil")
 	protected Long mCUIL;
-	
-	/*@NotNull
-	@Min(1)
-    @Max(999999999999999L)
-	@Column(name="dni")
-	protected Long mDNI = Long.valueOf(String.valueOf(this.mCUIL).substring(2, 10));*/
-	
-	
-	/*@NotNull
-	@Min(6)
-	@Column(name="pass")
-	protected String mPass; */
 
-	
-	
+	@NotNull
+	@Min(1)
+	@Max(999999999999999L)
+	@Column(name = "dni")
+	protected Long mDNI;
+
+	@NotNull
+	@Size(min = 6, max = 20)
+	@Column(name = "pass")
+	protected String mPass;
+
 	public Long getmCUIL() {
 		return mCUIL;
 	}
-
 
 	public void setmCUIL(Long mCUIL) {
 		this.mCUIL = mCUIL;
 	}
 
-
-	/* public String getmPass() {
+	public String getPass() {
 		return mPass;
 	}
 
-
-	public void setmPass(String mPass) {
+	public void setPass() {
 		Cifrador c = new Cifrador();
-		String pass = c.cifrar(getmCUIL());
-		this.mPass = pass;
-	}*/
-	
-	
-	
+		mPass = c.cifrar(getmCUIL());
+	}
+
+	public Long getDNI() {
+		return mDNI;
+	}
+
+	public void setDNI() {
+		String s = String.valueOf(mCUIL);
+		mDNI = Long.decode(s.substring(2, 10));
+	}
+
 }
