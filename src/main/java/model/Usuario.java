@@ -13,10 +13,11 @@ import cosas.Cifrador;
 public abstract class Usuario extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
+	
 	@NotNull
 	@Min(1)
 	@Max(999999999999999L)
-	@Column(name = "cuil")
+	@Column(name = "cuil", unique = true)
 	protected Long mCUIL;
 
 	@NotNull
@@ -30,11 +31,11 @@ public abstract class Usuario extends BaseEntity {
 	@Column(name = "pass")
 	protected String mPass;
 
-	public Long getmCUIL() {
+	public Long getCUIL() {
 		return mCUIL;
 	}
 
-	public void setmCUIL(Long mCUIL) {
+	public void setCUIL(Long mCUIL) {
 		this.mCUIL = mCUIL;
 	}
 
@@ -44,7 +45,7 @@ public abstract class Usuario extends BaseEntity {
 
 	public void setPass() {
 		Cifrador c = new Cifrador();
-		mPass = c.cifrar(getmCUIL());
+		mPass = c.cifrar(getCUIL());
 	}
 
 	public Long getDNI() {

@@ -22,15 +22,13 @@
 								<h:form class="form-inline">
 									<div class="form-group">
 										<label for="user" class="control-label">CUIT/CUIL</label>
-										<p:inputText id="user" styleClass="form-control" type="number" pt:placeholder="20371830120"/>
-<!-- 										<input type="text" class="form-control" id="user" /> -->
+										<p:inputText value="#{logInMb.CUIL}" id="user" styleClass="form-control" type="number" pt:placeholder="20371830120"/>
 									</div>
 									<div class="form-group">
 										<label for="pass" class="control-label">Contraseña</label>
-										<p:password id="pass" styleClass="form-control" pt:placeholder="**********"/>
-<!-- 										<input type="password" class="form-control" id="pass" /> -->
+										<p:password value="#{logInMb.password}" id="pass" styleClass="form-control" pt:placeholder="**********"/>
 									</div>
-									<p:commandButton value="Ingresar"/>
+									<p:commandButton action="#{logInMb.logIn}" value="Ingresar"/>
 								</h:form>
 							</div>
 							<hr />

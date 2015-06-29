@@ -9,5 +9,13 @@
    <redirect/>
   </navigation-case>
  </navigation-rule>
+ <navigation-rule>
+  <from-view-id>/altaCliente.xhtml</from-view-id>
+  <navigation-case>
+   <from-outcome>listAllClientes</from-outcome>
+   <to-view-id>/listCliente.xhtml</to-view-id>
+   <redirect/>
+  </navigation-case>
+ </navigation-rule>
  <application/>
 </faces-config>

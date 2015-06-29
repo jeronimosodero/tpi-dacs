@@ -29,25 +29,6 @@ public class SeguroMB implements Serializable {
 	
 	private List<Seguro> mSeguros;
 	
-	public Seguro getSeguro() {
-		if(mSeguro == null){
-			mSeguro = new Seguro();
-		}
-		return mSeguro;
-	}
-
-	public void setSeguro(Seguro seguro) {
-		mSeguro = seguro;
-	}
-
-	public List<Seguro> getSeguros() {
-		return mSeguros;
-	}
-
-	public void setSeguros(List<Seguro> seguros) {
-		mSeguros = seguros;
-	}
-
 	public String create(){
 		try {
 			seguroFacade.save(mSeguro);
@@ -69,6 +50,8 @@ public class SeguroMB implements Serializable {
 		mSeguros = findall();
 	}
 	
+// Views errors
+	
 	private void sendInfoMessageToUser(String message) {
 		FacesContext context = getContext();
 		context.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,message,message));		
@@ -82,6 +65,27 @@ public class SeguroMB implements Serializable {
 	private FacesContext getContext(){
 		FacesContext context = FacesContext.getCurrentInstance();
 		return context;
+	}
+	
+	// Setters and getters
+	
+	public Seguro getSeguro() {
+		if(mSeguro == null){
+			mSeguro = new Seguro();
+		}
+		return mSeguro;
+	}
+
+	public void setSeguro(Seguro seguro) {
+		mSeguro = seguro;
+	}
+
+	public List<Seguro> getSeguros() {
+		return mSeguros;
+	}
+
+	public void setSeguros(List<Seguro> seguros) {
+		mSeguros = seguros;
 	}
 	
 }

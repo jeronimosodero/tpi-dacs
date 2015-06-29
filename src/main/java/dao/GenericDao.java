@@ -64,7 +64,7 @@ public abstract class GenericDao<T> {
 
 	  } catch (Exception e) {
 	   System.out.println("Error while running query: " + e.getMessage());
-	   e.printStackTrace();
+//	   e.printStackTrace();
 	  }
 
 	  return result;

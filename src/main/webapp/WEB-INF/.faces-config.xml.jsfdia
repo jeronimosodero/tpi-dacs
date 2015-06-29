@@ -11,4 +11,15 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#listSeguro.xhtml" PATH="/listSeguro.xhtml"
   SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#altaCliente.xhtml" PATH="/altaCliente.xhtml"
+  SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#altaCliente.xhtml:0" NAME="item"
+   PATH="/altaCliente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT ID="listAllClientes::#listCliente.xhtml"
+    NAME="output" PATH="/listCliente.xhtml"
+    TARGET="rules:#listCliente.xhtml" TITLE="listAllClientes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#listCliente.xhtml" PATH="/listCliente.xhtml"
+  SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

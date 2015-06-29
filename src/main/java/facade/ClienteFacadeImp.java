@@ -1,5 +1,7 @@
 package facade;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -10,16 +12,25 @@ import dao.ClienteDao;
 public class ClienteFacadeImp implements ClienteFacade {
 	
 	@EJB
-	private ClienteDao seguroDao;
+	private ClienteDao clienteDao;
 
 	public ClienteFacadeImp() {
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public void save(Cliente cliente) {
-		seguroDao.save(cliente);
+		clienteDao.save(cliente);
 
+	}
+
+	@Override
+	public List<Cliente> findAll() {
+		return clienteDao.findAll();
+	}
+
+	@Override
+	public Cliente findClienteByCUIL(Long CUIL) {
+		return clienteDao.findClienteByCUIL(CUIL);
 	}
 
 }

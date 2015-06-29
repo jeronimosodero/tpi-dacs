@@ -1,7 +1,9 @@
 package mb;
 
 import java.io.Serializable;
+import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -19,6 +21,7 @@ import facade.DireccionFacade;
 @RequestScoped
 public class ClienteMB implements Serializable {
 
+	private static final String LIST_ALL_SEGUROS = "listAllClientes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 
@@ -32,6 +35,8 @@ public class ClienteMB implements Serializable {
 	UserTransaction tx;
 
 	private Cliente mCliente;
+
+	private List<Cliente> mClientes;
 
 	private Direccion mDireccion;
 
@@ -55,7 +60,16 @@ public class ClienteMB implements Serializable {
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
-		return "OK";
+		return LIST_ALL_SEGUROS;
+	}
+
+	public List<Cliente> findAll() {
+		return clienteFacade.findAll();
+	}
+
+	@PostConstruct
+	public void init() {
+		mClientes = findAll();
 	}
 
 	// Views errors
@@ -99,6 +113,14 @@ public class ClienteMB implements Serializable {
 
 	public void setDireccion(Direccion direccion) {
 		mDireccion = direccion;
+	}
+
+	public List<Cliente> getClientes() {
+		return mClientes;
+	}
+
+	public void setClientes(List<Cliente> clientes) {
+		mClientes = clientes;
 	}
 
 }

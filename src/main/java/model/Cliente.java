@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -16,10 +17,11 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Cliente",schema="tpidacs")
+@NamedQuery(name="Cliente.findClienteByCUIL",query="select u from Cliente u where u.mCUIL = :cuil")
 public class Cliente extends Usuario{
-	/**
-	 * 
-	 */
+	
+	public static final String FIND_BY_CUIL = "Cliente.findClienteByCUIL";
+	
 	private static final long serialVersionUID = 1L;
 		
 	@NotNull
