@@ -33,4 +33,9 @@ public class ClienteFacadeImp implements ClienteFacade {
 		return clienteDao.findClienteByCUIL(CUIL);
 	}
 
+	@Override
+	public Cliente findClienteById(Long id) {
+		return clienteDao.find(id);
+	}
+
 }

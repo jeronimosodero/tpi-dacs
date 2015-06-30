@@ -11,4 +11,5 @@ public interface ClienteFacade {
 	public abstract void save (Cliente cliente);
 	public abstract List<Cliente> findAll();
 	public abstract Cliente findClienteByCUIL(Long CUIL);
+	public abstract Cliente findClienteById(Long id);
 }
