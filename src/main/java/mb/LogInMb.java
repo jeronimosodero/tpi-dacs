@@ -13,6 +13,8 @@ import facade.ClienteFacade;
 @ViewScoped
 public class LogInMb implements Serializable{
 
+	private static final String LOG_SUCCESS = "logSuccess";
+	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 	
 	private Long mCUIL;
@@ -27,9 +29,9 @@ public class LogInMb implements Serializable{
 	public String logIn(){
 		mCliente = clienteFacade.findClienteByCUIL(mCUIL);
 		if (mCliente != null && mCliente.getPass().equals(mPassword)){
-			return "Logged";
+			return LOG_SUCCESS;
 		}
-		return "Wrong_Log";
+		return STAY_IN_THE_SAME_PAGE;
 	}
 
 	// Setters and getters
