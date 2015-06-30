@@ -43,7 +43,6 @@ public class ClienteEndpoint {
 	@POST
 	@Consumes("application/json")
 	public Response create(final Cliente cliente) {
-		//TODO: process the given cliente 
 		//you may want to use the following return statement, assuming that Cliente#getId() or a similar method 
 		//would provide the identifier to retrieve the created Cliente resource:
 		//return Response.created(UriBuilder.fromResource(ClienteEndpoint.class).path(String.valueOf(cliente.getId())).build()).build();
@@ -76,7 +75,6 @@ public class ClienteEndpoint {
 	public List<Cliente> listAll(
 			@QueryParam("start") final Integer startPosition,
 			@QueryParam("max") final Integer maxResult) {
-		//TODO: retrieve the clientes 
 		final List<Cliente> clientes = null;
 		return clientes;
 	}
@@ -90,8 +88,6 @@ public class ClienteEndpoint {
 	@Path("/{id:[0-9][0-9]*}")
 	@Consumes("application/json")
 	public Response update(@PathParam("id") Long id, final Cliente cliente) {
-		
-		//TODO: process the given cliente 
 		return Response.noContent().build();
 	}
 
@@ -102,7 +98,6 @@ public class ClienteEndpoint {
 	@DELETE
 	@Path("/{id:[0-9][0-9]*}")
 	public Response deleteById(@PathParam("id") final Long id) {
-		//TODO: process the cliente matching by the given id 
 		return Response.noContent().build();
 	}
 
