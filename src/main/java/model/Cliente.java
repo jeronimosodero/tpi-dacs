@@ -2,6 +2,7 @@ package model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -80,6 +81,7 @@ public class Cliente extends Usuario{
 	public void setCUIL(Long cUIL) {
 		mCUIL = cUIL;
 	}
+	
 	public Direccion getDireccion() {
 		return mDireccion;
 	}

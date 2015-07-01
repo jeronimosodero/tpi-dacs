@@ -75,7 +75,7 @@ public class ClienteEndpoint {
 	public List<Cliente> listAll(
 			@QueryParam("start") final Integer startPosition,
 			@QueryParam("max") final Integer maxResult) {
-		final List<Cliente> clientes = null;
+		final List<Cliente> clientes = clienteFacade.findAll();
 		return clientes;
 	}
 
