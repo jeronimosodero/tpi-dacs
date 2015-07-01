@@ -14,14 +14,19 @@ import facade.ClienteFacade;
 @SessionScoped
 public class LogInMb {
 
+	private static final String LOGOUT_SUCCESS = "LOGOUT";
+
 	@EJB
 	private ClienteFacade clienteFacade;
 	
 	private Cliente mCliente;
 
-	public Cliente getClient(){
+	public Cliente getCliente(){
 		if (mCliente == null) {
 			ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+			if (context.getUserPrincipal() == null) {
+				return null;
+			}
 			String clienteEmail = context.getUserPrincipal().getName();
 			mCliente = clienteFacade.findClienteByEmail(clienteEmail);
 		}
@@ -34,7 +39,7 @@ public class LogInMb {
 	
 	public String logOut(){
 		getRequest().getSession().invalidate();
-		return "logout";
+		return LOGOUT_SUCCESS;
 	}
 	
 	private HttpServletRequest getRequest(){

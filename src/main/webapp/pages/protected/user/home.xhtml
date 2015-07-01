@@ -6,18 +6,6 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
-	<ui:define name="headerRight">
-		<h:panelGroup rendered="#{logInMb.loggedIn}">
-			<li class="dropdown"><a href="#" class="dropdown-toggle"
-				data-toggle="dropdown" role="button" aria-haspopup="true"
-				aria-expanded="false"> #{logInMb.cliente.nombre} <span
-					class="caret"></span>
-			</a>
-				<ul class="dropdown-menu">
-					<li><h:form><p:commandLink value="Salir" actionListener="#{logInMb.logOut}" ajax="false"/></h:form></li>
-				</ul></li>
-		</h:panelGroup>
-	</ui:define>
 
 	<ui:define name="contenido">
 	</ui:define>
