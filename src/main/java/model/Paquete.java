@@ -7,11 +7,14 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+
+
 @Entity
 @Table(name="Paquete",schema="tpidacs")
 public class Paquete extends BaseEntity{
@@ -22,8 +25,6 @@ public class Paquete extends BaseEntity{
 	private static final long serialVersionUID = 1L;
 	
 	@NotNull
-	@Min(1)
-    @Max(500)
 	@Column(name="contenido")
 	private String mContenido;
 	
@@ -39,10 +40,12 @@ public class Paquete extends BaseEntity{
 	@Column(name="peso")
 	private float mPeso;
 	
-	@OneToMany(mappedBy="paquete", fetch=FetchType.LAZY)
+	
+	@OneToMany(fetch=FetchType.EAGER)
 	private List<Estado> mEstado;
 	
-	@ManyToOne
+	
+	@ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_orden")
 	private Orden orden;
 	
@@ -71,6 +74,7 @@ public class Paquete extends BaseEntity{
 	public void setEstado(List<Estado> estado) {
 		mEstado = estado;
 	}
+	
 
 	
 	

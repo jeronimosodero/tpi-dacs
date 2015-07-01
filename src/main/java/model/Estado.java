@@ -4,8 +4,10 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,6 +17,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="Estado",schema="tpidacs")
 public class Estado extends BaseEntity{
+	
+	public static final String FIND_BY_PAQUETE = "Estado.findEstadosByPaquete";
 	
    
     
@@ -29,13 +33,14 @@ public class Estado extends BaseEntity{
     @Column(name = "fecha_hora")
 	private Date mFecha_Hora;
     
-    
+    /*
     public Paquete getPaquete() {
 		return paquete;
 	}
 	public void setPaquete(Paquete paquete) {
 		this.paquete = paquete;
 	}
+	*/
 	@NotNull
 	@Column(name="latitud")
 	private float mLatitud;
@@ -44,13 +49,16 @@ public class Estado extends BaseEntity{
 	@Column(name="longitud")
 	private float mLongitud;
 	
-    @NotNull
+    
+    @ManyToOne(fetch=FetchType.EAGER)
+    @JoinColumn(name="fk_sucursal")
 	private Sucursal mSucursal;
     
-    @ManyToOne
+    /*
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="fk_paquete")
     private Paquete paquete;
-	
+	*/
 	
 	public Date getFecha_Hora() {
 		return mFecha_Hora;
