@@ -29,13 +29,13 @@ public class ClienteFacadeImp implements ClienteFacade {
 	}
 
 	@Override
-	public Cliente findClienteByCUIL(Long CUIL) {
-		return clienteDao.findClienteByCUIL(CUIL);
+	public Cliente findClienteById(Long id) {
+		return clienteDao.find(id);
 	}
 
 	@Override
-	public Cliente findClienteById(Long id) {
-		return clienteDao.find(id);
+	public Cliente findClienteByEmail(String email) {
+		return clienteDao.findClienteByEmail(email);
 	}
 
 }

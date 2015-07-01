@@ -5,6 +5,7 @@ import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 import cosas.Cifrador;
@@ -13,6 +14,12 @@ import cosas.Cifrador;
 public abstract class Usuario extends BaseEntity {
 
 	private static final long serialVersionUID = 1L;
+	
+	
+	@NotNull
+	@Pattern(regexp = PATTERN_EMAIL, message = "Email invalido")
+	@Column(name="email", unique = true)
+	private String mEmail;	
 	
 	@NotNull
 	@Min(1)
@@ -30,6 +37,10 @@ public abstract class Usuario extends BaseEntity {
 	@Size(min = 6, max = 20)
 	@Column(name = "pass")
 	protected String mPass;
+	
+	@NotNull
+	@Column(name= "role")
+	protected String mRole;
 
 	public Long getCUIL() {
 		return mCUIL;
@@ -57,4 +68,19 @@ public abstract class Usuario extends BaseEntity {
 		mDNI = Long.decode(s.substring(2, 10));
 	}
 
+	public String getRole() {
+		return mRole;
+	}
+
+	public void setRole(String role) {
+		mRole = role;
+	}
+	
+	public String getEmail() {
+		return mEmail;
+	}
+	public void setEmail(String email) {
+		mEmail = email;
+	}
+	
 }

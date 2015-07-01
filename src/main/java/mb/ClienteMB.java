@@ -1,7 +1,6 @@
 package mb;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -15,12 +14,8 @@ import javax.transaction.UserTransaction;
 
 import model.Cliente;
 import model.Direccion;
-import model.Estado;
-import model.Paquete;
 import facade.ClienteFacade;
 import facade.DireccionFacade;
-import facade.EstadoFacade;
-import facade.PaqueteFacade;
 
 @ManagedBean
 @RequestScoped

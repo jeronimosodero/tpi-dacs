@@ -1,66 +1,44 @@
 package mb;
 
-import java.io.Serializable;
-
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
 
 import model.Cliente;
 import facade.ClienteFacade;
 
 @ManagedBean
-@ViewScoped
-public class LogInMb implements Serializable{
-
-	private static final String LOG_SUCCESS = "logSuccess";
-	private static final String STAY_IN_THE_SAME_PAGE = null;
-	private static final long serialVersionUID = 1L;
-	
-	private Long mCUIL;
-	
-	private String mPassword;
+@SessionScoped
+public class LogInMb {
 
 	@EJB
 	private ClienteFacade clienteFacade;
 	
 	private Cliente mCliente;
 
-	public String logIn(){
-		mCliente = clienteFacade.findClienteByCUIL(mCUIL);
-		if (mCliente != null && mCliente.getPass().equals(mPassword)){
-			return LOG_SUCCESS;
-		}
-		return STAY_IN_THE_SAME_PAGE;
-	}
-
-	// Setters and getters
-	
-	public Cliente getCliente() {
+	public Cliente getClient(){
 		if (mCliente == null) {
-			mCliente = new Cliente();
+			ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+			String clienteEmail = context.getUserPrincipal().getName();
+			mCliente = clienteFacade.findClienteByEmail(clienteEmail);
 		}
 		return mCliente;
 	}
-
-	public void setCliente(Cliente cliente) {
-		mCliente = cliente;
+	
+	public boolean isClienteAdmin(){
+		return getRequest().isUserInRole("ADMIN");
 	}
-
-	public Long getCUIL() {
-		return mCUIL;
+	
+	public String logOut(){
+		getRequest().getSession().invalidate();
+		return "logout";
 	}
-
-	public void setCUIL(Long cUIL) {
-		mCUIL = cUIL;
-	}
-
-	public String getPassword() {
-		return mPassword;
-	}
-
-	public void setPassword(String password) {
-		mPassword = password;
+	
+	private HttpServletRequest getRequest(){
+		return (HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 	}
 	
 }

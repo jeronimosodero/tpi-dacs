@@ -14,22 +14,27 @@
 			<div class="jumbotron">
 				<div class="container">
 					<div class="col-sm-3">
-						<h2>Consultas</h2>
+						<h2>Ingresar</h2>
 					</div>
 					<div class="col-sm-9">
 						<div class="container">
 							<div style="height: 50%">
-								<h:form class="form-inline">
-									<div class="form-group">
-										<label for="user" class="control-label">CUIT/CUIL</label>
-										<p:inputText value="#{logInMb.CUIL}" id="user" styleClass="form-control" type="number" pt:placeholder="20371830120"/>
-									</div>
-									<div class="form-group">
-										<label for="pass" class="control-label">Contraseña</label>
-										<p:password value="#{logInMb.password}" id="pass" styleClass="form-control" pt:placeholder="**********"/>
-									</div>
-									<p:commandButton action="#{logInMb.logIn}" value="Ingresar"/>
-								</h:form>
+								<form method='post' action='j_security_check'
+									class="form-inline">
+									<h:panelGrid columns='2'>
+										<h:outputLabel styleClass="control-label" value='Email:' />
+										<p:inputText id='j_username' name='j_username'
+											styleClass="form-control" type="text"
+											pt:placeholder="something@somewhere.com" />
+										<h:outputLabel styleClass="control-label" value='Contraseña: ' />
+										<p:password id='j_password' name='j_password'
+											styleClass="form-control" pt:placeholder="**********" />
+										<h:panelGrid columns='1'>
+											<input type='submit' name='submit' value='Login' />
+										</h:panelGrid>
+									</h:panelGrid>
+									<br />
+								</form>
 							</div>
 							<hr />
 							<div style="height: 50%">

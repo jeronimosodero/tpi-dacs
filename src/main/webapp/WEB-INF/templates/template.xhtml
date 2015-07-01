@@ -16,16 +16,20 @@
 	<title>TPI</title>
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/bootstrap.min.css" />
 	<style>
 body {
 	padding-top: 50px;
 	padding-bottom: 20px;
 }
 </style>
-	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/bootstrap-theme.min.css" />
-	<link rel="stylesheet" href="#{facesContext.externalContext.requestContextPath}/css/main.css" />
-	<script src="#{facesContext.externalContext.requestContextPath}/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/bootstrap-theme.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/main.css" />
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </h:head>
 <body>
 	<!--[if lt IE 8]>
@@ -43,6 +47,11 @@ body {
 				</button>
 				<a class="navbar-brand" href="#">Envios DACS</a>
 			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav pull-right">
+					<ui:insert name="headerRight"></ui:insert>
+				</ul>
+			</div>
 
 		</div>
 	</nav>
@@ -51,9 +60,11 @@ body {
 
 	</ui:insert>
 	<footer> </footer>
-	<script src="#{facesContext.externalContext.requestContextPath}/js/vendor/bootstrap.min.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/vendor/bootstrap.min.js"></script>
 
-	<script src="#{facesContext.externalContext.requestContextPath}/js/main.js"></script>
+	<script
+		src="#{facesContext.externalContext.requestContextPath}/js/main.js"></script>
 
 </body>
 </html>

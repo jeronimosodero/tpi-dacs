@@ -2,7 +2,6 @@ package model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -18,10 +17,10 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Cliente",schema="tpidacs")
-@NamedQuery(name="Cliente.findClienteByCUIL",query="select u from Cliente u where u.mCUIL = :cuil")
+@NamedQuery(name="Cliente.findClienteByEmail",query="select u from Cliente u where u.mEmail = :email")
 public class Cliente extends Usuario{
 	
-	public static final String FIND_BY_CUIL = "Cliente.findClienteByCUIL";
+	public static final String FIND_BY_CUIL = "Cliente.findClienteByEmail";
 	
 	private static final long serialVersionUID = 1L;
 		
@@ -39,12 +38,6 @@ public class Cliente extends Usuario{
 	@NotNull
 	@Column(name="telefono")
 	private String mTelefono;
-	
-	@NotNull
-	@Pattern(regexp = PATTERN_EMAIL, message = "Email invalido")
-	@Column(name="email")
-	private String mEmail;
-	
 	
 	@NotNull
 	@OneToOne(fetch = FetchType.LAZY)
@@ -69,12 +62,7 @@ public class Cliente extends Usuario{
 	public void setTelefono(String telefono) {
 		mTelefono = telefono;
 	}
-	public String getEmail() {
-		return mEmail;
-	}
-	public void setEmail(String email) {
-		mEmail = email;
-	}
+	
 	public Long getCUIL() {
 		return mCUIL;
 	}
