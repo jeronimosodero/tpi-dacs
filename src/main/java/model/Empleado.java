@@ -40,7 +40,7 @@ public class Empleado extends Usuario{
 	private Date mFechaIng;
 	
 	@NotNull
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	private Sucursal mSucursal;
 
 	public String getNombre() {
@@ -73,5 +73,9 @@ public class Empleado extends Usuario{
 
 	public void setSucursal(Sucursal sucursal) {
 		mSucursal = sucursal;
+	}
+	
+	public void setRole(){
+		mRole = "EMPLOYEE";
 	}
 }

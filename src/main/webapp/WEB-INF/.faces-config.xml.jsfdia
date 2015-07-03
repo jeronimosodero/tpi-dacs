@@ -1,2 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess"/>
+<PROCESS model-entity="JSFProcess">
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#altaSucursal.xhtml"
+  PATH="/pages/protected/admin/altaSucursal.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#admin#altaSucursal.xhtml:0"
+   NAME="item" PATH="/pages/protected/admin/altaSucursal.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllSucursales::#pages#protected#admin#listSucursal.xhtml"
+    NAME="output" PATH="/pages/protected/admin/listSucursal.xhtml"
+    TARGET="rules:#pages#protected#admin#listSucursal.xhtml"
+    TITLE="listAllSucursales" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#listSucursal.xhtml"
+  PATH="/pages/protected/admin/listSucursal.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#altaEmpleado.xhtml"
+  PATH="/pages/protected/admin/altaEmpleado.xhtml" SHAPE="32,129,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#admin#altaEmpleado.xhtml:0"
+   NAME="item" PATH="/pages/protected/admin/altaEmpleado.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllEmpleados::#pages#protected#admin#listEmpleado.xhtml"
+    NAME="output" PATH="/pages/protected/admin/listEmpleado.xhtml"
+    TARGET="rules:#pages#protected#admin#listEmpleado.xhtml"
+    TITLE="listAllEmpleados" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#listEmpleado.xhtml"
+  PATH="/pages/protected/admin/listEmpleado.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+</PROCESS>

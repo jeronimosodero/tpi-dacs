@@ -10,44 +10,16 @@
 
 		<div class="jumbotron">
 			<div class="container">
-				<H2>Alta cliente</H2>
+				<H2>Alta Sucursal</H2>
 				<h:form class="form-horizontal">
-					<div class="form-group">
-						<label for="mNombre" class="col-sm-2 control-label">Nombre</label>
-						<div class="col-sm-10">
-							<p:inputText type="text" id="mNombre" styleClass="form-control"
-								value="#{clienteMB.cliente.nombre}" pt:placeholder="Nombre" />
-						</div>
-					</div>
-					<div class="form-group">
-						<label for="mFecNac" class="col-sm-2 control-label">Fecha
-							de nacimiento</label>
-						<div class="col-sm-10">
-							<p:calendar id="mFecNac" mode="popup" showOn="button"
-								popupIconOnly="true" value="#{clienteMB.cliente.fecNac}"
-								pt:placeholder="22/10/92" navigator="true"/>
-						</div>
-					</div>
-
-					<!--Campos de usuario -->
-
-					<div class="form-group">
-						<label for="mCUIL" class="col-sm-2 control-label">CUIL</label>
-						<div class="col-sm-10">
-							<p:inputText type="number" id="mCUIL" styleClass="form-control"
-								value="#{clienteMB.cliente.CUIL}" pt:placeholder="20371830120" />
-						</div>
-					</div>
-
-					<!-- FIN Campos de usuario -->
-
+				
 					<!-- Campos de direccion -->
 
 					<div class="form-group">
 						<label for="mPais" class="col-sm-2 control-label">Pais</label>
 						<div class="col-sm-10">
 							<p:inputText type="text" id="mPais" styleClass="form-control"
-								value="#{clienteMB.direccion.pais}" pt:placeholder="Argentina" />
+								value="#{sucursalMB.direccion.pais}" pt:placeholder="Argentina" />
 						</div>
 					</div>
 					<div class="form-group">
@@ -55,14 +27,14 @@
 						<div class="col-sm-10">
 							<p:inputText type="text" id="mProvincia"
 								styleClass="form-control"
-								value="#{clienteMB.direccion.provincia}" pt:placeholder="Chaco" />
+								value="#{sucursalMB.direccion.provincia}" pt:placeholder="Chaco" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mCiudad" class="col-sm-2 control-label">Ciudad</label>
 						<div class="col-sm-10">
 							<p:inputText type="text" id="mCiudad" styleClass="form-control"
-								value="#{clienteMB.direccion.ciudad}"
+								value="#{sucursalMB.direccion.ciudad}"
 								pt:placeholder="Resistencia" />
 						</div>
 					</div>
@@ -70,38 +42,39 @@
 						<label for="mCalle" class="col-sm-2 control-label">Calle</label>
 						<div class="col-sm-10">
 							<p:inputText type="text" id="mCalle" styleClass="form-control"
-								value="#{clienteMB.direccion.calle}" pt:placeholder="Guemes" />
+								value="#{sucursalMB.direccion.calle}" pt:placeholder="Guemes" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mAltura" class="col-sm-2 control-label">Altura</label>
 						<div class="col-sm-10">
 							<p:inputText type="text" id="mAltura" styleClass="form-control"
-								value="#{clienteMB.direccion.altura}" pt:placeholder="759" />
+								value="#{sucursalMB.direccion.altura}" pt:placeholder="759" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mPiso" class="col-sm-2 control-label">Piso</label>
 						<div class="col-sm-10">
 							<p:inputText type="number" id="mPiso" styleClass="form-control"
-								value="#{clienteMB.direccion.piso}" pt:placeholder="3" />
+								value="#{sucursalMB.direccion.piso}" pt:placeholder="3" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="mDepartamento" class="col-sm-2 control-label">Departamento</label>
 						<div class="col-sm-10">
-							<p:inputText type="number" id="mDepartamento" styleClass="form-control"
-								value="#{clienteMB.direccion.departamento}" pt:placeholder="1" />
+							<p:inputText type="number" id="mDepartamento"
+								styleClass="form-control"
+								value="#{sucursalMB.direccion.departamento}" pt:placeholder="1" />
 						</div>
 					</div>
 
 					<!-- FIN Campos de direccion -->
-
+					
 					<div class="form-group">
 						<label for="mEmail" class="col-sm-2 control-label">Email</label>
 						<div class="col-sm-10">
 							<p:inputText type="email" id="mEmail" styleClass="form-control"
-								value="#{clienteMB.cliente.email}"
+								value="#{sucursalMB.sucursal.email}"
 								pt:placeholder="something@somewhere.com" />
 						</div>
 					</div>
@@ -110,15 +83,12 @@
 							de telefono</label>
 						<div class="col-sm-10">
 							<p:inputText type="text" id="mTelefono" styleClass="form-control"
-								value="#{clienteMB.cliente.telefono}"
+								value="#{sucursalMB.sucursal.telefono}"
 								pt:placeholder="3624431213" />
 						</div>
 					</div>
-					<p:commandButton action="#{clienteMB.createClienteEnd}"
-						value="Guardar" />
+					<p:commandButton action="#{sucursalMB.create}" value="Guardar" />
 				</h:form>
-
-
 			</div>
 		</div>
 	</ui:define>

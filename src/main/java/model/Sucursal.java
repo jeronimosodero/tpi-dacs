@@ -21,7 +21,6 @@ public class Sucursal extends BaseEntity{
 	// Properties -------------------------------------------------------------
 	@NotNull
 	@Column(name = "telefono")
-	//@Pattern(regexp = PATTERN_TELEFONO)
 	private String mTelefono;
 	
 	@NotNull
@@ -54,6 +53,11 @@ public class Sucursal extends BaseEntity{
 		mDireccion = direccion;
 	}
 	
-	
-	
+	@Override
+	public String toString(){
+		if (getId() == null) {
+			return null;
+		}
+		return String.format("%d - %s - %s", getId(),getDireccion().getProvincia(),getDireccion().getCiudad());
+	}
 }

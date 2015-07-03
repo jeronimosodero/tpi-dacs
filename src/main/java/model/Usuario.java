@@ -72,10 +72,6 @@ public abstract class Usuario extends BaseEntity {
 		return mRole;
 	}
 
-	public void setRole(String role) {
-		mRole = role;
-	}
-	
 	public String getEmail() {
 		return mEmail;
 	}

@@ -22,8 +22,7 @@ public class EstadoFacadeImp implements EstadoFacade{
 
 	@Override
 	public List<Estado> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return estadoDao.findAll();
 	}
 
 	@Override

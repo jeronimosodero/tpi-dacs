@@ -76,5 +76,9 @@ public class Cliente extends Usuario{
 	public void setDireccion(Direccion direccion) {
 		mDireccion = direccion;
 	}
+	
+	public void setRole(){
+		mRole = "USER";
+	}
 		
 }

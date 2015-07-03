@@ -1,0 +1,34 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<h:form>
+					<p:dataTable value="#{empleadoMB.empleados}" var="empleado"
+						paginator="true" rows="10">
+						<p:column headerText="Id">
+							<h:outputText value="#{empleado.id}" />
+						</p:column>
+						<p:column headerText="Nombre">
+							<h:outputText value="#{empleado.nombre}" />
+						</p:column>
+						<p:column headerText="CUIL">
+							<h:outputText value="#{empleado.CUIL}" />
+						</p:column>
+						<p:column headerText="Sucursal Provincia">
+							<h:outputText value="#{empleado.sucursal.direccion.provincia}" />
+						</p:column>
+						<p:column headerText="Sucursal Ciudad">
+							<h:outputText value="#{empleado.sucursal.direccion.ciudad}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

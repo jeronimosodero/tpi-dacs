@@ -1,5 +1,7 @@
 package facade;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -22,6 +24,11 @@ public class EmpleadoFacadeImp implements EmpleadoFacade {
 	@Override
 	public Empleado findEmpleadoByEmail(String email) {
 		return empleadoDao.findEmpleadoByEmail(email);
+	}
+
+	@Override
+	public List<Empleado> findAll() {
+		return empleadoDao.findAll();
 	}
 
 }

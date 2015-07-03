@@ -4,7 +4,7 @@ import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.enterprise.context.RequestScoped;
+import javax.enterprise.context.Dependent;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -17,7 +17,7 @@ import model.Paquete;
 import facade.PaqueteFacade;
 
 @Stateless
-@RequestScoped
+@Dependent
 @Path("/paquete")
 public class PaqueteEndpoint {
 	

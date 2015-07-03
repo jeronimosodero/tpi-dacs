@@ -21,7 +21,7 @@ import facade.DireccionFacade;
 @RequestScoped
 public class ClienteMB implements Serializable {
 
-	private static final String LIST_ALL_SEGUROS = "listAllClientes";
+	private static final String LIST_ALL_CLIENTES = "listAllClientes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 
@@ -47,6 +47,7 @@ public class ClienteMB implements Serializable {
 			mCliente.setDireccion(mDireccion);
 			mCliente.setDNI();
 			mCliente.setPass();
+			mCliente.setRole();
 			clienteFacade.save(mCliente);
 			tx.commit();
 		} catch (Exception e) {
@@ -60,7 +61,7 @@ public class ClienteMB implements Serializable {
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
-		return LIST_ALL_SEGUROS;
+		return LIST_ALL_CLIENTES;
 	}
 
 	public List<Cliente> findAll() {
@@ -118,9 +119,4 @@ public class ClienteMB implements Serializable {
 	public List<Cliente> getClientes() {
 		return mClientes;
 	}
-
-	public void setClientes(List<Cliente> clientes) {
-		mClientes = clientes;
-	}
-
 }

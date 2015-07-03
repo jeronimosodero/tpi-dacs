@@ -61,4 +61,8 @@ public class Administrador extends Usuario {
 		mFechaIng = fechaIng;
 	}
 	
+	public void setRole(){
+		mRole = "ADMIN";
+	}
+	
 }
