@@ -17,7 +17,7 @@ public class ClienteDao extends GenericDao<Cliente> {
 	public Cliente findClienteByEmail(String email){
 		Map<String,Object> parameters = new HashMap<String, Object>();
 		parameters.put("email", email);
-		return super.findOneResult(Cliente.FIND_BY_CUIL, parameters);
+		return super.findOneResult(Cliente.FIND_BY_EMAIL, parameters);
 	}
 	
 }

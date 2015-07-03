@@ -41,6 +41,16 @@
 			<role-name>ADMIN</role-name>
 		</auth-constraint>
 	</security-constraint>
+	<security-constraint>
+		<web-resource-collection>
+			<web-resource-name>Restricted Area - EMPLOYEE and ADMIN</web-resource-name>
+			<url-pattern>/pages/protected/employee/*</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>EMPLOYEE</role-name>
+			<role-name>ADMIN</role-name>
+		</auth-constraint>
+	</security-constraint>
 
 	<!-- Login page -->
 	<login-config>
@@ -58,5 +68,7 @@
 	<security-role>
 		<role-name>USER</role-name>
 	</security-role>
-
+	<security-role>
+		<role-name>EMPLOYEE</role-name>
+	</security-role>
 </web-app>

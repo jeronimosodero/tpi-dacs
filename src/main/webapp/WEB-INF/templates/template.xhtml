@@ -49,7 +49,27 @@ body {
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					
+					<ui:insert name="headerRight">
+						<h:panelGroup rendered="#{logInMb.loggedIn}">
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false"> <h:panelGroup
+										rendered="#{logInMb.admin}">
+									#{logInMb.administrador.nombre}
+								</h:panelGroup> <h:panelGroup rendered="#{logInMb.user}">
+									#{logInMb.cliente.nombre}
+								</h:panelGroup> <h:panelGroup rendered="#{logInMb.employee}">
+									#{logInMb.empleado.nombre}
+								</h:panelGroup> <span class="caret"></span>
+							</a>
+								<ul class="dropdown-menu">
+									<li><h:form>
+											<p:commandLink value="Salir" action="#{logInMb.logOut}"
+												ajax="false" />
+										</h:form></li>
+								</ul></li>
+						</h:panelGroup>
+					</ui:insert>
 				</ul>
 			</div>
 

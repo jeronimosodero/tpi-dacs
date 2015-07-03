@@ -1,14 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PROCESS model-entity="JSFProcess">
- <PROCESS-ITEM NAME="rules:#pages#protected#admin#altaCliente.xhtml"
-  PATH="/pages/protected/admin/altaCliente.xhtml" SHAPE="32,17,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#pages#protected#admin#altaCliente.xhtml:0"
-   NAME="item" PATH="/pages/protected/admin/altaCliente.xhtml" model-entity="JSFProcessItem">
-   <PROCESS-ITEM-OUTPUT ID="LOGOUT::#pages#public#index.xhtml"
-    NAME="output" PATH="/pages/public/index.xhtml"
-    TARGET="rules:#pages#public#index.xhtml" TITLE="LOGOUT" model-entity="JSFProcessItemOutput"/>
-  </PROCESS-ITEM>
- </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#public#index.xhtml"
-  PATH="/pages/public/index.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
-</PROCESS>
+<PROCESS model-entity="JSFProcess"/>

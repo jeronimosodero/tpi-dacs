@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -13,11 +14,11 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Administrador",schema="tpidacs")
+@NamedQuery(name="Administrador.findAdministradorByEmail",query="select u from Administrador u where u.mEmail = :email")
 public class Administrador extends Usuario {
 
-	/**
-	 * 
-	 */
+	public static final String FIND_BY_EMAIL = "Administrador.findAdministradorByEmail";
+	 
 	private static final long serialVersionUID = -3775440016598723771L;
 
 	@NotNull
@@ -35,4 +36,29 @@ public class Administrador extends Usuario {
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_ing")
 	private Date mFechaIng;
+
+	public String getNombre() {
+		return mNombre;
+	}
+
+	public void setNombre(String nombre) {
+		mNombre = nombre;
+	}
+
+	public Date getFechaNac() {
+		return mFechaNac;
+	}
+
+	public void setFechaNac(Date fechaNac) {
+		mFechaNac = fechaNac;
+	}
+
+	public Date getFechaIng() {
+		return mFechaIng;
+	}
+
+	public void setFechaIng(Date fechaIng) {
+		mFechaIng = fechaIng;
+	}
+	
 }

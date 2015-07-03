@@ -20,7 +20,7 @@ import javax.validation.constraints.Size;
 @NamedQuery(name="Cliente.findClienteByEmail",query="select u from Cliente u where u.mEmail = :email")
 public class Cliente extends Usuario{
 	
-	public static final String FIND_BY_CUIL = "Cliente.findClienteByEmail";
+	public static final String FIND_BY_EMAIL = "Cliente.findClienteByEmail";
 	
 	private static final long serialVersionUID = 1L;
 		
