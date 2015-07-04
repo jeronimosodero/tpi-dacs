@@ -1,11 +1,13 @@
 package model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,7 +18,7 @@ import javax.validation.constraints.NotNull;
 public class Viaje extends BaseEntity{
 	
 	/**
-	 * 
+	 * Ruta -> lista de sucursales
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -42,6 +44,11 @@ public class Viaje extends BaseEntity{
     @ManyToOne
     @JoinColumn(name="fk_unidad")
 	private Unidad mUnidad;
+	
+	@NotNull
+	@OneToMany
+	@JoinColumn(name="fk_paquete")
+	private List<Paquete> mPaquete;
 	
 	public Date getFechaPartida() {
 		return mFechaPartida;

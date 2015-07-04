@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="contenido">
+
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Alta unidad</H2>
+				<h:form class="form-horizontal">
+					<div class="form-group">
+						<label for="mMarca" class="col-sm-2 control-label">Marca</label>
+						<div class="col-sm-10">
+							<p:inputText type="text" id="mMarca" styleClass="form-control"
+								value="#{unidadMB.unidad.marca}" pt:placeholder="Ford" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mModelo" class="col-sm-2 control-label">Modelo</label>
+						<div class="col-sm-10">
+							<p:inputText type="text" id="mModelo" styleClass="form-control"
+								value="#{unidadMB.unidad.modelo}" pt:placeholder="Fiesta" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mDominio" class="col-sm-2 control-label">Dominio</label>
+						<div class="col-sm-10">
+							<p:inputText type="text" id="mDominio" styleClass="form-control"
+								value="#{unidadMB.unidad.dominio}" pt:placeholder="ASD123" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mCapacidadPeso" class="col-sm-2 control-label">Capacidad
+							peso</label>
+						<div class="col-sm-10">
+							<p:inputText type="number" id="mCapacidadPeso"
+								styleClass="form-control"
+								value="#{unidadMB.unidad.capacidadPeso}" pt:placeholder="30" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mCapacidadTamanio" class="col-sm-2 control-label">Capacidad
+							tamaño</label>
+						<div class="col-sm-10">
+							<p:inputText type="number" id="mCapacidadTamanio"
+								styleClass="form-control"
+								value="#{unidadMB.unidad.capacidadTamaño}" pt:placeholder="30" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mFechaAdquisicion" class="col-sm-2 control-label">Fecha
+							de adquisicion</label>
+						<div class="col-sm-10">
+							<p:calendar id="mFechaAdquisicion" mode="popup" showOn="button"
+								popupIconOnly="true" value="#{unidadMB.unidad.fechaAdquisicion}"
+								pt:placeholder="22/10/92" navigator="true" />
+						</div>
+					</div>
+					<p:commandButton action="#{unidadMB.create}" value="Guardar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
