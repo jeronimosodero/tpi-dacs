@@ -74,6 +74,10 @@ public class Viaje extends BaseEntity{
 	public void setEstado(Estado estado) {
 		mEstado = estado;
 	}
-	
-	
+	public List<Paquete> getPaquete() {
+		return mPaquete;
+	}
+	public void setPaquete(List<Paquete> paquete) {
+		mPaquete = paquete;
+	}
 }

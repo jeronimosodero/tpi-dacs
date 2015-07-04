@@ -16,30 +16,33 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="Estado",schema="tpidacs")
 public class Estado extends BaseEntity{
-	
-	public static final String FIND_BY_PAQUETE = "Estado.findEstadosByPaquete";
-	
-   
-    
-    /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 
 	@NotNull
     @Temporal(TemporalType.DATE)
-    @Column(name = "fecha_hora")
-	private Date mFecha_Hora;
+    @Column(name = "fecha")
+	private Date mFecha;
+	
+	@NotNull
+	@Temporal(TemporalType.TIME)
+	@Column(name="hora")
+	private Date mHora;
+	
     
-    /*
-    public Paquete getPaquete() {
-		return paquete;
+	public Date getFecha() {
+		return mFecha;
 	}
-	public void setPaquete(Paquete paquete) {
-		this.paquete = paquete;
+	public void setFecha(Date fecha) {
+		mFecha = fecha;
 	}
-	*/
+	public Date getHora() {
+		return mHora;
+	}
+	public void setHora(Date hora) {
+		mHora = hora;
+	}
 	@NotNull
 	@Column(name="latitud")
 	private float mLatitud;
@@ -52,19 +55,7 @@ public class Estado extends BaseEntity{
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="fk_sucursal")
 	private Sucursal mSucursal;
-    
-    /*
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="fk_paquete")
-    private Paquete paquete;
-	*/
 	
-	public Date getFecha_Hora() {
-		return mFecha_Hora;
-	}
-	public void setFecha_Hora(Date fecha_Hora) {
-		mFecha_Hora = fecha_Hora;
-	}
 	public float getLatitud() {
 		return mLatitud;
 	}
