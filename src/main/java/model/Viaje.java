@@ -43,6 +43,7 @@ public class Viaje extends BaseEntity{
     @JoinColumn(name="fk_unidad")
 	private Unidad mUnidad;
 	
+	
 	public Date getFechaPartida() {
 		return mFechaPartida;
 	}
