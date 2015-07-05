@@ -26,4 +26,17 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#protected#admin#listEmpleado.xhtml"
   PATH="/pages/protected/admin/listEmpleado.xhtml" SHAPE="240,145,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#altaUnidad.xhtml"
+  PATH="/pages/protected/admin/altaUnidad.xhtml" SHAPE="32,241,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#admin#altaUnidad.xhtml:0"
+   NAME="item" PATH="/pages/protected/admin/altaUnidad.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllUnidades::#pages#protected#admin#listUnidad.xhtml"
+    NAME="output" PATH="/pages/protected/admin/listUnidad.xhtml"
+    TARGET="rules:#pages#protected#admin#listUnidad.xhtml"
+    TITLE="listAllUnidades" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#listUnidad.xhtml"
+  PATH="/pages/protected/admin/listUnidad.xhtml" SHAPE="240,257,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
