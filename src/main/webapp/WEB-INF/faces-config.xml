@@ -42,5 +42,21 @@
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/protected/admin/altaCliente.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listAllClientes</from-outcome>
+			<to-view-id>/pages/protected/admin/listCliente.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/protected/user/home.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>showEstado</from-outcome>
+			<to-view-id>/pages/protected/user/showEstado.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 	<application />
 </faces-config>

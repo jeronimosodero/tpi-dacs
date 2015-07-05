@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -36,7 +37,8 @@ public class Viaje extends BaseEntity{
 	private Date mFechaLlegada;
 	
 	//relacion uno a uno con tabla estado
-	@Column(name="estado")
+	@OneToOne
+	@JoinColumn(name="fk_estado")
 	private Estado mEstado;
 	
 	//relacion muchos a uno con unidad

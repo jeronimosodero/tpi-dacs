@@ -45,27 +45,27 @@ public class Estado extends BaseEntity{
 	}
 	@NotNull
 	@Column(name="latitud")
-	private float mLatitud;
+	private double mLatitud;
 	
     @NotNull
 	@Column(name="longitud")
-	private float mLongitud;
+	private double mLongitud;
 	
     
     @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="fk_sucursal")
 	private Sucursal mSucursal;
 	
-	public float getLatitud() {
+	public double getLatitud() {
 		return mLatitud;
 	}
-	public void setLatitud(float latitud) {
+	public void setLatitud(double latitud) {
 		mLatitud = latitud;
 	}
-	public float getLongitud() {
+	public double getLongitud() {
 		return mLongitud;
 	}
-	public void setLongitud(float longitud) {
+	public void setLongitud(double longitud) {
 		mLongitud = longitud;
 	}
 	public Sucursal getSucursal() {

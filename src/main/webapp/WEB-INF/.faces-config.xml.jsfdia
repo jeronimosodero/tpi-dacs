@@ -65,4 +65,30 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#protected#admin#listServicio.xhtml"
   PATH="/pages/protected/admin/listServicio.xhtml" SHAPE="240,481,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#altaCliente.xhtml"
+  PATH="/pages/protected/admin/altaCliente.xhtml" SHAPE="32,577,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#admin#altaCliente.xhtml:0"
+   NAME="item" PATH="/pages/protected/admin/altaCliente.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllClientes::#pages#protected#admin#listCliente.xhtml"
+    NAME="output" PATH="/pages/protected/admin/listCliente.xhtml"
+    TARGET="rules:#pages#protected#admin#listCliente.xhtml"
+    TITLE="listAllClientes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#listCliente.xhtml"
+  PATH="/pages/protected/admin/listCliente.xhtml" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#home.xhtml"
+  PATH="/pages/protected/user/home.xhtml" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#user#home.xhtml:0"
+   NAME="item" PATH="/pages/protected/user/home.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="showEstado::#pages#protected#user#showEstado.xhtml"
+    NAME="output" PATH="/pages/protected/user/showEstado.xhtml"
+    TARGET="rules:#pages#protected#user#showEstado.xhtml"
+    TITLE="showEstado" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#showEstado.xhtml"
+  PATH="/pages/protected/user/showEstado.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>
