@@ -12,9 +12,8 @@ import javax.validation.constraints.Size;
 @Table(name="Servicio",schema="tpidacs")
 public class Servicio extends BaseEntity{
 
-	/**
-	 * 
-	 */
+	// Properties -------------------------------------------------------------
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Size(min = 1, max = 50 )
@@ -36,27 +35,36 @@ public class Servicio extends BaseEntity{
     @JoinColumn(name="seguro")
 	private Seguro mSeguro;
 	
+	// Getters/Setters --------------------------------------------------------
+	
 	public String getNombre() {
 		return mNombre;
 	}
+	
 	public void setNombre(String nombre) {
 		mNombre = nombre;
 	}
+	
 	public String getDescripcion() {
 		return mDescripcion;
 	}
+	
 	public void setDescripcion(String descripcion) {
 		mDescripcion = descripcion;
 	}
+	
 	public Float getCoeficienteCosto() {
 		return mCoeficienteCosto;
 	}
+	
 	public void setCoeficienteCosto(Float coeficienteCosto) {
 		mCoeficienteCosto = coeficienteCosto;
 	}
+	
 	public Seguro getSeguro() {
 		return mSeguro;
 	}
+	
 	public void setSeguro(Seguro seguro) {
 		mSeguro = seguro;
 	}

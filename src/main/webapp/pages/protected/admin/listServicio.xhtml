@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<h:form>
+					<p:dataTable value="#{servicioMB.servicios}" var="servicio"
+						paginator="true" rows="10">
+						<p:column headerText="Id">
+							<h:outputText value="#{servicio.id}" />
+						</p:column>
+						<p:column headerText="Nombre">
+							<h:outputText value="#{servicio.nombre}" />
+						</p:column>
+						<p:column headerText="Descripción">
+							<h:outputText value="#{servicio.descripcion}" />
+						</p:column>
+						<p:column headerText="Coeficiente de costo">
+							<h:outputText value="#{servicio.coeficienteCosto}" />
+						</p:column>
+						<p:column headerText="Seguro">
+							<h:outputText value="#{servicio.seguro.nombre}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
