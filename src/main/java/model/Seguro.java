@@ -65,6 +65,12 @@ public class Seguro extends BaseEntity{
 		mDuracion = duracion;
 	}
 	
-	
+	@Override
+	public String toString(){
+		if (getId() == null){
+			return null;
+		}
+		return String.format("%s - %d - %d%%", getNombre(),getPrecio().intValue(),getPorcentajeCubierto().intValue());
+	}
 	
 }
