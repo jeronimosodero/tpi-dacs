@@ -36,11 +36,7 @@ public class Viaje extends BaseEntity{
 	@Column(name="fecha_llegada")
 	private Date mFechaLlegada;
 	
-	//relacion uno a uno con tabla estado
-	@OneToOne
-	@JoinColumn(name="fk_estado")
-	private Estado mEstado;
-	
+
 	//relacion muchos a uno con unidad
 	@NotNull
     @ManyToOne
@@ -49,9 +45,15 @@ public class Viaje extends BaseEntity{
 	
 	@NotNull
 	@OneToMany
-	@JoinColumn(name="fk_paquete")
-	private List<Paquete> mPaquete;
+	@JoinColumn(name="fk_orden")
+	private List<Orden> mOrdenes;
 	
+	public List<Orden> getOrdenes() {
+		return mOrdenes;
+	}
+	public void setOrdenes(List<Orden> ordenes) {
+		mOrdenes = ordenes;
+	}
 	public Date getFechaPartida() {
 		return mFechaPartida;
 	}
@@ -70,16 +72,6 @@ public class Viaje extends BaseEntity{
 	public void setFechaLlegada(Date fechaLlegada) {
 		mFechaLlegada = fechaLlegada;
 	}
-	public Estado getEstado() {
-		return mEstado;
-	}
-	public void setEstado(Estado estado) {
-		mEstado = estado;
-	}
-	public List<Paquete> getPaquete() {
-		return mPaquete;
-	}
-	public void setPaquete(List<Paquete> paquete) {
-		mPaquete = paquete;
-	}
+
+
 }
