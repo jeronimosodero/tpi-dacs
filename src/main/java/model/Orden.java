@@ -6,7 +6,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -46,7 +45,9 @@ public class Orden extends BaseEntity{
 	@Column(name="pagado")
 	private String mPagado;
 	
-	@OneToMany(fetch=FetchType.EAGER)
+	@NotNull
+	@OneToMany
+	@JoinColumn(name="orden_fk")
 	private Set<Paquete> mPaquetes;
 	
 	@ManyToOne
