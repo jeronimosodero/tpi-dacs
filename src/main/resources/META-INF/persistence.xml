@@ -6,9 +6,11 @@
 	<persistence-unit name="tpidacs" transaction-type="JTA">
 	<provider>org.hibernate.ejb.HibernatePersistence</provider>
 	<jta-data-source>java:jboss/datasources/tpidacs</jta-data-source>
+	<class>model.Administrador</class>
 	<class>model.BaseEntity</class>
 	<class>model.Cliente</class>
 	<class>model.Direccion</class>
+	<class>model.Empleado</class>
 	<class>model.Estado</class>
 	<class>model.Orden</class>
 	<class>model.Paquete</class>
@@ -16,6 +18,7 @@
 	<class>model.Servicio</class>
 	<class>model.Sucursal</class>
 	<class>model.Unidad</class>
+	<class>model.Usuario</class>
 	<class>model.Viaje</class>
         <properties>
         	<property name="hibernate.hbm2ddl.auto" value="update" />
