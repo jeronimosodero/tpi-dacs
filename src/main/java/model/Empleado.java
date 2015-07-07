@@ -34,6 +34,7 @@ public class Empleado extends Usuario{
 	@Column(name="fecha_nac")
 	private Date mFechaNac;
 
+
 	@NotNull
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_ing")
@@ -42,6 +43,23 @@ public class Empleado extends Usuario{
 	@NotNull
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Sucursal mSucursal;
+	
+	
+	
+	//Constructor
+	
+	public Empleado(String mNombre, Date mFechaNac, Date mFechaIng,
+			Sucursal mSucursal) {
+		super();
+		this.mNombre = mNombre;
+		this.mFechaNac = mFechaNac;
+		this.mFechaIng = mFechaIng;
+		this.mSucursal = mSucursal;
+	}
+	
+	public Empleado(){
+		super();
+	}
 
 	public String getNombre() {
 		return mNombre;

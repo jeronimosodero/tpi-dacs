@@ -41,6 +41,25 @@ public class Direccion extends BaseEntity{
 	@Column(name="pais")
 	private String mPais;
 	
+	
+	// Constructor
+	
+	public Direccion(String mCalle, int mAltura, int mPiso, int mDepartamento,
+			String mCiudad, String mProvincia, String mPais) {
+		super();
+		this.mCalle = mCalle;
+		this.mAltura = mAltura;
+		this.mPiso = mPiso;
+		this.mDepartamento = mDepartamento;
+		this.mCiudad = mCiudad;
+		this.mProvincia = mProvincia;
+		this.mPais = mPais;
+	}
+	
+	public Direccion(){
+		super();
+	}
+	
 	// Getters/Setters -------------------------------------------------------------
 	
 	public String getCalle() {
