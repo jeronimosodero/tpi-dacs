@@ -33,6 +33,26 @@ public class Sucursal extends BaseEntity{
 	@PrimaryKeyJoinColumn
 	private Direccion mDireccion;
 	
+	@NotNull
+	@Column(name="latitud")
+	private double mLatitud;
+	
+    @NotNull
+	@Column(name="longitud")
+	private double mLongitud;
+	
+	public double getLatitud() {
+		return mLatitud;
+	}
+	public void setLatitud(double latitud) {
+		mLatitud = latitud;
+	}
+	public double getLongitud() {
+		return mLongitud;
+	}
+	public void setLongitud(double longitud) {
+		mLongitud = longitud;
+	}
 	// Getters/Setters --------------------------------------------------------
 	public String getTelefono() {
 		return mTelefono;

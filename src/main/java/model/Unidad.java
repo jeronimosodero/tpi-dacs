@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -27,6 +29,10 @@ public class Unidad extends BaseEntity{
 	@NotNull
 	@Column(name="modelo")
 	private String mModelo;
+	
+	@OneToOne
+	@JoinColumn(name="fk_estado")
+	private Estado mEstado;
 	
 	@NotNull
 	@Column(name="marca")
