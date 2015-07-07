@@ -54,25 +54,26 @@ public class Unidad extends BaseEntity{
 		
 	
 	// Constructor
+
+	public Unidad(){
+		super();
+	}
+	
 	
 	public Unidad(String mDominio, String mModelo, Estado mEstado,
-			String mMarca, Float mCapacidadPeso, Float mCapacidadTamaño,
+			String mMarca, float i, float j,
 			Date mFechaAdquisicion) {
 		super();
 		this.mDominio = mDominio;
 		this.mModelo = mModelo;
 		this.mEstado = mEstado;
 		this.mMarca = mMarca;
-		this.mCapacidadPeso = mCapacidadPeso;
-		this.mCapacidadTamaño = mCapacidadTamaño;
+		this.mCapacidadPeso = i;
+		this.mCapacidadTamaño = j;
 		this.mFechaAdquisicion = mFechaAdquisicion;
 	}
-	
-	public Unidad(){
-		super();
-	}
-	
-	
+
+
 	public String getDominio() {
 		return mDominio;
 	}
