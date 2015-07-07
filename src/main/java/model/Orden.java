@@ -46,7 +46,7 @@ public class Orden extends BaseEntity{
 	@Column(name="pagado")
 	private String mPagado;
 	
-	@OneToMany(fetch=FetchType.EAGER)
+	@OneToMany(fetch=FetchType.LAZY)
 	private List<Paquete> mPaquetes;
 	
 	@ManyToOne
