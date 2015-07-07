@@ -2,7 +2,7 @@ package model;
 
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -46,8 +46,8 @@ public class Orden extends BaseEntity{
 	@Column(name="pagado")
 	private String mPagado;
 	
-	@OneToMany(fetch=FetchType.LAZY)
-	private List<Paquete> mPaquetes;
+	@OneToMany(fetch=FetchType.EAGER)
+	private Set<Paquete> mPaquetes;
 	
 	@ManyToOne
 	@JoinColumn(name="destino_fk")
@@ -79,10 +79,10 @@ public class Orden extends BaseEntity{
 	
 	
 	
-	public List<Paquete> getPaquetes() {
+	public Set<Paquete> getPaquetes() {
 		return mPaquetes;
 	}
-	public void setPaquetes(List<Paquete> paquetes) {
+	public void setPaquetes(Set<Paquete> paquetes) {
 		mPaquetes = paquetes;
 	}
 }
