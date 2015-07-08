@@ -1,7 +1,7 @@
 package model;
 
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -44,13 +44,13 @@ public class Viaje extends BaseEntity{
 	
 	@NotNull
 	@OneToMany
-	@JoinColumn(name="fk_orden")
-	private List<Orden> mOrdenes;
+	@JoinColumn(name="viaje_fk")
+	private Set<Orden> mOrdenes;
 	
-	public List<Orden> getOrdenes() {
+	public Set<Orden> getOrdenes() {
 		return mOrdenes;
 	}
-	public void setOrdenes(List<Orden> ordenes) {
+	public void setOrdenes(Set<Orden> ordenes) {
 		mOrdenes = ordenes;
 	}
 	public Date getFechaPartida() {
