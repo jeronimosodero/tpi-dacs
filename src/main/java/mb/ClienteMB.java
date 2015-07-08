@@ -16,6 +16,7 @@ import model.Cliente;
 import model.Direccion;
 import facade.ClienteFacade;
 import facade.DireccionFacade;
+import facade.SucursalFacade;
 
 @ManagedBean
 @RequestScoped
@@ -30,6 +31,10 @@ public class ClienteMB implements Serializable {
 
 	@EJB
 	private DireccionFacade direccionFacade;
+	
+    @EJB
+    private SucursalFacade sucursalFacade;
+    
 	
 
 	@Resource
@@ -56,12 +61,15 @@ public class ClienteMB implements Serializable {
 				tx.rollback();
 			} catch (Exception e1) {
 				sendErrorMessageToUser("Error del servidor.");
+				System.out.println("error del servidor");
 				return STAY_IN_THE_SAME_PAGE;
 			}
 			sendErrorMessageToUser("Error datos invalidos.");
+			System.out.println("datos invalidos");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
+		System.out.println("copete bolo");
 		return LIST_ALL_CLIENTES;
 	}
 

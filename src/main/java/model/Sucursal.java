@@ -57,8 +57,7 @@ public class Sucursal extends BaseEntity{
 	
 	
 	// Constructor
-	public Sucursal(String mTelefono, String mEmail, Direccion mDireccion,
-			double mLatitud, double mLongitud) {
+	public Sucursal(String mTelefono, String mEmail, Direccion mDireccion, double mLatitud, double mLongitud) {
 		super();
 		this.mTelefono = mTelefono;
 		this.mEmail = mEmail;

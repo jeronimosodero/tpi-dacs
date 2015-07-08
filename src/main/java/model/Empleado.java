@@ -48,8 +48,7 @@ public class Empleado extends Usuario{
 	
 	//Constructor
 	
-	public Empleado(String mNombre, Date mFechaNac, Date mFechaIng,
-			Sucursal mSucursal) {
+	public Empleado(String mNombre, Date mFechaNac, Date mFechaIng,	Sucursal mSucursal) {
 		super();
 		this.mNombre = mNombre;
 		this.mFechaNac = mFechaNac;
