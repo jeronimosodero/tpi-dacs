@@ -23,6 +23,7 @@ public class Sucursal extends BaseEntity{
 	@Column(name = "telefono")
 	private String mTelefono;
 	
+
 	@NotNull
 	@Column(name = "email")
 	@Pattern(regexp = PATTERN_EMAIL)
@@ -53,6 +54,22 @@ public class Sucursal extends BaseEntity{
 	public void setLongitud(double longitud) {
 		mLongitud = longitud;
 	}
+	
+	
+	// Constructor
+	public Sucursal(String mTelefono, String mEmail, Direccion mDireccion, double mLatitud, double mLongitud) {
+		super();
+		this.mTelefono = mTelefono;
+		this.mEmail = mEmail;
+		this.mDireccion = mDireccion;
+		this.mLatitud = mLatitud;
+		this.mLongitud = mLongitud;
+	}
+
+	public Sucursal(){
+		super();
+	}
+	
 	// Getters/Setters --------------------------------------------------------
 	public String getTelefono() {
 		return mTelefono;
