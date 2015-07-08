@@ -38,14 +38,14 @@ public class Orden extends BaseEntity{
 	@NotNull
 	@ManyToOne
     @JoinColumn(name="servicio")
-	private Servicio servicio;
+	private Servicio mServicio;
+	
 	
 	@NotNull
 	@Pattern(regexp = "Si|No")
 	@Column(name="pagado")
 	private String mPagado;
 	
-	@NotNull
 	@OneToMany
 	@JoinColumn(name="orden_fk")
 	private Set<Paquete> mPaquetes;
@@ -58,7 +58,30 @@ public class Orden extends BaseEntity{
 	@JoinColumn(name="origen_fk")
 	private Sucursal mOrigen;
 	
-	
+	public Servicio getServicio() {
+		return mServicio;
+	}
+	public void setServicio(Servicio servicio) {
+		mServicio = servicio;
+	}
+	public String getPagado() {
+		return mPagado;
+	}
+	public void setPagado(String pagado) {
+		mPagado = pagado;
+	}
+	public Sucursal getDestino() {
+		return mDestino;
+	}
+	public void setDestino(Sucursal destino) {
+		mDestino = destino;
+	}
+	public Sucursal getOrigen() {
+		return mOrigen;
+	}
+	public void setOrigen(Sucursal origen) {
+		mOrigen = origen;
+	}
 	public Date getFecha() {
 		return mFecha;
 	}
@@ -77,9 +100,6 @@ public class Orden extends BaseEntity{
 	public void setmPagado(String mPagado) {
 		this.mPagado = mPagado;
 	}
-	
-	
-	
 	public Set<Paquete> getPaquetes() {
 		return mPaquetes;
 	}
