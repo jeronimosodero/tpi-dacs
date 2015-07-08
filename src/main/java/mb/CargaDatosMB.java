@@ -256,17 +256,17 @@ public class CargaDatosMB implements Serializable {
 			
 			//CREO EMPLEADOS PARA SUCURSAL
 			
-			Empleado e1 = new Empleado("Mario",new Date(), new Date(), s1);
-			Empleado e2 = new Empleado("Luis",new Date(), new Date(), s2);
-			Empleado e3 = new Empleado("Victor",new Date(), new Date(), s3);
-			Empleado e4 = new Empleado("Zohan",new Date(), new Date(), s4);
-			Empleado e5 = new Empleado("Hernan",new Date(), new Date(), s5);
-			Empleado e6 = new Empleado("Freddy",new Date(), new Date(), s6);
-			Empleado e7 = new Empleado("Santiago",new Date(), new Date(), s7);
-			Empleado e8 = new Empleado("Juan",new Date(), new Date(), s8);
-			Empleado e9 = new Empleado("Hipolito",new Date(), new Date(), s9);
-			Empleado e10 = new Empleado("Pablo",new Date(), new Date(), s10);
-			Empleado e11 = new Empleado("Belen Sampayo",new Date(), new Date(), s11);
+			Empleado e1 = new Empleado("Mario",new Date(), new Date(), s1,"empleado1@nablainc.com",20318886075L);
+			Empleado e2 = new Empleado("Luis",new Date(), new Date(), s2,"empleado2@nablainc.com",20328886075L);
+			Empleado e3 = new Empleado("Victor",new Date(), new Date(), s3,"empleado3@nablainc.com",20478886075L);
+			Empleado e4 = new Empleado("Zohan",new Date(), new Date(), s4,"empleado4@nablainc.com",20338886075L);
+			Empleado e5 = new Empleado("Hernan",new Date(), new Date(), s5,"empleado5@nablainc.com",20578886075L);
+			Empleado e6 = new Empleado("Freddy",new Date(), new Date(), s6,"empleado6@nablainc.com",20878886075L);
+			Empleado e7 = new Empleado("Santiago",new Date(), new Date(), s7,"empleado7@nablainc.com",90378886075L);
+			Empleado e8 = new Empleado("Juan",new Date(), new Date(), s8,"empleado8@nablainc.com",20378881075L);
+			Empleado e9 = new Empleado("Hipolito",new Date(), new Date(), s9,"empleado9@nablainc.com",20378826075L);
+			Empleado e10 = new Empleado("Pablo",new Date(), new Date(), s10,"empleado10@nablainc.com",20378836075L);
+			Empleado e11 = new Empleado("Belen Sampayo",new Date(), new Date(), s11,"empleado11@nablainc.com",20378886045L);
 			
 
 			empleadoFacade.save(e1);
@@ -292,6 +292,8 @@ public class CargaDatosMB implements Serializable {
 			unidadFacade.save(u1);
 			unidadFacade.save(u2);
 			unidadFacade.save(u3);
+			
+			
 
 
 			tx.commit();
