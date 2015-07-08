@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name = "Ruta", schema = "tpidacs")
 public class Ruta extends BaseEntity{
-	
+	private static final long serialVersionUID = 1L;
 	
 	@NotNull
 	@Column(name = "nombre")
