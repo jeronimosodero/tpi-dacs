@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -43,7 +44,6 @@ public class Unidad extends BaseEntity{
 	private Float mCapacidadPeso;
 	
 	
-	
 	@NotNull
 	@Column(name="capacidad_tamanio")
 	private Float mCapacidadTamaño;
@@ -51,9 +51,17 @@ public class Unidad extends BaseEntity{
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_Adquisicion")
 	private Date mFechaAdquisicion;
-		
+	
+	@OneToOne
+	private Viaje mViajeActual;
 	
 	
+	public Viaje getViajeActual() {
+		return mViajeActual;
+	}
+	public void setViajeActual(Viaje viajeActual) {
+		mViajeActual = viajeActual;
+	}
 	public String getDominio() {
 		return mDominio;
 	}
