@@ -62,7 +62,7 @@ public class Unidad extends BaseEntity{
 	}
 	
 	
-<<<<<<< HEAD
+
 	public Unidad(String mDominio, String mModelo, Estado mEstado,
 			String mMarca, float i, float j,
 			Date mFechaAdquisicion) {
@@ -77,14 +77,14 @@ public class Unidad extends BaseEntity{
 	}
 
 
-=======
+
 	public Viaje getViajeActual() {
 		return mViajeActual;
 	}
 	public void setViajeActual(Viaje viajeActual) {
 		mViajeActual = viajeActual;
 	}
->>>>>>> 0c1ddf343f4dddcfbfdf7bfb793ed5d2eb42a316
+
 	public String getDominio() {
 		return mDominio;
 	}
