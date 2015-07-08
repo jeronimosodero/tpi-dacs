@@ -14,6 +14,7 @@
 	<class>model.Estado</class>
 	<class>model.Orden</class>
 	<class>model.Paquete</class>
+	<class>model.Ruta</class>
 	<class>model.Seguro</class>
 	<class>model.Servicio</class>
 	<class>model.Sucursal</class>
