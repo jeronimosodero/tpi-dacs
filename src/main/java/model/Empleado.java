@@ -48,12 +48,17 @@ public class Empleado extends Usuario{
 	
 	//Constructor
 	
-	public Empleado(String mNombre, Date mFechaNac, Date mFechaIng,	Sucursal mSucursal) {
+	public Empleado(String mNombre, Date mFechaNac, Date mFechaIng,	Sucursal mSucursal, String email, Long mCuil) {
 		super();
 		this.mNombre = mNombre;
 		this.mFechaNac = mFechaNac;
 		this.mFechaIng = mFechaIng;
 		this.mSucursal = mSucursal;
+		setEmail(email);
+		setCUIL(mCuil);
+		setDNI();
+		setRole();
+		setPass();
 	}
 	
 	public Empleado(){
