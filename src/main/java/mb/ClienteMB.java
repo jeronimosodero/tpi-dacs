@@ -22,12 +22,12 @@ import facade.SucursalFacade;
 @RequestScoped
 public class ClienteMB implements Serializable {
 
-	private static final String LIST_ALL_CLIENTES = "listAllClientes";
+	private static final String LIST_ALL_ClienteS = "listAllClientes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private ClienteFacade clienteFacade;
+	private ClienteFacade ClienteFacade;
 
 	@EJB
 	private DireccionFacade direccionFacade;
@@ -54,7 +54,7 @@ public class ClienteMB implements Serializable {
 			mCliente.setDNI();
 			mCliente.setPass();
 			mCliente.setRole();
-			clienteFacade.save(mCliente);
+			ClienteFacade.save(mCliente);
 			tx.commit();
 		} catch (Exception e) {
 			try {
@@ -70,11 +70,11 @@ public class ClienteMB implements Serializable {
 		}
 		sendInfoMessageToUser("Operacion completada.");
 		System.out.println("copete bolo");
-		return LIST_ALL_CLIENTES;
+		return LIST_ALL_ClienteS;
 	}
 
 	public List<Cliente> findAll() {
-		return clienteFacade.findAll();
+		return ClienteFacade.findAll();
 	}
 
 	@PostConstruct
@@ -110,8 +110,8 @@ public class ClienteMB implements Serializable {
 		return mCliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		mCliente = cliente;
+	public void setCliente(Cliente Cliente) {
+		mCliente = Cliente;
 	}
 
 	public Direccion getDireccion() {

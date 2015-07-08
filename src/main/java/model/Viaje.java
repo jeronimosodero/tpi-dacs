@@ -26,8 +26,6 @@ public class Viaje extends BaseEntity{
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_partida")
 	private Date mFechaPartida;
-	
-	
 
 	//relacion muchos a uno con unidad
 	@NotNull
@@ -35,12 +33,7 @@ public class Viaje extends BaseEntity{
     @JoinColumn(name="fk_unidad")
 	private Unidad mUnidad;
 	
-	public Unidad getUnidad() {
-		return mUnidad;
-	}
-	public void setUnidad(Unidad unidad) {
-		mUnidad = unidad;
-	}
+	
 	@OneToMany
 	@JoinColumn(name="viaje_fk")
 	private Set<Orden> mOrdenes;
@@ -49,19 +42,30 @@ public class Viaje extends BaseEntity{
 	@ManyToOne
 	@JoinColumn(name="fk_ruta")
 	private Ruta mRuta;
+
 	
-	
-	public Set<Orden> getOrdenes() {
-		return mOrdenes;
-	}
-	public void setOrdenes(Set<Orden> ordenes) {
-		mOrdenes = ordenes;
-	}
 	public Date getFechaPartida() {
 		return mFechaPartida;
 	}
 	public void setFechaPartida(Date fechaPartida) {
 		mFechaPartida = fechaPartida;
 	}
-
+	public Set<Orden> getOrdenes() {
+		return mOrdenes;
+	}
+	public void setOrdenes(Set<Orden> ordenes) {
+		mOrdenes = ordenes;
+	}
+	public Ruta getRuta() {
+		return mRuta;
+	}
+	public void setRuta(Ruta ruta) {
+		mRuta = ruta;
+	}
+	public Unidad getUnidad() {
+		return mUnidad;
+	}
+	public void setUnidad(Unidad unidad) {
+		mUnidad = unidad;
+	}
 }
