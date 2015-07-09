@@ -47,6 +47,15 @@ public class ViajeMB implements Serializable {
 
 	private List<Ruta> mRutas;
 
+	public String listarViajes() {
+		return "/pages/protected/admin/listViaje.jsp?faces-redirect=true";
+	}
+	
+	public String altaViaje() {
+		return "/pages/protected/admin/altaViaje.jsp?faces-redirect=true";
+	}
+	
+	
 	public String create() {
 		try {
 			tx.begin();

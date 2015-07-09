@@ -17,7 +17,11 @@
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/main.css" />
+	<link rel="stylesheet"
 		href="#{facesContext.externalContext.requestContextPath}/css/bootstrap.min.css" />
+	<link rel="stylesheet"
+		href="#{facesContext.externalContext.requestContextPath}/css/simple-sidebar.css" />
 	<ui:insert name="headExtra"></ui:insert>
 	<style>
 body {
@@ -32,7 +36,7 @@ body {
 	<script
 		src="#{facesContext.externalContext.requestContextPath}/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </h:head>
-<body>
+<body style="background-color: #EEE">
 	<!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -46,7 +50,10 @@ body {
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
+
 				<a class="navbar-brand" href="#">Envios DACS</a>
+
+
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
@@ -77,9 +84,17 @@ body {
 		</div>
 	</nav>
 
-	<ui:insert name="contenido">
+	<div id="wrapper">
+		<div id="sidebar-wrapper">
+			<ui:insert name="sidebar"></ui:insert>
+		</div>
+		<div id="page-content-wrapper">
 
-	</ui:insert>
+			<ui:insert name="contenido"></ui:insert>
+
+		</div>
+	</div>
+
 	<footer> </footer>
 	<script
 		src="#{facesContext.externalContext.requestContextPath}/js/vendor/bootstrap.min.js"></script>

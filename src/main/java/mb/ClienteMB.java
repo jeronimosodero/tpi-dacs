@@ -44,6 +44,14 @@ public class ClienteMB implements Serializable {
 
 	private Direccion mDireccion;
 
+	public String listarClientes() {
+		return "/pages/protected/employee/listCliente.jsp?faces-redirect=true";
+	}
+	
+	public String altaCliente() {
+		return "/pages/protected/employee/altaCliente.jsp?faces-redirect=true";
+	}
+	
 	public String createClienteEnd() {
 		try {
 			tx.begin();

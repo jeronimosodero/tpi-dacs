@@ -27,6 +27,14 @@ public class UnidadMB implements Serializable {
 	private Unidad mUnidad;
 
 	private List<Unidad> mUnidades;
+	
+	public String listarUnidades() {
+		return "/pages/protected/admin/listUnidad.jsp?faces-redirect=true";
+	}
+	
+	public String altaUnidad() {
+		return "/pages/protected/admin/altaUnidad.jsp?faces-redirect=true";
+	}
 
 	public String create() {
 		try {
