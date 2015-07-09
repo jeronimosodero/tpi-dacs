@@ -24,4 +24,9 @@ public class UnidadFacadeImp implements UnidadFacade {
 		return unidadDao.findAll();
 	}
 
+	@Override
+	public Unidad update(Unidad unidad) {
+		return unidadDao.update(unidad);
+	}
+
 }

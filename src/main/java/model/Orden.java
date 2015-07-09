@@ -40,7 +40,6 @@ public class Orden extends BaseEntity{
     @JoinColumn(name="servicio")
 	private Servicio mServicio;
 	
-	
 	@NotNull
 	@Pattern(regexp = "Si|No")
 	@Column(name="pagado")
