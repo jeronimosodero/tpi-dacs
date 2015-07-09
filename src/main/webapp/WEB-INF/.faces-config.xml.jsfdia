@@ -91,4 +91,17 @@
     TITLE="showEstado" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#listViajes.xhtml"
+  PATH="/pages/protected/admin/listViajes.xhtml" SHAPE="240,817,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#admin#altaViaje.xhtml"
+  PATH="/pages/protected/admin/altaViaje.xhtml" SHAPE="32,801,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#admin#altaViaje.xhtml:0"
+   NAME="item" PATH="/pages/protected/admin/altaViaje.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllViajes::#pages#protected#admin#listViajes.xhtml"
+    NAME="output" PATH="/pages/protected/admin/listViajes.xhtml"
+    TARGET="rules:#pages#protected#admin#listViajes.xhtml"
+    TITLE="listAllViajes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
 </PROCESS>

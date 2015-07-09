@@ -24,7 +24,7 @@ import facade.ViajeFacade;
 public class ViajeMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static final String LIST_ALL_SERVICIOS = "listAllViajes";
+	private static final String LIST_ALL_VIAJES = "listAllViajes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 
 	@EJB
@@ -66,7 +66,7 @@ public class ViajeMB implements Serializable {
 		}
 		sendInfoMessageToUser("Operación completada.");
 		mViajes = findAllViajes();
-		return LIST_ALL_SERVICIOS;
+		return LIST_ALL_VIAJES;
 	}
 
 	public List<Unidad> findAllUnidades() {
