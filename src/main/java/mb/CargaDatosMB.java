@@ -1,6 +1,7 @@
 package mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,12 +19,14 @@ import model.Cliente;
 import model.Direccion;
 import model.Empleado;
 import model.Estado;
+import model.Ruta;
 import model.Sucursal;
 import model.Unidad;
 import facade.AdministradorFacade;
 import facade.ClienteFacade;
 import facade.DireccionFacade;
 import facade.EmpleadoFacade;
+import facade.RutaFacade;
 import facade.SucursalFacade;
 import facade.UnidadFacade;
 
@@ -51,7 +54,10 @@ public class CargaDatosMB implements Serializable {
 	private EmpleadoFacade empleadoFacade;
 	
 	@EJB
-	private UnidadFacade unidadFacade; 
+	private UnidadFacade unidadFacade;
+	
+	@EJB
+	private RutaFacade rutaFacade;
 
 	@Resource
 	UserTransaction tx;
@@ -230,17 +236,17 @@ public class CargaDatosMB implements Serializable {
 			direccionFacade.save(ds11);
 			
 			//CREO SUCURSAL
-			Sucursal s1 = new Sucursal("454445","sucursal1@hotmail.com",ds1,-27.4606615,-58.9953453);
-			Sucursal s2 = new Sucursal("454445","sucursal2@hotmail.com",ds2,-26.1721559,-58.1949699);
-			Sucursal s3 = new Sucursal("454445","sucursal3@hotmail.com",ds3,-27.3333046,-58.933333);
-			Sucursal s4 = new Sucursal("454445","sucursal4@hotmail.com",ds4,-27.3963094,-55.9245158);
-			Sucursal s5 = new Sucursal("454445","sucursal5@hotmail.com",ds5,-27.269916,-58.2438316);
-			Sucursal s6 = new Sucursal("454445","sucursal6@hotmail.com",ds6,-27.5899083,-56.6892701);
-			Sucursal s7 = new Sucursal("454445","sucursal7@hotmail.com",ds7,-27.3166691,-58.5833282);
-			Sucursal s8 = new Sucursal("454445","sucursal8@hotmail.com",ds8,-34.6158238,-58.4333203);
-			Sucursal s9 = new Sucursal("454445","sucursal9@hotmail.com",ds9,-32.9523035,-60.6981577);
-			Sucursal s10 = new Sucursal("454445","sucursal10@hotmail.com",ds10,-31.6181427,-60.7062571);
-			Sucursal s11 = new Sucursal("454445","sucursal11@hotmail.com",ds11,-27.4862516,-58.7923866);
+			Sucursal s1 = new Sucursal("454445","resistencia@hotmail.com",ds1,-27.4606615,-58.9953453);
+			Sucursal s2 = new Sucursal("454445","formosa@hotmail.com",ds2,-26.1721559,-58.1949699);
+			Sucursal s3 = new Sucursal("454445","colonia_benitez@hotmail.com",ds3,-27.3333046,-58.933333);
+			Sucursal s4 = new Sucursal("454445","posadas@hotmail.com",ds4,-27.3963094,-55.9245158);
+			Sucursal s5 = new Sucursal("454445","itati@hotmail.com",ds5,-27.269916,-58.2438316);
+			Sucursal s6 = new Sucursal("454445","ituzaingo@hotmail.com",ds6,-27.5899083,-56.6892701);
+			Sucursal s7 = new Sucursal("454445","pasodelapatria@hotmail.com",ds7,-27.3166691,-58.5833282);
+			Sucursal s8 = new Sucursal("454445","buenosaires@hotmail.com",ds8,-34.6158238,-58.4333203);
+			Sucursal s9 = new Sucursal("454445","rosario@hotmail.com",ds9,-32.9523035,-60.6981577);
+			Sucursal s10 = new Sucursal("454445","santafe@hotmail.com",ds10,-31.6181427,-60.7062571);
+			Sucursal s11 = new Sucursal("454445","corrientes@hotmail.com",ds11,-27.4862516,-58.7923866);
 			
 			sucursalFacade.save(s1);
 			sucursalFacade.save(s2);
@@ -293,8 +299,49 @@ public class CargaDatosMB implements Serializable {
 			unidadFacade.save(u2);
 			unidadFacade.save(u3);
 			
-			
+			// CREO RUTAS
+			List<Sucursal> ls1 = new ArrayList<Sucursal>();
+			ls1.add(s1);ls1.add(s10);ls1.add(s9);ls1.add(s8);
+ 			Ruta r1 = new Ruta("Resistencia - Buenos Aires",ls1);
+ 			rutaFacade.save(r1);
 
+
+ 			
+ 			List<Sucursal> ls2 = new ArrayList<Sucursal>();
+			ls2.add(s8);ls2.add(s9);ls2.add(s10);ls2.add(s1);
+ 			Ruta r2 = new Ruta("Buenos Aires - Resistencia",ls2);
+ 			rutaFacade.save(r2);
+
+
+
+ 			
+ 			List<Sucursal> ls3 = new ArrayList<Sucursal>();
+			ls3.add(s1);ls3.add(s11);ls3.add(s7);ls3.add(s5);ls3.add(s6);ls3.add(s4);
+ 			Ruta r3 = new Ruta("Resistencia - Posadas",ls3);
+ 			rutaFacade.save(r3);
+
+
+ 			
+ 			List<Sucursal> ls4 = new ArrayList<Sucursal>();
+ 			ls4.add(s4);ls4.add(s6);ls4.add(s5);ls4.add(s7);ls4.add(s11);ls4.add(s1);
+ 			Ruta r4 = new Ruta("Posadas - Resistencia",ls4);
+ 			rutaFacade.save(r4);
+
+
+ 			
+ 			List<Sucursal> ls5 = new ArrayList<Sucursal>();
+			ls5.add(s1);ls5.add(s3);ls5.add(s2);
+ 			Ruta r5 = new Ruta("Resistencia - Formosa",ls5);
+ 			rutaFacade.save(r5);
+
+
+ 			
+ 			List<Sucursal> ls6 = new ArrayList<Sucursal>();
+			ls6.add(s2);ls6.add(s3);ls6.add(s1);
+ 			Ruta r6 = new Ruta("Formosa - Resistencia",ls6);
+ 			rutaFacade.save(r6);
+
+ 			
 
 			tx.commit();
 		} catch (Exception e) {

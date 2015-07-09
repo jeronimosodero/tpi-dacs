@@ -95,6 +95,6 @@ public class Sucursal extends BaseEntity{
 		if (getId() == null) {
 			return null;
 		}
-		return String.format("%d - %s - %s", getId(),getDireccion().getProvincia(),getDireccion().getCiudad());
+		return String.format("%d - %s - %s", getDireccion().getProvincia());
 	}
 }
