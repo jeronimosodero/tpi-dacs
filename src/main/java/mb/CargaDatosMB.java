@@ -2,9 +2,7 @@ package mb;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -17,7 +15,6 @@ import model.Administrador;
 import model.Cliente;
 import model.Direccion;
 import model.Empleado;
-import model.Estado;
 import model.Sucursal;
 import model.Unidad;
 import facade.AdministradorFacade;
@@ -125,7 +122,7 @@ public class CargaDatosMB implements Serializable {
 			c1.setFecNac(new Date());
 			c1.setTelefono("4222544");
 			c1.setCUIL(20378883075L);
-			c1.setEmail("paslo22@gmail.com");
+			c1.setEmail("paslo@gmail.com");
 			c1.setDNI();
 			c1.setPass();
 			c1.setRole();
@@ -170,8 +167,8 @@ public class CargaDatosMB implements Serializable {
 			c5.setDNI();
 			c5.setPass();
 			c5.setRole();
-			Cliente c6 = new Cliente();
-			/*c6.setNombre("Matias");
+			/*Cliente c6 = new Cliente();
+			c6.setNombre("Matias");
 			c6.setFecNac(new Date());
 			c6.setTelefono("4222549");
 			c6.setCUIL(60278886075L);

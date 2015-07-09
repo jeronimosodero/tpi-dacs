@@ -78,10 +78,12 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#protected#admin#listCliente.xhtml"
   PATH="/pages/protected/admin/listCliente.xhtml" SHAPE="240,593,0,0" model-entity="JSFProcessGroup"/>
- <PROCESS-ITEM NAME="rules:#pages#protected#user#home.xhtml"
-  PATH="/pages/protected/user/home.xhtml" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
-  <PROCESS-ITEM ID="rules:#pages#protected#user#home.xhtml:0"
-   NAME="item" PATH="/pages/protected/user/home.xhtml" model-entity="JSFProcessItem">
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#showEstado.xhtml"
+  PATH="/pages/protected/user/showEstado.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#selectOrden.xhtml"
+  PATH="/pages/protected/user/selectOrden.xhtml" SHAPE="32,689,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#user#selectOrden.xhtml:0"
+   NAME="item" PATH="/pages/protected/user/selectOrden.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT
     ID="showEstado::#pages#protected#user#showEstado.xhtml"
     NAME="output" PATH="/pages/protected/user/showEstado.xhtml"
@@ -89,6 +91,4 @@
     TITLE="showEstado" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#pages#protected#user#showEstado.xhtml"
-  PATH="/pages/protected/user/showEstado.xhtml" SHAPE="240,705,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

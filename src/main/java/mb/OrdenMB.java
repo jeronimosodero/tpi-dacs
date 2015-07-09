@@ -9,13 +9,16 @@ import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.transaction.UserTransaction;
 
+import model.Cliente;
 import model.Orden;
 import model.Servicio;
 import model.Sucursal;
+import facade.ClienteFacade;
 import facade.OrdenFacade;
 import facade.ServicioFacade;
 import facade.SucursalFacade;
@@ -36,6 +39,14 @@ public class OrdenMB implements Serializable {
 
 	@EJB
 	private SucursalFacade SucursalFacade;
+	
+	@EJB
+	private ClienteFacade clienteFacade;
+	
+	@ManagedProperty("#{logInMb}")
+	private LogInMb login;
+
+	private Cliente mCliente;
 
 	@Resource
 	UserTransaction tx;
@@ -69,6 +80,9 @@ public class OrdenMB implements Serializable {
 			mOrden.setMonto(0.f);
 			mOrden.setPagado("No");
 			OrdenFacade.save(mOrden);
+			mCliente = login.getCliente();
+			mCliente.getOrdenes().add(mOrden);
+			clienteFacade.update(mCliente);
 			tx.commit();
 		} catch (Exception e) {
 			try {
@@ -195,5 +209,9 @@ public class OrdenMB implements Serializable {
 
 	public Date getFecha() {
 		return mFecha;
+	}
+	
+	public void setLogin(LogInMb login) {
+		this.login = login;
 	}
 }

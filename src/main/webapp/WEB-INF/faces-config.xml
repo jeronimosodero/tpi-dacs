@@ -51,7 +51,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/pages/protected/user/home.xhtml</from-view-id>
+		<from-view-id>/pages/protected/user/selectOrden.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>showEstado</from-outcome>
 			<to-view-id>/pages/protected/user/showEstado.xhtml</to-view-id>

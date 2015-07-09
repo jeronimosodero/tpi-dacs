@@ -1,27 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
 
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">
-				<H2>Buscar paquete</H2>
-				<h:form class="form-horizontal">
-					<div class="form-group">
-						<label for="mId" class="col-sm-2 control-label">Numero de paquete</label>
-						<div class="col-sm-10">
-							<p:inputText type="number" id="mId" styleClass="form-control"
-								value="#{clienteHomeMB.idPaquete}" pt:placeholder="1" />
+
+				<div class="row">
+					<a href="selectOrden.jsf">
+						<div class="col-sm-4 text-center">
+							<h3>Buscar paquetes</h3>
+							<p>Descripcion</p>
 						</div>
-					</div>
-					<p:commandButton action="#{clienteHomeMB.findPaqueteById}"
-						value="Guardar" />
-				</h:form>
+					</a><a href="altaOrden.jsf">
+						<div class="col-sm-4 text-center">
+							<h3>Crear nueva orden</h3>
+							<p>Descripcion</p>
+						</div>
+					</a><a href="">
+						<div class="col-sm-4 text-center">
+							<h3>Tercer servicio</h3>
+							<p>Descripcion</p>
+						</div>
+					</a>
+				</div>
 			</div>
 		</div>
 

@@ -31,11 +31,9 @@ public class ClienteMB implements Serializable {
 
 	@EJB
 	private DireccionFacade direccionFacade;
-	
-    @EJB
-    private SucursalFacade sucursalFacade;
-    
-	
+
+	@EJB
+	private SucursalFacade sucursalFacade;
 
 	@Resource
 	UserTransaction tx;

@@ -38,4 +38,9 @@ public class ClienteFacadeImp implements ClienteFacade {
 		return clienteDao.findClienteByEmail(email);
 	}
 
+	@Override
+	public Cliente update(Cliente cliente){
+		return clienteDao.update(cliente);
+	}
+	
 }
