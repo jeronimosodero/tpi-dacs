@@ -14,6 +14,11 @@ import javax.validation.constraints.NotNull;
 public class Ruta extends BaseEntity{
 	
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@NotNull
 	@Column(name = "nombre")
 	private String mNombre;

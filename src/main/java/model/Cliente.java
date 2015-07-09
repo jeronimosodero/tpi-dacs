@@ -1,11 +1,14 @@
 package model;
 
 import java.util.Date;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
@@ -44,6 +47,10 @@ public class Cliente extends Usuario{
 	@PrimaryKeyJoinColumn
 	private Direccion mDireccion;
 	
+	@OneToMany(fetch = FetchType.EAGER)
+	@JoinColumn(name="cliente_fk")
+	private Set<Orden> mOrdenes;
+	
 	public String getNombre() {
 		return mNombre;
 	}
@@ -80,5 +87,11 @@ public class Cliente extends Usuario{
 	public void setRole(){
 		mRole = "USER";
 	}
-		
+	public Set<Orden> getOrdenes() {
+		return mOrdenes;
+	}
+	public void setOrdenes(Set<Orden> ordenes) {
+		mOrdenes = ordenes;
+	}
+	
 }

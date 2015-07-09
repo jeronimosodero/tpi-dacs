@@ -3,9 +3,7 @@ package mb;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
-import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
@@ -131,7 +129,7 @@ public class CargaDatosMB implements Serializable {
 			c1.setFecNac(new Date());
 			c1.setTelefono("4222544");
 			c1.setCUIL(20378883075L);
-			c1.setEmail("paslo22@gmail.com");
+			c1.setEmail("paslo@gmail.com");
 			c1.setDNI();
 			c1.setPass();
 			c1.setRole();
@@ -176,8 +174,8 @@ public class CargaDatosMB implements Serializable {
 			c5.setDNI();
 			c5.setPass();
 			c5.setRole();
-			Cliente c6 = new Cliente();
-			/*c6.setNombre("Matias");
+			/*Cliente c6 = new Cliente();
+			c6.setNombre("Matias");
 			c6.setFecNac(new Date());
 			c6.setTelefono("4222549");
 			c6.setCUIL(60278886075L);
@@ -300,14 +298,14 @@ public class CargaDatosMB implements Serializable {
 			unidadFacade.save(u3);
 			
 			// CREO RUTAS
-			List<Sucursal> ls1 = new ArrayList<Sucursal>();
+			ArrayList<Sucursal> ls1 = new ArrayList<Sucursal>();
 			ls1.add(s1);ls1.add(s10);ls1.add(s9);ls1.add(s8);
  			Ruta r1 = new Ruta("Resistencia - Buenos Aires",ls1);
  			rutaFacade.save(r1);
 
 
  			
- 			List<Sucursal> ls2 = new ArrayList<Sucursal>();
+ 			ArrayList<Sucursal> ls2 = new ArrayList<Sucursal>();
 			ls2.add(s8);ls2.add(s9);ls2.add(s10);ls2.add(s1);
  			Ruta r2 = new Ruta("Buenos Aires - Resistencia",ls2);
  			rutaFacade.save(r2);
@@ -315,28 +313,28 @@ public class CargaDatosMB implements Serializable {
 
 
  			
- 			List<Sucursal> ls3 = new ArrayList<Sucursal>();
+ 			ArrayList<Sucursal> ls3 = new ArrayList<Sucursal>();
 			ls3.add(s1);ls3.add(s11);ls3.add(s7);ls3.add(s5);ls3.add(s6);ls3.add(s4);
  			Ruta r3 = new Ruta("Resistencia - Posadas",ls3);
  			rutaFacade.save(r3);
 
 
  			
- 			List<Sucursal> ls4 = new ArrayList<Sucursal>();
+ 			ArrayList<Sucursal> ls4 = new ArrayList<Sucursal>();
  			ls4.add(s4);ls4.add(s6);ls4.add(s5);ls4.add(s7);ls4.add(s11);ls4.add(s1);
  			Ruta r4 = new Ruta("Posadas - Resistencia",ls4);
  			rutaFacade.save(r4);
 
 
  			
- 			List<Sucursal> ls5 = new ArrayList<Sucursal>();
+ 			ArrayList<Sucursal> ls5 = new ArrayList<Sucursal>();
 			ls5.add(s1);ls5.add(s3);ls5.add(s2);
  			Ruta r5 = new Ruta("Resistencia - Formosa",ls5);
  			rutaFacade.save(r5);
 
 
  			
- 			List<Sucursal> ls6 = new ArrayList<Sucursal>();
+ 			ArrayList<Sucursal> ls6 = new ArrayList<Sucursal>();
 			ls6.add(s2);ls6.add(s3);ls6.add(s1);
  			Ruta r6 = new Ruta("Formosa - Resistencia",ls6);
  			rutaFacade.save(r6);
