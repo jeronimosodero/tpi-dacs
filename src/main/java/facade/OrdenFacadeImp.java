@@ -10,7 +10,7 @@ import dao.OrdenDao;
 
 @Stateless
 public class OrdenFacadeImp implements OrdenFacade {
-	
+
 	@EJB
 	private OrdenDao ordenDao;
 
@@ -28,13 +28,12 @@ public class OrdenFacadeImp implements OrdenFacade {
 	}
 
 	@Override
-<<<<<<< Updated upstream
 	public Orden update(Orden orden) {
 		return ordenDao.update(orden);
-=======
-	public Orden find(Long id) {
-		return ordenDao.find(id);
->>>>>>> Stashed changes
 	}
 
+	@Override
+	public Orden find(Long id) {
+		return ordenDao.find(id);
+	}
 }
