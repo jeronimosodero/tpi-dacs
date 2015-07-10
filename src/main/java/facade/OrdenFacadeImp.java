@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
+import model.Empleado;
 import model.Orden;
 import dao.OrdenDao;
 
@@ -37,8 +38,8 @@ public class OrdenFacadeImp implements OrdenFacade {
 	}
 	
 	@Override
-	public List<Orden> findUnassigned() {
-		return ordenDao.findUnassigned();
+	public List<Orden> findUnassigned(Empleado empleado) {
+		return ordenDao.findUnassigned(empleado);
 	}
 	
 }

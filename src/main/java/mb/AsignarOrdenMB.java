@@ -9,10 +9,12 @@ import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.transaction.UserTransaction;
 
+import model.Empleado;
 import model.Orden;
 import model.Viaje;
 import facade.OrdenFacade;
@@ -25,12 +27,17 @@ public class AsignarOrdenMB implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static final String LIST_ALL_ORDENES = "listAllordenes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
-
+	
 	@EJB
 	private OrdenFacade OrdenFacade;
 
 	@EJB
 	private ViajeFacade ViajeFacade;
+	
+	@ManagedProperty("#{logInMb}")
+	private LogInMb login;
+
+	private Empleado mEmpleado;
 
 	@Resource
 	UserTransaction tx;
@@ -47,8 +54,6 @@ public class AsignarOrdenMB implements Serializable {
 		return "/pages/protected/employee/asignarOrdenes.jsp?faces-redirect=true";
 	}
 
-
-	
 	public String save() {
 		try {
 			tx.begin();
@@ -69,22 +74,23 @@ public class AsignarOrdenMB implements Serializable {
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operación completada.");
-		mOrdenes = findUnassignedOrdenes();
+		mOrdenes = findUnassignedOrdenes(mEmpleado);
 		return LIST_ALL_ORDENES;
 	}
 
 	@PostConstruct
 	public void init() {
+		mEmpleado = login.getEmpleado();
 		mViajes = findViajesActuales();
-		mOrdenes = findUnassignedOrdenes();
+		mOrdenes = findUnassignedOrdenes(mEmpleado);
 	}
 
 	private List<Viaje> findViajesActuales() {
 		return ViajeFacade.findActuales();
 	}
 
-	public List<Orden> findUnassignedOrdenes() {
-		return OrdenFacade.findUnassigned();
+	public List<Orden> findUnassignedOrdenes(Empleado empleado) {
+		return OrdenFacade.findUnassigned(empleado);
 	}
 
 	// Views errors
@@ -143,4 +149,22 @@ public class AsignarOrdenMB implements Serializable {
 		mSelectedOrdenes = selectedOrdenes;
 	}
 
+	public Empleado getEmpleado() {
+		return mEmpleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		mEmpleado = empleado;
+	}
+
+	public LogInMb getLogin() {
+		return login;
+	}
+
+	public void setLogin(LogInMb login) {
+		this.login = login;
+	}
+	
+	
+	
 }
