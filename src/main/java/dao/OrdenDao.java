@@ -5,6 +5,7 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.Query;
 
+import model.Empleado;
 import model.Orden;
 
 @Stateless
@@ -14,9 +15,11 @@ public class OrdenDao extends GenericDao<Orden> {
 		super(Orden.class);
 	}
 	
-	public List<Orden> findUnassigned(){
+	public List<Orden> findUnassigned(Empleado empleado){
 		List<Orden> result = null;
-		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null and o.pagado like 'Si'",Orden.class);
+		Long id = empleado.getSucursal().getId();
+		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null and o.pagado like 'Si' and o.origen_fk = :id",Orden.class);
+		q.setParameter("id", id);
 		result = q.getResultList();
 		return result;
 	}
