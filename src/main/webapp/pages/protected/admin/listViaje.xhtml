@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+		<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarAdmin">
+				<ui:include src="/WEB-INF/templates/sidebarAdmin.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+			<H2>Lista de Viajes</H2>
+				<h:form>
+					<p:dataTable value="#{viajeMB.viajes}" var="viaje"
+						paginator="true" rows="10">
+						<p:column headerText="Id">
+							<h:outputText value="#{viaje.id}" />
+						</p:column>
+						<p:column headerText="Fecha Partida">
+							<h:outputText value="#{viaje.fechaPartida}" />
+						</p:column>
+						<p:column headerText="Unidad">
+							<h:outputText value="#{viaje.unidad.dominio}" />
+						</p:column>
+						<p:column headerText="Ruta">
+							<h:outputText value="#{viaje.ruta.nombre}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
