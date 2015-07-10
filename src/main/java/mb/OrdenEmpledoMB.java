@@ -125,6 +125,9 @@ public class OrdenEmpledoMB implements Serializable {
 		mEmpleado = login.getEmpleado();
 	}
 
+	public String altaOrdenEmpleado() {
+		return "/pages/protected/employee/altaOrden.jsp?faces-redirect=true";
+	}
 	// Views errors
 
 	private void sendInfoMessageToUser(String message) {
