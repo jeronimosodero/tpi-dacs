@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	template="/WEB-INF/templates/template.xhtml">
+			<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarUser">
+				<ui:include src="/WEB-INF/templates/sidebarUser.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron" style="width:auto;">
+			<div class="container">
+				<H2>Alta orden</H2>
+				<h:form class="form-horizontal">
+					<div class="form-group">
+						<label for="mFecha" class="col-sm-2 control-label">Fecha</label>
+						<div class="col-sm-10">
+							<p:calendar id="mFecha" value="#{ordenMB.fecha}"
+								pt:placeholder="22/10/92" disabled="true"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mServicio" class="col-sm-2 control-label">Servicio</label>
+						<div class="col-sm-10">
+							<p:selectOneMenu value="#{ordenMB.servicio}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemLabel="Elija uno" itemValue="" />
+								<f:selectItems value="#{ordenMB.servicios}" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mOrigen" class="col-sm-2 control-label">Sucursal
+							origen</label>
+						<div class="col-sm-10">
+							<p:selectOneMenu value="#{ordenMB.origen}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemLabel="Elija uno" itemValue="" />
+								<f:selectItems value="#{ordenMB.sucursales}" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mDestino" class="col-sm-2 control-label">Sucursal
+							destino</label>
+						<div class="col-sm-10">
+							<p:selectOneMenu value="#{ordenMB.destino}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemLabel="Elija uno" itemValue="" />
+								<f:selectItems value="#{ordenMB.sucursales}" />
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<p:commandButton action="#{ordenMB.create}" value="Guardar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

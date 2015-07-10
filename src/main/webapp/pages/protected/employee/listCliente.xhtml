@@ -1,0 +1,44 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form rendered="#{logInMb.admin}">
+			<ui:insert name="sidebarAdmin">
+				<ui:include src="/WEB-INF/templates/sidebarAdmin.xhtml" />
+			</ui:insert>
+		</h:form>
+		<h:form rendered="#{logInMb.employee}">
+			<ui:insert name="sidebarAdmin">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+			<h2>Lista de Clientes</h2>
+				<h:form>
+					<p:dataTable value="#{clienteMB.clientes}" var="cliente"
+						paginator="true" rows="10">
+						<p:column headerText="Id">
+							<h:outputText value="#{cliente.id}" />
+						</p:column>
+						<p:column headerText="Nombre">
+							<h:outputText value="#{cliente.nombre}" />
+						</p:column>
+						<p:column headerText="CUIL">
+							<h:outputText value="#{cliente.CUIL}" />
+						</p:column>
+						<p:column headerText="Ciudad">
+							<h:outputText value="#{cliente.direccion.ciudad}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

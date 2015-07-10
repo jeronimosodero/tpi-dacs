@@ -1,6 +1,8 @@
 package mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -14,29 +16,40 @@ import javax.transaction.UserTransaction;
 
 import model.Cliente;
 import model.Direccion;
+import model.Estado;
+import model.Orden;
 import facade.ClienteFacade;
 import facade.DireccionFacade;
+import facade.EstadoFacade;
+import facade.OrdenFacade;
+import facade.ServicioFacade;
 import facade.SucursalFacade;
 
 @ManagedBean
 @RequestScoped
 public class ClienteMB implements Serializable {
 
-	private static final String LIST_ALL_CLIENTES = "listAllClientes";
+	private static final String LIST_ALL_ClienteS = "listAllClientes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
 
 	@EJB
-	private ClienteFacade clienteFacade;
+	private ClienteFacade ClienteFacade;
 
 	@EJB
 	private DireccionFacade direccionFacade;
-	
-    @EJB
-    private SucursalFacade sucursalFacade;
-    
-	
 
+	@EJB
+	private SucursalFacade sucursalFacade;
+
+	@EJB
+	private ServicioFacade servicioFacade;
+	
+	@EJB
+	private EstadoFacade estadoFacade;
+	
+	@EJB
+	private OrdenFacade ordenFacade;
 	@Resource
 	UserTransaction tx;
 
@@ -46,6 +59,14 @@ public class ClienteMB implements Serializable {
 
 	private Direccion mDireccion;
 
+	public String listarClientes() {
+		return "/pages/protected/employee/listCliente.jsp?faces-redirect=true";
+	}
+	
+	public String altaCliente() {
+		return "/pages/protected/employee/altaCliente.jsp?faces-redirect=true";
+	}
+	
 	public String createClienteEnd() {
 		try {
 			tx.begin();
@@ -54,27 +75,61 @@ public class ClienteMB implements Serializable {
 			mCliente.setDNI();
 			mCliente.setPass();
 			mCliente.setRole();
-			clienteFacade.save(mCliente);
+			ClienteFacade.save(mCliente);
+			
+			
+			Estado e1 = new Estado();
+			e1.setFecha(new Date());
+			e1.setHora(new Date());
+			e1.setLatitud(30.f);
+			e1.setLongitud(40.f);
+			e1.setSucursal(sucursalFacade.findSucursalById(1L));
+			
+			Estado e2 = new Estado();
+			e2.setFecha(new Date());
+			e2.setHora(new Date());
+			e2.setLatitud(3.f);
+			e2.setLongitud(4.f);
+			e2.setSucursal(sucursalFacade.findSucursalById(2L));
+			
+			estadoFacade.save(e1);
+			estadoFacade.save(e2);
+			
+			
+			
+			Orden orden = new Orden();
+			orden.setFecha(new Date());
+			orden.setMonto(300.f);
+			orden.setPagado("No");
+			orden.setServicio(servicioFacade.findAll().get(0));
+			
+			List<Estado> estados = new ArrayList<>();
+			estados.add(e1);
+			estados.add(e2);
+			
+			
+			
+			orden.setEstado(estados);
+			ordenFacade.save(orden);
+			
+			
 			tx.commit();
 		} catch (Exception e) {
 			try {
 				tx.rollback();
 			} catch (Exception e1) {
 				sendErrorMessageToUser("Error del servidor.");
-				System.out.println("error del servidor");
 				return STAY_IN_THE_SAME_PAGE;
 			}
 			sendErrorMessageToUser("Error datos invalidos.");
-			System.out.println("datos invalidos");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
-		System.out.println("copete bolo");
-		return LIST_ALL_CLIENTES;
+		return LIST_ALL_ClienteS;
 	}
 
 	public List<Cliente> findAll() {
-		return clienteFacade.findAll();
+		return ClienteFacade.findAll();
 	}
 
 	@PostConstruct
@@ -110,8 +165,8 @@ public class ClienteMB implements Serializable {
 		return mCliente;
 	}
 
-	public void setCliente(Cliente cliente) {
-		mCliente = cliente;
+	public void setCliente(Cliente Cliente) {
+		mCliente = Cliente;
 	}
 
 	public Direccion getDireccion() {

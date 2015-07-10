@@ -6,17 +6,32 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
+
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarUser">
+				<ui:include src="/WEB-INF/templates/sidebarUser.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
 	<ui:define name="headExtra">
 		<script src="http://maps.google.com/maps/api/js?sensor=true|false"
 			type="text/javascript"></script>
 	</ui:define>
 	<ui:define name="contenido">
+		<hr></hr>
 		<div class="container">
 			<div class="col-sm-4">
+				<p:dataList value="#{clienteHomeMB.estados}" var="estado"
+					type="ordered">
+						#{estado.sucursal}
+					</p:dataList>
 			</div>
 			<div class="col-sm-8">
-					<p:gmap center="#{clienteHomeMB.lastEstado.latitud},#{clienteHomeMB.lastEstado.longitud}" zoom="15"
-						type="HYBRID" style="width:100%;height:400px" model="#{clienteHomeMB.model}"/>
+				<p:gmap
+					center="#{clienteHomeMB.lastEstado.latitud},#{clienteHomeMB.lastEstado.longitud}"
+					zoom="15" type="HYBRID" style="width:100%;height:400px"
+					model="#{clienteHomeMB.model}" />
 			</div>
 		</div>
 

@@ -69,5 +69,11 @@ public class Servicio extends BaseEntity{
 		mSeguro = seguro;
 	}
 	
-	
+	@Override
+	public String toString(){
+		if (getId() == null){
+			return null;
+		}
+		return String.format("%d - %s - %s", getId(),getNombre(),getSeguro().getNombre());
+	}
 }

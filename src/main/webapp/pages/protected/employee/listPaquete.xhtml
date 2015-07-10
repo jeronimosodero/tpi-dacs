@@ -1,0 +1,37 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarEmployee">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Cliente: #{ordenEmpledoMB.cliente.nombre}</H2>
+				<H2>Orden número #{ordenEmpledoMB.orden.id}</H2>
+				<h:form>
+					<p:dataTable value="#{ordenEmpledoMB.paquetes}" var="paquete"
+						paginator="true" rows="10">
+						<p:column headerText="Contenido">
+							<h:outputText value="#{paquete.contenido}" />
+						</p:column>
+						<p:column headerText="Tamaño">
+							<h:outputText value="#{paquete.tamaño}" />
+						</p:column>
+						<p:column headerText="Peso">
+							<h:outputText value="#{paquete.peso}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

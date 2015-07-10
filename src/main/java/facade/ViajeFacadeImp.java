@@ -1,5 +1,7 @@
 package facade;
 
+import java.util.List;
+
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
@@ -20,6 +22,14 @@ public class ViajeFacadeImp implements ViajeFacade{
 	public void save(Viaje viaje) {
 		viajeDao.save(viaje);
 		
+	}
+	@Override
+	public List<Viaje> findAll() {
+		return viajeDao.findAll();
+	}
+	@Override
+	public Viaje update(Viaje viaje) {
+		return viajeDao.update(viaje);
 	}
 
 }

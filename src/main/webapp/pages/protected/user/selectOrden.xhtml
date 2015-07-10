@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+			<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarUser">
+				<ui:include src="/WEB-INF/templates/sidebarUser.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Buscar Orden</H2>
+				<h:form class="form-horizontal">
+					<div class="form-group">
+						<label for="mOrden" class="col-sm-2 control-label">Número de orden</label>
+						<div class="col-sm-10">
+							<p:selectOneMenu value="#{clienteHomeMB.orden}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItem itemLabel="Elija uno" itemValue="" />
+								<f:selectItems value="#{clienteHomeMB.ordenes}"/>
+							</p:selectOneMenu>
+						</div>
+					</div>
+					<p:commandButton action="#{clienteHomeMB.showEstados}"
+						value="Buscar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

@@ -13,6 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name="Viaje",schema="tpidacs")
 public class Viaje extends BaseEntity{
@@ -26,14 +29,47 @@ public class Viaje extends BaseEntity{
 	@Temporal(TemporalType.DATE)
 	@Column(name="fecha_partida")
 	private Date mFechaPartida;
-	
-	
 
 	//relacion muchos a uno con unidad
+	/*
 	@NotNull
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="fk_unidad")
+	@JsonIgnore
 	private Unidad mUnidad;
+	*/
+	
+	
+	@OneToMany
+	@JoinColumn(name="viaje_fk")
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Set<Orden> mOrdenes;
+	
+	
+	@ManyToOne
+	@JoinColumn(name="fk_ruta")
+	private Ruta mRuta;
+
+	
+	public Date getFechaPartida() {
+		return mFechaPartida;
+	}
+	public void setFechaPartida(Date fechaPartida) {
+		mFechaPartida = fechaPartida;
+	}
+	public Set<Orden> getOrdenes() {
+		return mOrdenes;
+	}
+	public void setOrdenes(Set<Orden> ordenes) {
+		mOrdenes = ordenes;
+	}
+	public Ruta getRuta() {
+		return mRuta;
+	}
+	public void setRuta(Ruta ruta) {
+		mRuta = ruta;
+	}
+	/*
 	
 	public Unidad getUnidad() {
 		return mUnidad;
@@ -41,27 +77,5 @@ public class Viaje extends BaseEntity{
 	public void setUnidad(Unidad unidad) {
 		mUnidad = unidad;
 	}
-	@OneToMany
-	@JoinColumn(name="viaje_fk")
-	private Set<Orden> mOrdenes;
-	
-	
-	@ManyToOne
-	@JoinColumn(name="fk_ruta")
-	private Ruta mRuta;
-	
-	
-	public Set<Orden> getOrdenes() {
-		return mOrdenes;
-	}
-	public void setOrdenes(Set<Orden> ordenes) {
-		mOrdenes = ordenes;
-	}
-	public Date getFechaPartida() {
-		return mFechaPartida;
-	}
-	public void setFechaPartida(Date fechaPartida) {
-		mFechaPartida = fechaPartida;
-	}
-
+	*/
 }

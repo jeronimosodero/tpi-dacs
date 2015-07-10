@@ -2,20 +2,24 @@ package mb;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 
+import model.Cliente;
 import model.Estado;
-import model.Paquete;
+import model.Orden;
 
 import org.primefaces.model.map.DefaultMapModel;
 import org.primefaces.model.map.LatLng;
 import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
 
-import facade.PaqueteFacade;
+import facade.OrdenFacade;
 
 @ManagedBean
 @SessionScoped
@@ -23,52 +27,42 @@ public class ClienteHomeMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	private static final String SHOW_ESTADO = "showEstado";
-	private static final String STAY_IN_THE_SAME_PAGE = null;
 
 	@EJB
-	private PaqueteFacade paqueteFacade;
+	private OrdenFacade ordenFacade;
 
-	private Paquete mPaquete;
+	@ManagedProperty("#{logInMb}")
+	private LogInMb login;
 
-	private Long mIdPaquete;
+	private Cliente mCliente;
+
+	private Orden mOrden;
+
+	private Set<Orden> mOrdenes;
 
 	private List<Estado> mEstados;
 
 	private Estado mLastEstado;
 
-	private MapModel model = new DefaultMapModel();
+	private MapModel model;
 
-	public String findPaqueteById() {
-		try {
-			mPaquete = paqueteFacade.findPaqueteById(mIdPaquete);
-		} catch (Exception e) {
-			return STAY_IN_THE_SAME_PAGE;
+	@PostConstruct
+	public void init() {
+		if (login.isUser()) {
+			mCliente = login.getCliente();
+			mOrdenes = mCliente.getOrdenes();
 		}
-		mEstados = mPaquete.getEstado();
+	}
+
+	public String showEstados(){
+		mEstados = mOrden.getEstado();
 		mLastEstado = mEstados.get(mEstados.size() - 1);
-		model.addOverlay(new Marker(new LatLng(mLastEstado.getLatitud(),
-				mLastEstado.getLongitud()), "Su paquete se encuentra aqui"));
+		model = new DefaultMapModel();
+		model.addOverlay(new Marker(new LatLng(mLastEstado.getLatitud(),mLastEstado.getLongitud()), "Su paquete se encuentra aqui"));
 		return SHOW_ESTADO;
 	}
-
-	public Long getIdPaquete() {
-		return mIdPaquete;
-	}
-
-	public void setIdPaquete(Long idPaquete) {
-		mIdPaquete = idPaquete;
-	}
-
-	public Paquete getPaquete() {
-		if (mPaquete == null) {
-			mPaquete = new Paquete();
-		}
-		return mPaquete;
-	}
-
-	public void setPaquete(Paquete paquete) {
-		mPaquete = paquete;
-	}
+	
+	// Setters and getters
 
 	public List<Estado> getEstados() {
 		return mEstados;
@@ -88,6 +82,34 @@ public class ClienteHomeMB implements Serializable {
 
 	public MapModel getModel() {
 		return model;
+	}
+
+	public void setCliente(Cliente cliente) {
+		mCliente = cliente;
+	}
+
+	public Orden getOrden() {
+		return mOrden;
+	}
+
+	public void setOrden(Orden orden) {
+		mOrden = orden;
+	}
+
+	public Set<Orden> getOrdenes() {
+		return mOrdenes;
+	}
+
+	public void setOrdenes(Set<Orden> ordenes) {
+		mOrdenes = ordenes;
+	}
+
+	public Cliente getCliente() {
+		return mCliente;
+	}
+
+	public void setLogin(LogInMb login) {
+		this.login = login;
 	}
 
 }

@@ -6,7 +6,7 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
-
+	<ui:define name="unnombre"></ui:define>
 	<ui:define name="headerRight"></ui:define>
 
 	<ui:define name="contenido">
@@ -25,11 +25,11 @@
 									class="form-inline">
 									<h:panelGrid columns='2'>
 										<h:outputLabel styleClass="control-label" value='Email:' />
-										<p:inputText id='j_username' name='j_username'
+										<p:inputText id='j_username' name='j_username' value='nabla@siliconvalley.com'
 											styleClass="form-control" type="text"
 											pt:placeholder="something@somewhere.com" />
 										<h:outputLabel styleClass="control-label" value='Contraseña: ' />
-										<p:password id='j_password' name='j_password'
+										<p:password id='j_password' name='j_password' value='E4S3RM' redisplay='true'
 											styleClass="form-control" pt:placeholder="**********" />
 										<h:panelGrid columns='1'>
 											<input type='submit' name='submit' value='Login' class="btn btn-default"/>

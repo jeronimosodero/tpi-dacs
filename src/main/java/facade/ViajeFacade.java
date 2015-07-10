@@ -2,6 +2,8 @@ package facade;
 
 
 
+import java.util.List;
+
 import javax.ejb.Local;
 
 import model.Viaje;
@@ -11,4 +13,6 @@ public interface ViajeFacade {
 	
 	public abstract Viaje findViajeById(Long id);
 	public abstract void save(Viaje viaje);
+	public abstract List<Viaje> findAll();
+	public abstract Viaje update(Viaje viaje);
 }

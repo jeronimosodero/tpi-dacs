@@ -12,4 +12,5 @@ public interface ClienteFacade {
 	public abstract List<Cliente> findAll();
 	public abstract Cliente findClienteByEmail(String email);
 	public abstract Cliente findClienteById(Long id);
+	public abstract Cliente update(Cliente cliente);
 }
