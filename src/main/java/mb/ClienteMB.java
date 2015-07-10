@@ -1,6 +1,8 @@
 package mb;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -14,8 +16,13 @@ import javax.transaction.UserTransaction;
 
 import model.Cliente;
 import model.Direccion;
+import model.Estado;
+import model.Orden;
 import facade.ClienteFacade;
 import facade.DireccionFacade;
+import facade.EstadoFacade;
+import facade.OrdenFacade;
+import facade.ServicioFacade;
 import facade.SucursalFacade;
 
 @ManagedBean
@@ -35,6 +42,14 @@ public class ClienteMB implements Serializable {
 	@EJB
 	private SucursalFacade sucursalFacade;
 
+	@EJB
+	private ServicioFacade servicioFacade;
+	
+	@EJB
+	private EstadoFacade estadoFacade;
+	
+	@EJB
+	private OrdenFacade ordenFacade;
 	@Resource
 	UserTransaction tx;
 
@@ -61,6 +76,43 @@ public class ClienteMB implements Serializable {
 			mCliente.setPass();
 			mCliente.setRole();
 			ClienteFacade.save(mCliente);
+			
+			
+			Estado e1 = new Estado();
+			e1.setFecha(new Date());
+			e1.setHora(new Date());
+			e1.setLatitud(30.f);
+			e1.setLongitud(40.f);
+			e1.setSucursal(sucursalFacade.findSucursalById(1L));
+			
+			Estado e2 = new Estado();
+			e2.setFecha(new Date());
+			e2.setHora(new Date());
+			e2.setLatitud(3.f);
+			e2.setLongitud(4.f);
+			e2.setSucursal(sucursalFacade.findSucursalById(2L));
+			
+			estadoFacade.save(e1);
+			estadoFacade.save(e2);
+			
+			
+			
+			Orden orden = new Orden();
+			orden.setFecha(new Date());
+			orden.setMonto(300.f);
+			orden.setPagado("No");
+			orden.setServicio(servicioFacade.findAll().get(0));
+			
+			List<Estado> estados = new ArrayList<>();
+			estados.add(e1);
+			estados.add(e2);
+			
+			
+			
+			orden.setEstado(estados);
+			ordenFacade.save(orden);
+			
+			
 			tx.commit();
 		} catch (Exception e) {
 			try {
