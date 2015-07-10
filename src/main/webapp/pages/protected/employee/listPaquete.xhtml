@@ -5,11 +5,18 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarEmployee">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">
-			<H2>Cliente: #{ordenEmpledoMB.cliente.nombre}</H2>
-			<H2>Orden número #{ordenEmpledoMB.orden.id}</H2>
+				<H2>Cliente: #{ordenEmpledoMB.cliente.nombre}</H2>
+				<H2>Orden número #{ordenEmpledoMB.orden.id}</H2>
 				<h:form>
 					<p:dataTable value="#{ordenEmpledoMB.paquetes}" var="paquete"
 						paginator="true" rows="10">

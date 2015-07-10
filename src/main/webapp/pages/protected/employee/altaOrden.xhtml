@@ -8,6 +8,13 @@
 	xmlns:o="http://omnifaces.org/ui"
 	xmlns:of="http://omnifaces.org/functions"
 	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarEmployee">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">

@@ -108,13 +108,6 @@ public class Orden extends BaseEntity {
 		mMonto = monto;
 	}
 
-	public String getmPagado() {
-		return mPagado;
-	}
-
-	public void setmPagado(String mPagado) {
-		this.mPagado = mPagado;
-	}
 
 	public Set<Paquete> getPaquetes() {
 		return mPaquetes;
