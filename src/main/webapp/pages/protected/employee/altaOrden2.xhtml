@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarEmployee">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Alta orden</H2>
+				<h3>Agregar paquete</h3>
+				<h:form class="form-horizontal">
+					<div class="form-group">
+						<label for="mContenido" class="col-sm-2 control-label">Contenido</label>
+						<div class="col-sm-10">
+							<p:inputTextarea type="text" id="mContenido"
+								styleClass="form-control"
+								value="#{ordenEmpledoMB.paquete.contenido}"
+								pt:placeholder="Nombre" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mTamaño" class="col-sm-2 control-label">Tamaño</label>
+						<div class="col-sm-10">
+							<p:inputText type="number" id="mTamaño" styleClass="form-control"
+								value="#{ordenEmpledoMB.paquete.tamaño}" pt:placeholder="270" />
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="mPeso" class="col-sm-2 control-label">Peso</label>
+						<div class="col-sm-10">
+							<p:inputText type="number" id="mPeso" styleClass="form-control"
+								value="#{ordenEmpledoMB.paquete.peso}" pt:placeholder="200" />
+						</div>
+					</div>
+					<p:commandButton action="#{ordenEmpledoMB.create}" value="Guardar" />
+					<p:commandButton action="#{ordenEmpledoMB.createAndRedirect}"
+						value="Guardar y agregar otro" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

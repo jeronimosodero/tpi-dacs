@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:jsf="http://java.sun.com/jsf" xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<h:body>
+	<ui:composition>
+		<ul class="sidebar-nav">
+			<li class="sidebar-brand"><a href="#"> Empleado </a></li>
+			<li><p:commandLink value="Alta Cliente"
+					action="#{clienteMB.altaCliente}" ajax="false" /></li>
+			<li><p:commandLink value="Listar Clientes"
+					action="#{clienteMB.listarClientes}" ajax="false" /></li>
+			
+			<li><p:commandLink value="Alta Orden"
+					action="#{ordenMB.altaOrdenEmpleado}" ajax="false" /></li>
+
+		</ul>
+	</ui:composition>
+</h:body>
+</html>

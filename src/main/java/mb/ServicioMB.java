@@ -42,6 +42,14 @@ public class ServicioMB implements Serializable {
 	
 	private List<Seguro> mSeguros;
 	
+	public String listarServicios() {
+		return "/pages/protected/admin/listServicio.jsp?faces-redirect=true";
+	}
+	
+	public String altaServicio() {
+		return "/pages/protected/admin/altaServicio.jsp?faces-redirect=true";
+	}
+	
 	public String create(){
 		try {
 			tx.begin();

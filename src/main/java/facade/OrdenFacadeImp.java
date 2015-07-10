@@ -10,7 +10,7 @@ import dao.OrdenDao;
 
 @Stateless
 public class OrdenFacadeImp implements OrdenFacade {
-	
+
 	@EJB
 	private OrdenDao ordenDao;
 
@@ -27,4 +27,13 @@ public class OrdenFacadeImp implements OrdenFacade {
 		return ordenDao.findAll();
 	}
 
+	@Override
+	public Orden update(Orden orden) {
+		return ordenDao.update(orden);
+	}
+
+	@Override
+	public Orden find(Long id) {
+		return ordenDao.find(id);
+	}
 }

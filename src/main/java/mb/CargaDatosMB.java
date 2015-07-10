@@ -16,7 +16,6 @@ import model.Administrador;
 import model.Cliente;
 import model.Direccion;
 import model.Empleado;
-import model.Estado;
 import model.Ruta;
 import model.Sucursal;
 import model.Unidad;
