@@ -14,4 +14,5 @@ public interface OrdenFacade {
 	public abstract Orden update(Orden orden);
 	public abstract Orden find(Long id);
 	public abstract List<Orden> findUnassigned(Empleado empleado);
+	public abstract List<Orden> findOrdenesSucursal(Empleado empleado);
 }

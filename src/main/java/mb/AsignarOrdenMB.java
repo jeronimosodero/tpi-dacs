@@ -43,6 +43,8 @@ public class AsignarOrdenMB implements Serializable {
 	UserTransaction tx;
 
 	private List<Orden> mOrdenes;
+	
+	private List<Orden> mOrdenesSucursal;
 
 	private Set<Orden> mSelectedOrdenes;
 
@@ -52,6 +54,10 @@ public class AsignarOrdenMB implements Serializable {
 
 	public String asignarOrden() {
 		return "/pages/protected/employee/asignarOrdenes.jsp?faces-redirect=true";
+	}
+	
+	public String listOrden() {
+		return "/pages/protected/employee/listOrden.jsp?faces-redirect=true";
 	}
 
 	public String save() {
@@ -83,6 +89,7 @@ public class AsignarOrdenMB implements Serializable {
 		mEmpleado = login.getEmpleado();
 		mViajes = findViajesActuales();
 		mOrdenes = findUnassignedOrdenes(mEmpleado);
+		mOrdenesSucursal = findOrdenesSucursal(mEmpleado);
 	}
 
 	private List<Viaje> findViajesActuales() {
@@ -91,6 +98,10 @@ public class AsignarOrdenMB implements Serializable {
 
 	public List<Orden> findUnassignedOrdenes(Empleado empleado) {
 		return OrdenFacade.findUnassigned(empleado);
+	}
+	
+	public List<Orden> findOrdenesSucursal(Empleado empleado) {
+		return OrdenFacade.findOrdenesSucursal(empleado);
 	}
 
 	// Views errors
@@ -116,6 +127,10 @@ public class AsignarOrdenMB implements Serializable {
 
 	public List<Orden> getOrdenes() {
 		return mOrdenes;
+	}
+	
+	public List<Orden> getOrdenesSucursales() {
+		return mOrdenesSucursal;
 	}
 
 	public List<Viaje> getViajes() {
