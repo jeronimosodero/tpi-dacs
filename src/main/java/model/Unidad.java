@@ -127,6 +127,13 @@ public class Unidad extends BaseEntity {
 		mFechaAdquisicion = fechaAdquisicion;
 	}
 	
+	public void finalizarViaje(){
+		if (!getViajeActual().isFinalizado()) {
+			getViajeActual().setFinalizado(true);
+		}
+		setViajeActual(null);
+	}
+	
 	@Override
 	public String toString(){
 		if (getId() == null) {
