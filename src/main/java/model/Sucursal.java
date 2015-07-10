@@ -30,8 +30,7 @@ public class Sucursal extends BaseEntity{
 	private String mEmail;
 	
 	@NotNull
-	@OneToOne(fetch = FetchType.LAZY)
-	@PrimaryKeyJoinColumn
+	@OneToOne(fetch = FetchType.EAGER)
 	private Direccion mDireccion;
 	
 	@NotNull
@@ -89,12 +88,12 @@ public class Sucursal extends BaseEntity{
 	public void setDireccion(Direccion direccion) {
 		mDireccion = direccion;
 	}
-	
 	@Override
-	public String toString(){
-		if (getId() == null) {
-			return null;
-		}
-		return String.format("%d - %s - %s", getDireccion().getProvincia());
+	public String toString() {
+		return "Sucursal [mTelefono=" + mTelefono + ", mEmail=" + mEmail
+				+ ", mDireccion=" + getDireccion().getCiudad()+""+getDireccion().getProvincia() + ", mLatitud=" + mLatitud
+				+ ", mLongitud=" + mLongitud + "]";
 	}
 }
+	
+
