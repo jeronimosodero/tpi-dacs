@@ -39,12 +39,26 @@ public class Ruta extends BaseEntity{
 		return mSucursales;
 	}
 
+
+
 	public void setSucursales(List<Sucursal> sucursales) {
 		mSucursales = sucursales;
+	}
+
+	public Ruta(String mNombre, List<Sucursal> mSucursales) {
+		super();
+		this.mNombre = mNombre;
+		this.mSucursales = mSucursales;
+	}
+
+	@Override
+	public String toString() {
+		return "Ruta [mNombre=" + mNombre + ", mSucursales=" + mSucursales
+				+ "]";
 	} 
 	
 	
-	
+
 	
 
 }

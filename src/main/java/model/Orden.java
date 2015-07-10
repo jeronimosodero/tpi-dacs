@@ -45,7 +45,7 @@ public class Orden extends BaseEntity {
 	@Column(name = "pagado")
 	private String mPagado;
 
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER)
 	@JoinColumn(name = "orden_fk")
 	private Set<Paquete> mPaquetes;
 

@@ -104,4 +104,18 @@
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#protected#employee#listCliente.xhtml"
   PATH="/pages/protected/employee/listCliente.xhtml" SHAPE="240,929,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#employee#altaOrden2.xhtml"
+  PATH="/pages/protected/employee/altaOrden2.xhtml" SHAPE="32,1025,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#employee#altaOrden2.xhtml:0"
+   NAME="item" PATH="/pages/protected/employee/altaOrden2.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllPaquetes::#pages#protected#employee#listPaquete.xhtml"
+    NAME="output" PATH="/pages/protected/employee/listPaquete.xhtml"
+    TARGET="rules:#pages#protected#employee#listPaquete.xhtml"
+    TITLE="listAllPaquetes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#employee#listPaquete.xhtml"
+  PATH="/pages/protected/employee/listPaquete.xhtml"
+  SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

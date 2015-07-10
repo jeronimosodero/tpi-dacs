@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Alta orden</H2>
+				<h3>Buscar cliente</h3>
+				<h:form class="form-horizontal">
+					<div class="form-group">
+						<label for="mIdCliente" class="col-sm-2 control-label">Id
+							del cliente</label>
+						<div class="col-sm-10">
+							<p:inputText type="text" id="mIdCliente"
+								styleClass="form-control" value="#{ordenEmpledoMB.idCliente}"
+								pt:placeholder="127" />
+						</div>
+					</div>
+					<p:commandButton action="#{ordenEmpledoMB.findClienteById}"
+						value="Buscar" />
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
