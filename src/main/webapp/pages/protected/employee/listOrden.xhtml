@@ -1,0 +1,42 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarEmployee">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Lista de Ordenes de Sucursal</H2>
+				<h:form>
+					<p:dataTable value="#{asignarOrdenMB.ordenesSucursales}" var="orden"
+						paginator="true" rows="10">
+						<p:column headerText="Id">
+							<h:outputText value="#{orden.id}" />
+						</p:column>
+						<p:column headerText="Fecha">
+							<h:outputText value="#{orden.fecha}" />
+						</p:column>
+						<p:column headerText="Monto">
+							<h:outputText value="#{orden.monto}" />
+						</p:column>
+						<p:column headerText="Sucursal Origen">
+							<h:outputText value="#{orden.origen}" />
+						</p:column>
+						<p:column headerText="Sucursal Destino">
+							<h:outputText value="#{orden.destino}" />
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>
