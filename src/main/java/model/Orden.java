@@ -108,7 +108,6 @@ public class Orden extends BaseEntity {
 		mMonto = monto;
 	}
 
-
 	public Set<Paquete> getPaquetes() {
 		return mPaquetes;
 	}
@@ -124,9 +123,9 @@ public class Orden extends BaseEntity {
 	public void setEstado(List<Estado> estado) {
 		mEstado = estado;
 	}
-
+/*
 	@Override
 	public String toString(){
 		return String.format("%d - %s - %s", getId(),getOrigen(),getDestino());
-	}
+	}*/
 }

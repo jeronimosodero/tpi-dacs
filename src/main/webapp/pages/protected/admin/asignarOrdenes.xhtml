@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="contenido">
+		<div class="jumbotron">
+			<div class="container">
+				<H2>Asignación de ordenes</H2>
+				<div class="col-sm-4">
+					<h:form class="form-horizontal">
+					
+						<div class="form-group">
+							<label for="mViaje" class="col-sm-2 control-label">Viaje</label>
+							<div class="col-sm-10">
+								<p:selectOneMenu value="#{asignarOrdenMB.viaje}"
+									converter="omnifaces.SelectItemsConverter">
+									<f:selectItem itemLabel="Elija uno" itemValue="" />
+									<f:selectItems value="#{asignarOrdenMB.viajes}"/>
+								</p:selectOneMenu>
+							</div>
+						</div>
+	
+						<label for="mOrdenes" class="col-sm-2 control-label">Ordenes</label>
+						<br></br>
+						<p:selectManyCheckbox value="#{asignarOrdenMB.selectedOrdenes}"
+							layout="grid" columns="1"
+							converter="omnifaces.SelectItemsConverter">
+							<f:selectItems value="#{asignarOrdenMB.ordenes}" var="orden"
+								itemLabel="#{orden.id}" itemValue="#{orden}" />
+						</p:selectManyCheckbox>
+
+						<p:commandButton action="#{asignarOrdenMB.save}" value="Guardar" />
+					</h:form>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+</ui:composition>

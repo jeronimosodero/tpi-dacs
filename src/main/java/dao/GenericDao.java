@@ -11,7 +11,7 @@ public abstract class GenericDao<T> {
 	private final static String UNIT_NAME = "tpidacs";
 
 	 @PersistenceContext(unitName = UNIT_NAME)
-	 private EntityManager em;
+	 protected EntityManager em;
 
 	 private Class<T> entityClass;
 

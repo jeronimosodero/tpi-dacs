@@ -1,6 +1,9 @@
 package dao;
 
+import java.util.List;
+
 import javax.ejb.Stateless;
+import javax.persistence.Query;
 
 import model.Orden;
 
@@ -11,4 +14,10 @@ public class OrdenDao extends GenericDao<Orden> {
 		super(Orden.class);
 	}
 	
+	public List<Orden> findUnassigned(){
+		List<Orden> result = null;
+		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null",Orden.class);
+		result = q.getResultList();
+		return result;
+	}
 }

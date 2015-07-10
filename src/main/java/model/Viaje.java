@@ -3,10 +3,13 @@ package model;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -15,12 +18,15 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name="Viaje",schema="tpidacs")
+@NamedQuery(name = "Viaje.findActuales", query = "select u.mViajeActual from Unidad u where u.mViajeActual is not null")
 public class Viaje extends BaseEntity{
 	
 	/**
 	 * Ruta -> lista de sucursales
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	public static final String FIND_ACTUALES = "Viaje.findActuales";
 
 	@NotNull
 	@Temporal(TemporalType.DATE)
@@ -34,7 +40,7 @@ public class Viaje extends BaseEntity{
 	private Unidad mUnidad;
 	
 	
-	@OneToMany
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
 	@JoinColumn(name="viaje_fk")
 	private Set<Orden> mOrdenes;
 	

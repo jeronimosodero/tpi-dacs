@@ -27,5 +27,13 @@ public class ViajeFacadeImp implements ViajeFacade{
 	public List<Viaje> findAll() {
 		return viajeDao.findAll();
 	}
+	@Override
+	public Viaje update(Viaje viaje) {
+		return viajeDao.update(viaje);
+	}
+	@Override
+	public List<Viaje> findActuales() {
+		return viajeDao.findActuales();
+	}
 
 }

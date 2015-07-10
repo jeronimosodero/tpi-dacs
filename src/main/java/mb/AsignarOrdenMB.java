@@ -2,6 +2,7 @@ package mb;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -12,60 +13,47 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.transaction.UserTransaction;
 
-import model.Ruta;
-import model.Unidad;
+import model.Orden;
 import model.Viaje;
-import facade.RutaFacade;
-import facade.UnidadFacade;
+import facade.OrdenFacade;
 import facade.ViajeFacade;
 
 @ManagedBean
 @RequestScoped
-public class ViajeMB implements Serializable {
+public class AsignarOrdenMB implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private static final String LIST_ALL_VIAJES = "listAllViajes";
-	private static final String FIND_ACTUALES = "Viaje.findActuales";
+	private static final String LIST_ALL_ORDENES = "listAllordenes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
+
+	@EJB
+	private OrdenFacade OrdenFacade;
 
 	@EJB
 	private ViajeFacade ViajeFacade;
 
-	@EJB
-	private RutaFacade RutaFacade;
-
-	@EJB
-	private UnidadFacade UnidadFacade;
-
 	@Resource
 	UserTransaction tx;
 
-	private Viaje mViaje;
+	private List<Orden> mOrdenes;
+
+	private Set<Orden> mSelectedOrdenes;
 
 	private List<Viaje> mViajes;
 
-	private List<Unidad> mUnidades;
+	private Viaje mViaje;
 
-	private List<Ruta> mRutas;
-
-	public String listarViajes() {
-		return "/pages/protected/admin/listViaje.jsp?faces-redirect=true";
-	}
-	
-	public String altaViaje() {
-		return "/pages/protected/admin/altaViaje.jsp?faces-redirect=true";
-	}
-	
-	
-	public String create() {
+	public String save() {
 		try {
 			tx.begin();
-			ViajeFacade.save(mViaje);
-			mViaje.getUnidad().setViajeActual(mViaje);
-			UnidadFacade.update(mViaje.getUnidad());
+			for(Orden o:mSelectedOrdenes){
+				mViaje.getOrdenes().add(o);
+				ViajeFacade.update(mViaje);
+			}
 			tx.commit();
 		} catch (Exception e) {
 			try {
+				e.printStackTrace();
 				tx.rollback();
 			} catch (Exception e1) {
 				sendErrorMessageToUser("Error del servidor.");
@@ -75,27 +63,22 @@ public class ViajeMB implements Serializable {
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operación completada.");
-		mViajes = findAllViajes();
-		return LIST_ALL_VIAJES;
-	}
-
-	public List<Unidad> findAllUnidades() {
-		return UnidadFacade.findAll();
-	}
-
-	public List<Ruta> findAllRutas() {
-		return RutaFacade.findAll();
-	}
-
-	public List<Viaje> findAllViajes() {
-		return ViajeFacade.findAll();
+		mOrdenes = findUnassignedOrdenes();
+		return LIST_ALL_ORDENES;
 	}
 
 	@PostConstruct
 	public void init() {
-		mViajes = findAllViajes();
-		mUnidades = findAllUnidades();
-		mRutas = findAllRutas();
+		mViajes = findViajesActuales();
+		mOrdenes = findUnassignedOrdenes();
+	}
+
+	private List<Viaje> findViajesActuales() {
+		return ViajeFacade.findActuales();
+	}
+
+	public List<Orden> findUnassignedOrdenes() {
+		return OrdenFacade.findUnassigned();
 	}
 
 	// Views errors
@@ -118,6 +101,23 @@ public class ViajeMB implements Serializable {
 	}
 
 	// Setters and getters
+
+	public List<Orden> getOrdenes() {
+		return mOrdenes;
+	}
+
+	public List<Viaje> getViajes() {
+		return mViajes;
+	}
+
+	public void setViajes(List<Viaje> viajes) {
+		mViajes = viajes;
+	}
+
+	public void setOrdenes(List<Orden> ordenes) {
+		mOrdenes = ordenes;
+	}
+
 	public Viaje getViaje() {
 		if (mViaje == null) {
 			mViaje = new Viaje();
@@ -129,28 +129,12 @@ public class ViajeMB implements Serializable {
 		mViaje = viaje;
 	}
 
-	public List<Viaje> getViajes() {
-		return mViajes;
+	public Set<Orden> getSelectedOrdenes() {
+		return mSelectedOrdenes;
 	}
 
-	public void setViajes(List<Viaje> viajes) {
-		mViajes = viajes;
-	}
-
-	public List<Unidad> getUnidades() {
-		return mUnidades;
-	}
-
-	public void setUnidades(List<Unidad> unidades) {
-		mUnidades = unidades;
-	}
-
-	public List<Ruta> getRutas() {
-		return mRutas;
-	}
-
-	public void setRutas(List<Ruta> rutas) {
-		mRutas = rutas;
+	public void setSelectedOrdenes(Set<Orden> selectedOrdenes) {
+		mSelectedOrdenes = selectedOrdenes;
 	}
 
 }
