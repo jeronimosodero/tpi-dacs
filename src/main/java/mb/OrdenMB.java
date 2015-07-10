@@ -78,10 +78,6 @@ public class OrdenMB implements Serializable {
 		return "/pages/protected/user/altaOrden.jsp?faces-redirect=true";
 	}
 
-	public String altaOrdenEmpleado() {
-		return "/pages/protected/employee/altaOrden.jsp?faces-redirect=true";
-	}
-
 	public String create() {
 		try {
 			tx.begin();
