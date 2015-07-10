@@ -124,6 +124,13 @@ public class Orden extends BaseEntity {
 	public void setEstado(List<Estado> estado) {
 		mEstado = estado;
 	}
+	
+	public boolean isEstadoNull(){
+		if (getEstado().isEmpty()) {
+			return false;
+		}
+		return true;
+	}
 
 	@Override
 	public String toString(){

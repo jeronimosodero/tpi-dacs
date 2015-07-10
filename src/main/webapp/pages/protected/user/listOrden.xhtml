@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -8,32 +7,32 @@
 	template="/WEB-INF/templates/template.xhtml">
 	<ui:define name="sidebar">
 		<h:form>
-			<ui:insert name="sidebarAdmin">
-				<ui:include src="/WEB-INF/templates/sidebarAdmin.xhtml" />
+			<ui:insert name="sidebarUser">
+				<ui:include src="/WEB-INF/templates/sidebarUser.xhtml" />
 			</ui:insert>
 		</h:form>
 	</ui:define>
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">
-				<H2>Lista de Sucursales</H2>
+				<H2>Lista de Empleados</H2>
 				<h:form>
-					<p:dataTable value="#{sucursalMB.sucursales}" var="sucursal"
+					<p:dataTable value="#{ordenMB.ordenes}" var="orden"
 						paginator="true" rows="10">
 						<p:column headerText="Id">
-							<h:outputText value="#{sucursal.id}" />
+							<h:outputText value="#{orden.id}" />
 						</p:column>
-						<p:column headerText="Provincia">
-							<h:outputText value="#{sucursal.direccion.provincia}" />
+						<p:column headerText="Fecha">
+							<h:outputText value="#{orden.fecha}" />
 						</p:column>
-						<p:column headerText="Ciudad">
-							<h:outputText value="#{sucursal.direccion.ciudad}" />
+						<p:column headerText="Monto">
+							<h:outputText value="#{orden.monto}" />
 						</p:column>
-						<p:column headerText="Email">
-							<h:outputText value="#{sucursal.email}" />
+						<p:column headerText="Sucursal Origen">
+							<h:outputText value="#{orden.origen}" />
 						</p:column>
-						<p:column headerText="Telefono">
-							<h:outputText value="#{sucursal.telefono}" />
+						<p:column headerText="Sucursal Destino">
+							<h:outputText value="#{orden.destino}" />
 						</p:column>
 					</p:dataTable>
 				</h:form>

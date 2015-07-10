@@ -20,9 +20,6 @@ import org.hibernate.annotations.LazyCollectionOption;
 @Table(name="Viaje",schema="tpidacs")
 public class Viaje extends BaseEntity{
 	
-	/**
-	 * Ruta -> lista de sucursales
-	 */
 	private static final long serialVersionUID = 1L;
 
 	@NotNull

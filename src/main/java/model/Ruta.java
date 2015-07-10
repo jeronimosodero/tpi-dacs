@@ -51,9 +51,11 @@ public class Ruta extends BaseEntity{
 	}
 
 	@Override
-	public String toString() {
-		return "Ruta [mNombre=" + mNombre + ", mSucursales=" + mSucursales
-				+ "]";
+	public String toString(){
+		if (getId() == null) {
+			return null;
+		}
+		return String.format("%d - %s", getId(),getNombre());
 	}
-
+	
 }

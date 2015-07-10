@@ -56,6 +56,7 @@ public class CargaDatosMB implements Serializable {
 	@EJB
 	private RutaFacade rutaFacade;
 
+	
 	@Resource
 	UserTransaction tx;
 
@@ -63,16 +64,16 @@ public class CargaDatosMB implements Serializable {
 	public String cargaDatos() {
 		try {
 			tx.begin();
-			//nombre, fecha nac, telefono, direc, cuil,  CLIENTE , USUARIO: email cuil dni pw, role
+			
 			//CREO DIRECCIONES
 			Direccion d1 = new Direccion();
 			d1.setCalle("Vedia");
 			d1.setAltura(740);
-			d1.setCiudad("RESISTENCIA");
+			d1.setCiudad("CORRIENTES");
 			d1.setDepartamento(1);
 			d1.setPais("Argentina");
 			d1.setPiso(1);
-			d1.setProvincia("CHACO");
+			d1.setProvincia("CORRIENTES");
 			Direccion d2 = new Direccion();
 			d2.setCalle("Junin");
 			d2.setAltura(900);
@@ -84,11 +85,11 @@ public class CargaDatosMB implements Serializable {
 			Direccion d3 = new Direccion();
 			d3.setCalle("Junin");
 			d3.setAltura(900);
-			d3.setCiudad("RESISTENCIA");
+			d3.setCiudad("CORRIENTES");
 			d3.setDepartamento(1);
 			d3.setPais("Argentina");
 			d3.setPiso(1);
-			d3.setProvincia("CHACO");
+			d3.setProvincia("CORRIENTES");
 			Direccion d4 = new Direccion();
 			d4.setCalle("Junin");
 			d4.setAltura(900);
@@ -108,11 +109,11 @@ public class CargaDatosMB implements Serializable {
 			Direccion d6 = new Direccion();
 			d6.setCalle("Junin");
 			d6.setAltura(900);
-			d6.setCiudad("RESISTENCIA");
+			d6.setCiudad("CORRIENTES");
 			d6.setDepartamento(1);
 			d6.setPais("Argentina");
 			d6.setPiso(1);
-			d6.setProvincia("CHACO");
+			d6.setProvincia("CORRIENTES");
 			
 			direccionFacade.save(d1);
 			direccionFacade.save(d2);
@@ -124,7 +125,7 @@ public class CargaDatosMB implements Serializable {
 			//CREO CLIENTES
 			
 			Cliente c1 = new Cliente();
-			c1.setNombre("Muchutti Paulo");
+			c1.setNombre("Paulo Muchutti");
 			c1.setFecNac(new Date());
 			c1.setTelefono("4222544");
 			c1.setCUIL(20378883075L);
@@ -144,7 +145,7 @@ public class CargaDatosMB implements Serializable {
 			c2.setPass();
 			c2.setRole();
 			Cliente c3 = new Cliente();
-			c3.setNombre("Jeronimo");
+			c3.setNombre("Jeronimo Sodero");
 			c3.setFecNac(new Date());
 			c3.setTelefono("4222544");
 			c3.setCUIL(10378886075L);
@@ -154,7 +155,7 @@ public class CargaDatosMB implements Serializable {
 			c3.setPass();
 			c3.setRole();
 			Cliente c4 = new Cliente();
-			c4.setNombre("Ruiz Diaz Julian");
+			c4.setNombre("Julian Ruiz Diaz");
 			c4.setFecNac(new Date());
 			c4.setTelefono("4222544");
 			c4.setCUIL(50308886075L);
@@ -164,17 +165,17 @@ public class CargaDatosMB implements Serializable {
 			c4.setPass();
 			c4.setRole();
 			Cliente c5 = new Cliente();
-			c5.setNombre("Calcagno Santiago");
+			c5.setNombre("Santiago Calcagno");
 			c5.setFecNac(new Date());
 			c5.setTelefono("4222544");
 			c5.setCUIL(60378886075L);
 			c5.setDireccion(d5);
-			c5.setEmail("santiagofeto@hotmail.com");
+			c5.setEmail("santiagofet@hotmail.com");
 			c5.setDNI();
 			c5.setPass();
 			c5.setRole();
-			/*Cliente c6 = new Cliente();
-			c6.setNombre("Matias");
+			Cliente c6 = new Cliente();
+			c6.setNombre("Matias Wajnman");
 			c6.setFecNac(new Date());
 			c6.setTelefono("4222549");
 			c6.setCUIL(60278886075L);
@@ -182,24 +183,24 @@ public class CargaDatosMB implements Serializable {
 			c6.setEmail("matias@hotmail.com");
 			c6.setDNI();
 			c6.setPass();
-			c6.setRole();*/
+			c6.setRole();
 			
 			clienteFacade.save(c1);
 			clienteFacade.save(c2);
 			clienteFacade.save(c3);
 			clienteFacade.save(c4);
 			clienteFacade.save(c5);
-			//clienteFacade.save(c6);
+			clienteFacade.save(c6);
 			
 			
 			
 			//CREO ADMINISTRADOR
 			Administrador admin = new Administrador();
 			admin.setRole();
-			admin.setNombre("nabla");
+			admin.setNombre("Admin");
 			admin.setFechaNac(new Date());
 			admin.setFechaIng(new Date());
-			admin.setEmail("nabla@siliconvalley.com");
+			admin.setEmail("tpi@dacs.com");
 			admin.setCUIL(90378886075L);
 			admin.setPass();
 			admin.setDNI();
@@ -244,6 +245,7 @@ public class CargaDatosMB implements Serializable {
 			Sucursal s9 = new Sucursal("454445","rosario@hotmail.com",ds9,-32.9523035,-60.6981577);
 			Sucursal s10 = new Sucursal("454445","santafe@hotmail.com",ds10,-31.6181427,-60.7062571);
 			Sucursal s11 = new Sucursal("454445","corrientes@hotmail.com",ds11,-27.4862516,-58.7923866);
+
 			
 			sucursalFacade.save(s1);
 			sucursalFacade.save(s2);
@@ -256,6 +258,7 @@ public class CargaDatosMB implements Serializable {
 			sucursalFacade.save(s9);
 			sucursalFacade.save(s10);
 			sucursalFacade.save(s11);
+
 			
 			//CREO EMPLEADOS PARA SUCURSAL
 			
@@ -354,7 +357,6 @@ public class CargaDatosMB implements Serializable {
 		sendInfoMessageToUser("Operacion completada.");
 		return LIST_ALL_CLIENTES;
 	}
-
 
 
 	// Views errors

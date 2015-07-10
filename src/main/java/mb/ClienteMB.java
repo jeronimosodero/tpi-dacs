@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -12,6 +13,13 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.transaction.UserTransaction;
 
 import model.Cliente;
@@ -32,6 +40,8 @@ public class ClienteMB implements Serializable {
 	private static final String LIST_ALL_ClienteS = "listAllClientes";
 	private static final String STAY_IN_THE_SAME_PAGE = null;
 	private static final long serialVersionUID = 1L;
+	final String username = "tpidacs@gmail.com";
+	final String password = "tpidacs123";
 
 	@EJB
 	private ClienteFacade ClienteFacade;
@@ -62,11 +72,11 @@ public class ClienteMB implements Serializable {
 	public String listarClientes() {
 		return "/pages/protected/employee/listCliente.jsp?faces-redirect=true";
 	}
-	
+
 	public String altaCliente() {
 		return "/pages/protected/employee/altaCliente.jsp?faces-redirect=true";
 	}
-	
+
 	public String createClienteEnd() {
 		try {
 			tx.begin();
@@ -125,6 +135,7 @@ public class ClienteMB implements Serializable {
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
+		sendEmail();
 		return LIST_ALL_ClienteS;
 	}
 
@@ -135,6 +146,41 @@ public class ClienteMB implements Serializable {
 	@PostConstruct
 	public void init() {
 		mClientes = findAll();
+	}
+
+	private void sendEmail() {
+		Properties props = new Properties();
+		props.put("mail.smtp.auth", "true");
+		props.put("mail.smtp.starttls.enable", "true");
+		props.put("mail.smtp.host", "smtp.gmail.com");
+		props.put("mail.smtp.port", "587");
+
+		Session session = Session.getInstance(props,
+				new javax.mail.Authenticator() {
+					protected PasswordAuthentication getPasswordAuthentication() {
+						return new PasswordAuthentication(username, password);
+					}
+				});
+
+		try {
+
+			Message message = new MimeMessage(session);
+			message.setFrom(new InternetAddress("tpidacs@gmail.com"));
+			message.setRecipients(Message.RecipientType.TO,
+					InternetAddress.parse(mCliente.getEmail()));
+			message.setSubject("Cuenta creada exitosamente");
+			message.setText("Señor/a, "
+					+ mCliente.getNombre()
+					+ ": Su cuenta en EnviosDacs fue creada exitosamente.\n Sus datos de acceso son:\n Nombre de usuario: "
+					+ mCliente.getEmail() + "\n Contraseña: "
+					+ mCliente.getPass());
+
+			Transport.send(message);
+
+		} catch (MessagingException e) {
+			e.printStackTrace();
+			throw new RuntimeException(e);
+		}
 	}
 
 	// Views errors
