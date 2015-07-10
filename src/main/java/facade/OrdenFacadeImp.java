@@ -41,5 +41,10 @@ public class OrdenFacadeImp implements OrdenFacade {
 	public List<Orden> findUnassigned(Empleado empleado) {
 		return ordenDao.findUnassigned(empleado);
 	}
+
+	@Override
+	public List<Orden> findOrdenesSucursal(Empleado empleado) {
+		return ordenDao.findOrdenesSucursal(empleado);
+	}
 	
 }

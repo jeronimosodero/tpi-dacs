@@ -18,7 +18,16 @@ public class OrdenDao extends GenericDao<Orden> {
 	public List<Orden> findUnassigned(Empleado empleado){
 		List<Orden> result = null;
 		Long id = empleado.getSucursal().getId();
-		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null and o.pagado like 'Si' and o.origen_fk = :id",Orden.class);
+		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null and o.origen_fk = :id",Orden.class);
+		q.setParameter("id", id);
+		result = q.getResultList();
+		return result;
+	}
+	
+	public List<Orden> findOrdenesSucursal(Empleado empleado){
+		List<Orden> result = null;
+		Long id = empleado.getSucursal().getId();
+		Query q = em.createNativeQuery("select * from Orden o where o.origen_fk = :id",Orden.class);
 		q.setParameter("id", id);
 		result = q.getResultList();
 		return result;
