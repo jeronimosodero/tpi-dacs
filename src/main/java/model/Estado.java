@@ -75,5 +75,12 @@ public class Estado extends BaseEntity{
 		mSucursal = sucursal;
 	}
 	
+	@Override
+	public String toString(){
+		if (getId()==null) {
+			return null;
+		}
+		return String.format("%s - %s - %s", getSucursal(),getFecha(),getHora());
+	}
 
 }
