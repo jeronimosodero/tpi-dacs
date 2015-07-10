@@ -43,6 +43,12 @@ public class AsignarOrdenMB implements Serializable {
 
 	private Viaje mViaje;
 
+	public String asignarOrden() {
+		return "/pages/protected/employee/asignarOrdenes.jsp?faces-redirect=true";
+	}
+
+
+	
 	public String save() {
 		try {
 			tx.begin();
