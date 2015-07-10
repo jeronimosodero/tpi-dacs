@@ -3,6 +3,7 @@ package mb;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
@@ -41,7 +42,7 @@ public class OrdenEmpledoMB implements Serializable {
 
 	@EJB
 	private PaqueteFacade paqueteFacade;
-	
+
 	@EJB
 	private EstadoFacade estadoFacade;
 
@@ -69,7 +70,12 @@ public class OrdenEmpledoMB implements Serializable {
 
 	public String findClienteById() {
 		mCliente = clienteFacade.findClienteById(mIdCliente);
-		mOrdenes = mCliente.getOrdenes();
+		mOrdenes = new HashSet<Orden>();
+		for (Orden orden : mCliente.getOrdenes()) {
+			if (!orden.isEstadoNull()) {
+				mOrdenes.add(orden);
+			}
+		}
 		return "/pages/protected/employee/altaOrden1.jsp";
 	}
 
@@ -128,6 +134,7 @@ public class OrdenEmpledoMB implements Serializable {
 	public String altaOrdenEmpleado() {
 		return "/pages/protected/employee/altaOrden.jsp?faces-redirect=true";
 	}
+
 	// Views errors
 
 	private void sendInfoMessageToUser(String message) {
