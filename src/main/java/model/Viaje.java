@@ -13,6 +13,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 @Entity
 @Table(name="Viaje",schema="tpidacs")
 public class Viaje extends BaseEntity{
@@ -25,14 +28,18 @@ public class Viaje extends BaseEntity{
 	private Date mFechaPartida;
 
 	//relacion muchos a uno con unidad
+	/*
 	@NotNull
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.EAGER)
     @JoinColumn(name="fk_unidad")
+	@JsonIgnore
 	private Unidad mUnidad;
+	*/
 	
 	
 	@OneToMany
 	@JoinColumn(name="viaje_fk")
+	@LazyCollection(LazyCollectionOption.FALSE)
 	private Set<Orden> mOrdenes;
 	
 	
@@ -59,10 +66,13 @@ public class Viaje extends BaseEntity{
 	public void setRuta(Ruta ruta) {
 		mRuta = ruta;
 	}
+	/*
+	
 	public Unidad getUnidad() {
 		return mUnidad;
 	}
 	public void setUnidad(Unidad unidad) {
 		mUnidad = unidad;
 	}
+	*/
 }

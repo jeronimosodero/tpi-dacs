@@ -14,4 +14,5 @@ public interface ViajeFacade {
 	public abstract Viaje findViajeById(Long id);
 	public abstract void save(Viaje viaje);
 	public abstract List<Viaje> findAll();
+	public abstract Viaje update(Viaje viaje);
 }

@@ -4,28 +4,28 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Ruta", schema = "tpidacs")
-public class Ruta extends BaseEntity {
-
-	/**
-	 * 
-	 */
+public class Ruta extends BaseEntity{
 	private static final long serialVersionUID = 1L;
+	
+
 
 	public Ruta() {
 		super();
 	}
 
+
 	@NotNull
 	@Column(name = "nombre")
 	private String mNombre;
 
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.EAGER)
 	private List<Sucursal> mSucursales;
 
 	public String getNombre() {

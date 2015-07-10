@@ -31,9 +31,10 @@ public class OrdenFacadeImp implements OrdenFacade {
 	public Orden update(Orden orden) {
 		return ordenDao.update(orden);
 	}
-
-	@Override
+		
 	public Orden find(Long id) {
 		return ordenDao.find(id);
+
 	}
+
 }
