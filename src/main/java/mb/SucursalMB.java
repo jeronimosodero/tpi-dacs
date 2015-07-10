@@ -42,6 +42,14 @@ public class SucursalMB implements Serializable {
 	public List<Sucursal> findAll() {
 		return sucursalFacade.findAll();
 	}
+	
+	public String listarSucursales() {
+		return "/pages/protected/admin/listSucursal.jsp?faces-redirect=true";
+	}
+	
+	public String altaSucursal() {
+		return "/pages/protected/admin/altaSucursal.jsp?faces-redirect=true";
+	}
 
 	public String create() {
 		try {

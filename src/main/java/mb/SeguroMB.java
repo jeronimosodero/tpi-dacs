@@ -29,6 +29,14 @@ public class SeguroMB implements Serializable {
 	
 	private List<Seguro> mSeguros;
 	
+	public String listarSeguros() {
+		return "/pages/protected/admin/listSeguro.jsp?faces-redirect=true";
+	}
+	
+	public String altaSeguro() {
+		return "/pages/protected/admin/altaSeguro.jsp?faces-redirect=true";
+	}
+	
 	public String create(){
 		try {
 			seguroFacade.save(mSeguro);

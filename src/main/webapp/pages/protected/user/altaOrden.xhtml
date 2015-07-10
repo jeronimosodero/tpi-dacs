@@ -8,8 +8,15 @@
 	xmlns:o="http://omnifaces.org/ui"
 	xmlns:of="http://omnifaces.org/functions"
 	template="/WEB-INF/templates/template.xhtml">
+			<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarUser">
+				<ui:include src="/WEB-INF/templates/sidebarUser.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
 	<ui:define name="contenido">
-		<div class="jumbotron">
+		<div class="jumbotron" style="width:auto;">
 			<div class="container">
 				<H2>Alta orden</H2>
 				<h:form class="form-horizontal">

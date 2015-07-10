@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
@@ -6,34 +5,36 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
-		<ui:define name="sidebar">
-		<h:form>
+	<ui:define name="sidebar">
+		<h:form rendered="#{logInMb.admin}">
 			<ui:insert name="sidebarAdmin">
 				<ui:include src="/WEB-INF/templates/sidebarAdmin.xhtml" />
+			</ui:insert>
+		</h:form>
+		<h:form rendered="#{logInMb.employee}">
+			<ui:insert name="sidebarAdmin">
+				<ui:include src="/WEB-INF/templates/sidebarEmployee.xhtml" />
 			</ui:insert>
 		</h:form>
 	</ui:define>
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">
-			<H2>Lista de Servicios</H2>
+			<h2>Lista de Clientes</h2>
 				<h:form>
-					<p:dataTable value="#{servicioMB.servicios}" var="servicio"
+					<p:dataTable value="#{clienteMB.clientes}" var="cliente"
 						paginator="true" rows="10">
 						<p:column headerText="Id">
-							<h:outputText value="#{servicio.id}" />
+							<h:outputText value="#{cliente.id}" />
 						</p:column>
 						<p:column headerText="Nombre">
-							<h:outputText value="#{servicio.nombre}" />
+							<h:outputText value="#{cliente.nombre}" />
 						</p:column>
-						<p:column headerText="Descripción">
-							<h:outputText value="#{servicio.descripcion}" />
+						<p:column headerText="CUIL">
+							<h:outputText value="#{cliente.CUIL}" />
 						</p:column>
-						<p:column headerText="Coeficiente de costo">
-							<h:outputText value="#{servicio.coeficienteCosto}" />
-						</p:column>
-						<p:column headerText="Seguro">
-							<h:outputText value="#{servicio.seguro.nombre}" />
+						<p:column headerText="Ciudad">
+							<h:outputText value="#{cliente.direccion.ciudad}" />
 						</p:column>
 					</p:dataTable>
 				</h:form>

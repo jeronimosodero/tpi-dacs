@@ -68,6 +68,14 @@ public class OrdenMB implements Serializable {
 	private List<Orden> mOrdenes;
 	
 	private Date mFecha;
+	
+	public String estadoOrden() {
+		return "/pages/protected/user/selectOrden.jsp?faces-redirect=true";
+	}
+	
+	public String altaOrden() {
+		return "/pages/protected/user/altaOrden.jsp?faces-redirect=true";
+	}
 
 	public String create() {
 		try {

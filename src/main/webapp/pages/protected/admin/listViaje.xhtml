@@ -5,23 +5,31 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
+		<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarAdmin">
+				<ui:include src="/WEB-INF/templates/sidebarAdmin.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">
+			<H2>Lista de Viajes</H2>
 				<h:form>
-					<p:dataTable value="#{clienteMB.clientes}" var="cliente"
+					<p:dataTable value="#{viajeMB.viajes}" var="viaje"
 						paginator="true" rows="10">
 						<p:column headerText="Id">
-							<h:outputText value="#{cliente.id}" />
+							<h:outputText value="#{viaje.id}" />
 						</p:column>
-						<p:column headerText="Nombre">
-							<h:outputText value="#{cliente.nombre}" />
+						<p:column headerText="Fecha Partida">
+							<h:outputText value="#{viaje.fechaPartida}" />
 						</p:column>
-						<p:column headerText="CUIL">
-							<h:outputText value="#{cliente.CUIL}" />
+						<p:column headerText="Unidad">
+							<h:outputText value="#{viaje.unidad.dominio}" />
 						</p:column>
-						<p:column headerText="Ciudad">
-							<h:outputText value="#{cliente.direccion.ciudad}" />
+						<p:column headerText="Ruta">
+							<h:outputText value="#{viaje.ruta.nombre}" />
 						</p:column>
 					</p:dataTable>
 				</h:form>

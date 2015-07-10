@@ -5,9 +5,17 @@
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="sidebar">
+		<h:form>
+			<ui:insert name="sidebarAdmin">
+				<ui:include src="/WEB-INF/templates/sidebarAdmin.xhtml" />
+			</ui:insert>
+		</h:form>
+	</ui:define>s
 	<ui:define name="contenido">
 		<div class="jumbotron">
 			<div class="container">
+			<H2>Lista de Empleados</H2>
 				<h:form>
 					<p:dataTable value="#{empleadoMB.empleados}" var="empleado"
 						paginator="true" rows="10">
