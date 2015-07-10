@@ -1,6 +1,7 @@
 package rest;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -12,6 +13,7 @@ import javax.ws.rs.core.Response;
 
 import model.Estado;
 import model.Orden;
+import model.Sucursal;
 import model.Viaje;
 import facade.EstadoFacade;
 import facade.OrdenFacade;
@@ -40,18 +42,49 @@ public class ViajeEndpoint {
 	public Response save(@FormParam("idViaje") String idViaje,
 	    @FormParam("idSucursal") String idSucursal) {
 		Viaje elViaje = viajeFacade.findViajeById(Long.valueOf(idViaje));
-		Estado estado = new Estado();
-		estado.setSucursal(sucursalFacade.findSucursalById(Long.valueOf(idSucursal)));
-		estado.setFecha(new Date());
-		estado.setHora(new Date());
-		estadoFacade.save(estado);
-		for(Orden o: elViaje.getOrdenes()){
-			o.getEstado().add(estado);
-			ordenFacade.update(o);
+		
+		
+		if(!idSucursal.equals("-1")){
+			
+			
+			
+			//OBTENGO SUCURSAL DEL ESTADO NUEVO
+			Sucursal sucursal = sucursalFacade.findSucursalById(Long.valueOf(idSucursal));
+			
+			//OBTENGO ID DE LA ULTIMA SUCURSAL DEL VIAJE
+			List<Sucursal> sucursales = elViaje.getRuta().getSucursales();
+			Long ultimoId = sucursales.get(sucursales.size()-1).getId();
+			
+			//SI SON IGUALES LAS SUCURSALES SE CAMBIA EL VIAJE A FINALIZADO
+			if(sucursal.getId()==ultimoId){
+				elViaje.setFinalizado(true);
+			}
+			
+			Estado estado = new Estado();
+			estado.setSucursal(sucursal);
+			estado.setFecha(new Date());
+			estado.setHora(new Date());
+			estadoFacade.save(estado);
+			
+			//SE SETEA EL ESTADO A TODAS LAS ORDENES DEL VIAJE
+			for(Orden o: elViaje.getOrdenes()){
+				o.getEstado().add(estado);
+				ordenFacade.update(o);
+			}
+			
+			
+			viajeFacade.update(elViaje);
+			
+			
+			return Response.ok().build();
+		}else{
+			return Response.noContent().build();
 		}
-		viajeFacade.update(elViaje);
-		System.out.println("gg");
-		return Response.noContent().build();
+		
+		
+		
+		
+
 	}
 
 }
