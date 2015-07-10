@@ -44,6 +44,14 @@ public class ClienteMB implements Serializable {
 
 	private Direccion mDireccion;
 
+	public String listarClientes() {
+		return "/pages/protected/employee/listCliente.jsp?faces-redirect=true";
+	}
+	
+	public String altaCliente() {
+		return "/pages/protected/employee/altaCliente.jsp?faces-redirect=true";
+	}
+	
 	public String createClienteEnd() {
 		try {
 			tx.begin();
@@ -59,15 +67,12 @@ public class ClienteMB implements Serializable {
 				tx.rollback();
 			} catch (Exception e1) {
 				sendErrorMessageToUser("Error del servidor.");
-				System.out.println("error del servidor");
 				return STAY_IN_THE_SAME_PAGE;
 			}
 			sendErrorMessageToUser("Error datos invalidos.");
-			System.out.println("datos invalidos");
 			return STAY_IN_THE_SAME_PAGE;
 		}
 		sendInfoMessageToUser("Operacion completada.");
-		System.out.println("copete bolo");
 		return LIST_ALL_ClienteS;
 	}
 

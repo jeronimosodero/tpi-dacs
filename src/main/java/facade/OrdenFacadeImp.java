@@ -27,4 +27,9 @@ public class OrdenFacadeImp implements OrdenFacade {
 		return ordenDao.findAll();
 	}
 
+	@Override
+	public Orden update(Orden orden) {
+		return ordenDao.update(orden);
+	}
+
 }

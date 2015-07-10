@@ -41,6 +41,14 @@ public class EmpleadoMB implements Serializable {
 	private List<Empleado> mEmpleados;
 	
 	private List<Sucursal> mSucursales;
+	
+	public String listarEmpleados() {
+		return "/pages/protected/admin/listEmpleado.jsp?faces-redirect=true";
+	}
+	
+	public String altaEmpleado() {
+		return "/pages/protected/admin/altaEmpleado.jsp?faces-redirect=true";
+	}
 
 	public String createEmpleadoEnd(){
 		try {
