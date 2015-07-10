@@ -3,7 +3,6 @@ package model;
 import java.util.Date;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -16,8 +15,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+
 
 @Entity
 @Table(name="Viaje",schema="tpidacs")
@@ -37,6 +38,7 @@ public class Viaje extends BaseEntity{
 	@Column(name = "fecha_partida")
 	private Date mFechaPartida;
 
+	
 	@NotNull
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "fk_unidad")
@@ -97,6 +99,7 @@ public class Viaje extends BaseEntity{
 		return String.format("%s - %s", getFechaPartida(), getRuta());
 	}
 
+	@JsonIgnore
 	public Unidad getUnidad() {
 		return mUnidad;
 	}
