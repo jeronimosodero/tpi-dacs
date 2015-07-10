@@ -3,6 +3,7 @@ package mb;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -65,7 +66,7 @@ public class OrdenMB implements Serializable {
 
 	private Float mMonto;
 
-	private List<Orden> mOrdenes;
+	private Set<Orden> mOrdenes;
 	
 	private Date mFecha;
 	
@@ -119,8 +120,8 @@ public class OrdenMB implements Serializable {
 		mOrdenes = findAllOrdenes();
 	}
 	
-	public List<Orden> findAllOrdenes() {
-		return OrdenFacade.findAll();
+	public Set<Orden> findAllOrdenes() {
+		return mCliente.getOrdenes();
 	}
 
 	public List<Servicio> findAllServicios() {
@@ -152,11 +153,11 @@ public class OrdenMB implements Serializable {
 
 	// Setters and getters
 
-	public List<Orden> getOrdenes() {
+	public Set<Orden> getOrdenes() {
 		return mOrdenes;
 	}
 
-	public void setOrdenes(List<Orden> ordenes) {
+	public void setOrdenes(Set<Orden> ordenes) {
 		mOrdenes = ordenes;
 	}
 
