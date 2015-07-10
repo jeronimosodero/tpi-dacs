@@ -118,4 +118,17 @@
  <PROCESS-ITEM NAME="rules:#pages#protected#employee#listPaquete.xhtml"
   PATH="/pages/protected/employee/listPaquete.xhtml"
   SHAPE="240,1041,0,0" model-entity="JSFProcessGroup"/>
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#altaOrden.xhtml"
+  PATH="/pages/protected/user/altaOrden.xhtml" SHAPE="32,1137,0,0" model-entity="JSFProcessGroup">
+  <PROCESS-ITEM ID="rules:#pages#protected#user#altaOrden.xhtml:0"
+   NAME="item" PATH="/pages/protected/user/altaOrden.xhtml" model-entity="JSFProcessItem">
+   <PROCESS-ITEM-OUTPUT
+    ID="listAllordenes::#pages#protected#user#listOrden.xhtml"
+    NAME="output" PATH="/pages/protected/user/listOrden.xhtml"
+    TARGET="rules:#pages#protected#user#listOrden.xhtml"
+    TITLE="listAllordenes" model-entity="JSFProcessItemOutput"/>
+  </PROCESS-ITEM>
+ </PROCESS-ITEM>
+ <PROCESS-ITEM NAME="rules:#pages#protected#user#listOrden.xhtml"
+  PATH="/pages/protected/user/listOrden.xhtml" SHAPE="240,1153,0,0" model-entity="JSFProcessGroup"/>
 </PROCESS>

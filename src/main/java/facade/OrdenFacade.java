@@ -13,5 +13,4 @@ public interface OrdenFacade {
 	public abstract Orden update(Orden orden);
 	public abstract Orden find(Long id);
 	public abstract List<Orden> findUnassigned();
-
 }

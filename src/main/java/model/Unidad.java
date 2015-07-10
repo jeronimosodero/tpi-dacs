@@ -126,5 +126,20 @@ public class Unidad extends BaseEntity {
 	public void setFechaAdquisicion(Date fechaAdquisicion) {
 		mFechaAdquisicion = fechaAdquisicion;
 	}
+	
+	public void finalizarViaje(){
+		if (!getViajeActual().isFinalizado()) {
+			getViajeActual().setFinalizado(true);
+		}
+		setViajeActual(null);
+	}
+	
+	@Override
+	public String toString(){
+		if (getId() == null) {
+			return null;
+		}
+		return String.format("%d - %s - %s", getId(),getMarca(),getModelo());
+	}
 
 }

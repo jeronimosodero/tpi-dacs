@@ -10,7 +10,7 @@ import dao.OrdenDao;
 
 @Stateless
 public class OrdenFacadeImp implements OrdenFacade {
-	
+
 	@EJB
 	private OrdenDao ordenDao;
 
@@ -34,12 +34,11 @@ public class OrdenFacadeImp implements OrdenFacade {
 	
 	public Orden find(Long id) {
 		return ordenDao.find(id);
-
 	}
-
+	
 	@Override
 	public List<Orden> findUnassigned() {
 		return ordenDao.findUnassigned();
 	}
-
+	
 }

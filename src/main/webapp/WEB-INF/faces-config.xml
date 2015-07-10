@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <faces-config version="2.2" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-	http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee  http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
 	<navigation-rule>
 		<from-view-id>/pages/protected/admin/altaSucursal.xhtml</from-view-id>
 		<navigation-case>
@@ -44,8 +43,7 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/pages/protected/employee/altaCliente.xhtml
-		</from-view-id>
+		<from-view-id>/pages/protected/employee/altaCliente.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>listAllClientes</from-outcome>
 			<to-view-id>/pages/protected/employee/listCliente.xhtml</to-view-id>
@@ -69,14 +67,20 @@
 		</navigation-case>
 	</navigation-rule>
 	<navigation-rule>
-		<from-view-id>/pages/protected/employee/altaOrden2.xhtml
-		</from-view-id>
+		<from-view-id>/pages/protected/employee/altaOrden2.xhtml</from-view-id>
 		<navigation-case>
 			<from-outcome>listAllPaquetes</from-outcome>
 			<to-view-id>/pages/protected/employee/listPaquete.xhtml</to-view-id>
 			<redirect />
 		</navigation-case>
 	</navigation-rule>
+	<navigation-rule>
+		<from-view-id>/pages/protected/user/altaOrden.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>listAllordenes</from-outcome>
+			<to-view-id>/pages/protected/user/listOrden.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
 	<application />
-
 </faces-config>

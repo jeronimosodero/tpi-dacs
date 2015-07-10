@@ -16,7 +16,7 @@ public class OrdenDao extends GenericDao<Orden> {
 	
 	public List<Orden> findUnassigned(){
 		List<Orden> result = null;
-		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null",Orden.class);
+		Query q = em.createNativeQuery("select * from Orden o where o.viaje_fk is null and o.pagado like 'Si'",Orden.class);
 		result = q.getResultList();
 		return result;
 	}

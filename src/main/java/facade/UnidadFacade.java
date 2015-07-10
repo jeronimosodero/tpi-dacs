@@ -11,4 +11,5 @@ public interface UnidadFacade {
 	public abstract void save(Unidad unidad);
 	public abstract List<Unidad> findAll();
 	public abstract Unidad update(Unidad unidad);
+	public abstract Unidad find(Long id);
 }

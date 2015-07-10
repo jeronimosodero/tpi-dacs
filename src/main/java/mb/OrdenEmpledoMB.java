@@ -1,20 +1,28 @@
 package mb;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.transaction.UserTransaction;
 
 import model.Cliente;
+import model.Empleado;
+import model.Estado;
 import model.Orden;
 import model.Paquete;
 import facade.ClienteFacade;
+import facade.EstadoFacade;
 import facade.OrdenFacade;
 import facade.PaqueteFacade;
 
@@ -35,13 +43,23 @@ public class OrdenEmpledoMB implements Serializable {
 	@EJB
 	private PaqueteFacade paqueteFacade;
 
+	@EJB
+	private EstadoFacade estadoFacade;
+
+	@ManagedProperty("#{logInMb}")
+	private LogInMb login;
+
+	private Empleado mEmpleado;
+
+	private Estado mEstado;
+
 	@Resource
 	UserTransaction tx;
 
 	private Cliente mCliente;
 
 	private Paquete mPaquete;
-	
+
 	private Set<Paquete> mPaquetes;
 
 	private Long mIdCliente;
@@ -52,11 +70,17 @@ public class OrdenEmpledoMB implements Serializable {
 
 	public String findClienteById() {
 		mCliente = clienteFacade.findClienteById(mIdCliente);
-		mOrdenes = mCliente.getOrdenes();
+		mOrdenes = new HashSet<Orden>();
+		for (Orden orden : mCliente.getOrdenes()) {
+			if (!orden.isEstadoNull()) {
+				mOrdenes.add(orden);
+			}
+		}
 		return "/pages/protected/employee/altaOrden1.jsp";
 	}
 
 	public String addPaquetes() {
+		mEstado = crearEstado();
 		return "/pages/protected/employee/altaOrden2.jsp";
 	}
 
@@ -71,6 +95,8 @@ public class OrdenEmpledoMB implements Serializable {
 			tx.begin();
 			paqueteFacade.save(mPaquete);
 			mOrden.getPaquetes().add(mPaquete);
+			mOrden.getEstado().add(mEstado);
+			estadoFacade.save(mEstado);
 			ordenFacade.update(mOrden);
 			tx.commit();
 		} catch (Exception e) {
@@ -86,6 +112,27 @@ public class OrdenEmpledoMB implements Serializable {
 		mPaquetes = mOrden.getPaquetes();
 		sendInfoMessageToUser("Operacion completada.");
 		return LIST_ALL_PAQUETES;
+	}
+
+	private Estado crearEstado() {
+		Estado e = new Estado();
+		Date date = new Date();
+		Timestamp ts = new Timestamp(date.getTime());
+		e.setFecha(date);
+		e.setHora(ts);
+		e.setSucursal(mEmpleado.getSucursal());
+		e.setLatitud(mEmpleado.getSucursal().getLatitud());
+		e.setLongitud(mEmpleado.getSucursal().getLongitud());
+		return e;
+	}
+
+	@PostConstruct
+	public void init() {
+		mEmpleado = login.getEmpleado();
+	}
+
+	public String altaOrdenEmpleado() {
+		return "/pages/protected/employee/altaOrden.jsp?faces-redirect=true";
 	}
 
 	// Views errors
@@ -157,6 +204,18 @@ public class OrdenEmpledoMB implements Serializable {
 
 	public void setPaquetes(Set<Paquete> paquetes) {
 		mPaquetes = paquetes;
+	}
+
+	public Empleado getEmpleado() {
+		return mEmpleado;
+	}
+
+	public void setEmpleado(Empleado empleado) {
+		mEmpleado = empleado;
+	}
+
+	public void setLogin(LogInMb login) {
+		this.login = login;
 	}
 
 }

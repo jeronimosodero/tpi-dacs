@@ -3,6 +3,7 @@ package mb;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
@@ -39,10 +40,10 @@ public class OrdenMB implements Serializable {
 
 	@EJB
 	private SucursalFacade SucursalFacade;
-	
+
 	@EJB
 	private ClienteFacade clienteFacade;
-	
+
 	@ManagedProperty("#{logInMb}")
 	private LogInMb login;
 
@@ -65,20 +66,16 @@ public class OrdenMB implements Serializable {
 
 	private Float mMonto;
 
-	private List<Orden> mOrdenes;
-	
+	private Set<Orden> mOrdenes;
+
 	private Date mFecha;
-	
+
 	public String estadoOrden() {
 		return "/pages/protected/user/selectOrden.jsp?faces-redirect=true";
 	}
-	
+
 	public String altaOrden() {
 		return "/pages/protected/user/altaOrden.jsp?faces-redirect=true";
-	}
-	
-	public String altaOrdenEmpleado() {
-		return "/pages/protected/employee/altaOrden.jsp?faces-redirect=true";
 	}
 
 	public String create() {
@@ -114,13 +111,14 @@ public class OrdenMB implements Serializable {
 	@PostConstruct
 	public void init() {
 		mFecha = new Date();
+		mCliente = login.getCliente();
 		mSucursales = findAllSucursales();
 		mServicios = findAllServicios();
 		mOrdenes = findAllOrdenes();
 	}
-	
-	public List<Orden> findAllOrdenes() {
-		return OrdenFacade.findAll();
+
+	public Set<Orden> findAllOrdenes() {
+		return mCliente.getOrdenes();
 	}
 
 	public List<Servicio> findAllServicios() {
@@ -152,11 +150,11 @@ public class OrdenMB implements Serializable {
 
 	// Setters and getters
 
-	public List<Orden> getOrdenes() {
+	public Set<Orden> getOrdenes() {
 		return mOrdenes;
 	}
 
-	public void setOrdenes(List<Orden> ordenes) {
+	public void setOrdenes(Set<Orden> ordenes) {
 		mOrdenes = ordenes;
 	}
 
@@ -222,7 +220,7 @@ public class OrdenMB implements Serializable {
 	public Date getFecha() {
 		return mFecha;
 	}
-	
+
 	public void setLogin(LogInMb login) {
 		this.login = login;
 	}

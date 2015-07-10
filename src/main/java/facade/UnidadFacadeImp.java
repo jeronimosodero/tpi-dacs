@@ -29,4 +29,9 @@ public class UnidadFacadeImp implements UnidadFacade {
 		return unidadDao.update(unidad);
 	}
 
+	@Override
+	public Unidad find(Long id) {
+		return unidadDao.find(id);
+	}
+
 }

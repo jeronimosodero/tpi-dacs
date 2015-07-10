@@ -1,6 +1,7 @@
 package mb;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -48,9 +49,14 @@ public class ClienteHomeMB implements Serializable {
 
 	@PostConstruct
 	public void init() {
+		mOrdenes = new HashSet<Orden>();
 		if (login.isUser()) {
 			mCliente = login.getCliente();
-			mOrdenes = mCliente.getOrdenes();
+			for(Orden orden : mCliente.getOrdenes()){
+				if (orden.isEstadoNull()) {
+					mOrdenes.add(orden);
+				}
+			}
 		}
 	}
 
